@@ -1,0 +1,14 @@
+export const data = JSON.parse("{\"key\":\"v-b8c80a66\",\"path\":\"/article/algorithm/divideandconquer/169.html\",\"title\":\"169. 多数元素\",\"lang\":\"zh-CN\",\"frontmatter\":{\"lang\":\"zh-CN\",\"title\":\"169. 多数元素\",\"description\":\"分治\",\"category\":[\"算法\"],\"tag\":[\"分治\"],\"head\":[[\"meta\",{\"property\":\"og:url\",\"content\":\"https://vuepress-theme-hope-docs-demo.netlify.app/article/algorithm/divideandconquer/169.html\"}],[\"meta\",{\"property\":\"og:site_name\",\"content\":\"Pineapple Coding\"}],[\"meta\",{\"property\":\"og:title\",\"content\":\"169. 多数元素\"}],[\"meta\",{\"property\":\"og:description\",\"content\":\"分治\"}],[\"meta\",{\"property\":\"og:type\",\"content\":\"article\"}],[\"meta\",{\"property\":\"og:locale\",\"content\":\"zh-CN\"}],[\"meta\",{\"property\":\"article:tag\",\"content\":\"分治\"}]]},\"headers\":[],\"readingTime\":{\"minutes\":0.64,\"words\":193},\"filePathRelative\":\"article/algorithm/divideandconquer/169.md\",\"excerpt\":\"<h4> <a href=\\\"https://leetcode.cn/problems/majority-element/\\\" target=\\\"_blank\\\" rel=\\\"noopener noreferrer\\\">169. 多数元素</a></h4>\\n<p>难度简单1578</p>\\n<p>给定一个大小为 <code>n</code> 的数组 <code>nums</code> ，返回其中的多数元素。多数元素是指在数组中出现次数 <strong>大于</strong> <code>⌊ n/2 ⌋</code> 的元素。</p>\\n<p>你可以假设数组是非空的，并且给定的数组总是存在多数元素。</p>\\n<p><strong>示例 1：</strong></p>\"}")
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updatePageData) {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ data }) => {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  })
+}

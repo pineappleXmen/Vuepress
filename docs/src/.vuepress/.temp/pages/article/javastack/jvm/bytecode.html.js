@@ -1,0 +1,14 @@
+export const data = JSON.parse("{\"key\":\"v-54a5ca8a\",\"path\":\"/article/javastack/jvm/bytecode.html\",\"title\":\"字节码\",\"lang\":\"zh-CN\",\"frontmatter\":{\"lang\":\"zh-CN\",\"title\":\"字节码\",\"description\":\"JVM\",\"category\":[\"Java\"],\"tag\":[\"JVM\"],\"head\":[[\"meta\",{\"property\":\"og:url\",\"content\":\"https://vuepress-theme-hope-docs-demo.netlify.app/article/javastack/jvm/bytecode.html\"}],[\"meta\",{\"property\":\"og:site_name\",\"content\":\"Pineapple Coding\"}],[\"meta\",{\"property\":\"og:title\",\"content\":\"字节码\"}],[\"meta\",{\"property\":\"og:description\",\"content\":\"JVM\"}],[\"meta\",{\"property\":\"og:type\",\"content\":\"article\"}],[\"meta\",{\"property\":\"og:locale\",\"content\":\"zh-CN\"}],[\"meta\",{\"property\":\"article:tag\",\"content\":\"JVM\"}]]},\"headers\":[{\"level\":2,\"title\":\"应用于操作数栈\",\"slug\":\"应用于操作数栈\",\"link\":\"#应用于操作数栈\",\"children\":[]},{\"level\":2,\"title\":\"应用于局部变量表\",\"slug\":\"应用于局部变量表\",\"link\":\"#应用于局部变量表\",\"children\":[]},{\"level\":2,\"title\":\"计算相关\",\"slug\":\"计算相关\",\"link\":\"#计算相关\",\"children\":[]},{\"level\":2,\"title\":\"流程控制\",\"slug\":\"流程控制\",\"link\":\"#流程控制\",\"children\":[]}],\"readingTime\":{\"minutes\":0.55,\"words\":164},\"filePathRelative\":\"article/javastack/jvm/bytecode.md\",\"excerpt\":\"<div class=\\\"custom-container tip\\\">\\n<p class=\\\"custom-container-title\\\">Java 字节码</p>\\n<p>In computing, <strong>Java bytecode</strong> is the bytecode-structured instruction set of the Java virtual machine (JVM), a virtual machine that enables a computer to run programs written in the Java programming language and several other programming languages, see List of JVM languages.</p>\\n<p><a href=\\\"https://docs.oracle.com/javase/specs/jvms/se10/html/jvms-6.html#jvms-6.5\\\" target=\\\"_blank\\\" rel=\\\"noopener noreferrer\\\">Java字节码规范</a></p>\\n</div>\"}")
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updatePageData) {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ data }) => {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  })
+}

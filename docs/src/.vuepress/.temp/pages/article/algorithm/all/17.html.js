@@ -1,0 +1,14 @@
+export const data = JSON.parse("{\"key\":\"v-283bcc9a\",\"path\":\"/article/algorithm/all/17.html\",\"title\":\"17. 电话号码的字母组合\",\"lang\":\"zh-CN\",\"frontmatter\":{\"lang\":\"zh-CN\",\"title\":\"17. 电话号码的字母组合\",\"description\":\"回溯题目\",\"category\":[\"算法\"],\"tag\":[\"回溯\"],\"head\":[[\"meta\",{\"property\":\"og:url\",\"content\":\"https://vuepress-theme-hope-docs-demo.netlify.app/article/algorithm/all/17.html\"}],[\"meta\",{\"property\":\"og:site_name\",\"content\":\"Pineapple Coding\"}],[\"meta\",{\"property\":\"og:title\",\"content\":\"17. 电话号码的字母组合\"}],[\"meta\",{\"property\":\"og:description\",\"content\":\"回溯题目\"}],[\"meta\",{\"property\":\"og:type\",\"content\":\"article\"}],[\"meta\",{\"property\":\"og:locale\",\"content\":\"zh-CN\"}],[\"meta\",{\"property\":\"article:tag\",\"content\":\"回溯\"}]]},\"headers\":[],\"readingTime\":{\"minutes\":2.09,\"words\":628},\"filePathRelative\":\"article/algorithm/all/17.md\",\"excerpt\":\"<h4> <a href=\\\"https://leetcode.cn/problems/letter-combinations-of-a-phone-number/\\\" target=\\\"_blank\\\" rel=\\\"noopener noreferrer\\\">17. 电话号码的字母组合</a></h4>\\n<p>难度中等2055</p>\\n<p>给定一个仅包含数字 <code>2-9</code> 的字符串，返回所有它能表示的字母组合。答案可以按 <strong>任意顺序</strong> 返回。</p>\\n<p>给出数字到字母的映射如下（与电话按键相同）。注意 1 不对应任何字母。</p>\\n<figure><img src=\\\"https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2021/11/09/200px-telephone-keypad2svg.png\\\" alt=\\\"img\\\" tabindex=\\\"0\\\" loading=\\\"lazy\\\"><figcaption>img</figcaption></figure>\"}")
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updatePageData) {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ data }) => {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  })
+}

@@ -1,0 +1,1 @@
+import{_ as n,V as t,W as _,Y as e}from"./framework-3845b112.js";const o={},s=e("hr",null,null,-1),c=e("p",null,"和Pineapple一起学习！",-1),l=[s,c];function r(a,i){return t(),_("div",null,l)}const u=n(o,[["render",r],["__file","index.html.vue"]]);export{u as default};

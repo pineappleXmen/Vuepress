@@ -1,0 +1,14 @@
+export const data = JSON.parse("{\"key\":\"v-6e9cf09e\",\"path\":\"/article/algorithm/linkedlist/141.html\",\"title\":\"141. 环形链表\",\"lang\":\"zh-CN\",\"frontmatter\":{\"lang\":\"zh-CN\",\"title\":\"141. 环形链表\",\"description\":\"数据结构\",\"category\":[\"算法\"],\"tag\":[\"数据结构\"],\"head\":[[\"meta\",{\"property\":\"og:url\",\"content\":\"https://vuepress-theme-hope-docs-demo.netlify.app/article/algorithm/linkedlist/141.html\"}],[\"meta\",{\"property\":\"og:site_name\",\"content\":\"Pineapple Coding\"}],[\"meta\",{\"property\":\"og:title\",\"content\":\"141. 环形链表\"}],[\"meta\",{\"property\":\"og:description\",\"content\":\"数据结构\"}],[\"meta\",{\"property\":\"og:type\",\"content\":\"article\"}],[\"meta\",{\"property\":\"og:locale\",\"content\":\"zh-CN\"}],[\"meta\",{\"property\":\"article:tag\",\"content\":\"数据结构\"}]]},\"headers\":[],\"readingTime\":{\"minutes\":1.3,\"words\":389},\"filePathRelative\":\"article/algorithm/linkedlist/141.md\",\"excerpt\":\"<h4> <a href=\\\"https://leetcode.cn/problems/linked-list-cycle/\\\" target=\\\"_blank\\\" rel=\\\"noopener noreferrer\\\">141. 环形链表</a></h4>\\n<p>难度简单1613</p>\\n<p>给你一个链表的头节点 <code>head</code> ，判断链表中是否有环。</p>\\n<p>如果链表中有某个节点，可以通过连续跟踪 <code>next</code> 指针再次到达，则链表中存在环。 为了表示给定链表中的环，评测系统内部使用整数 <code>pos</code> 来表示链表尾连接到链表中的位置（索引从 0 开始）。<strong>注意：<code>pos</code> 不作为参数进行传递</strong> 。仅仅是为了标识链表的实际情况。</p>\"}")
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updatePageData) {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ data }) => {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  })
+}

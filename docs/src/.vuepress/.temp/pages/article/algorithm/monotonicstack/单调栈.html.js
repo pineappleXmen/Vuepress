@@ -1,0 +1,14 @@
+export const data = JSON.parse("{\"key\":\"v-18684931\",\"path\":\"/article/algorithm/monotonicstack/%E5%8D%95%E8%B0%83%E6%A0%88.html\",\"title\":\"单调栈 Monotone Stack\",\"lang\":\"zh-CN\",\"frontmatter\":{\"description\":\"单调栈 Monotone Stack 举例：返回每个元素两侧严格大于它的元素位置（不存在则为 -1 或 n） 如何理解：把数组想象成一列山峰，站在 a[i] 的山顶仰望两侧的山峰，是看不到高山背后的矮山的，只能看到一座座更高的山峰 这就启发我们引入一个底大顶小的单调栈，入栈时不断比较栈顶元素直到找到一个比当前元素大的 技巧：事先压入一个边界元素到栈底，这样保证循环时栈一定不会为空，从而简化逻辑 一些转换： ​ 若区间 [l,r] 的最大值等于 a[r]，则 l 必须 &gt; left[r] ​ 若区间 [l,r] 的最大值等于 a[l]，则 r 必须 &lt; right[l] ​ 这一结论可以用于思考一些双变量的题目\",\"head\":[[\"meta\",{\"property\":\"og:url\",\"content\":\"https://vuepress-theme-hope-docs-demo.netlify.app/article/algorithm/monotonicstack/%E5%8D%95%E8%B0%83%E6%A0%88.html\"}],[\"meta\",{\"property\":\"og:site_name\",\"content\":\"Pineapple Coding\"}],[\"meta\",{\"property\":\"og:title\",\"content\":\"单调栈 Monotone Stack\"}],[\"meta\",{\"property\":\"og:description\",\"content\":\"单调栈 Monotone Stack 举例：返回每个元素两侧严格大于它的元素位置（不存在则为 -1 或 n） 如何理解：把数组想象成一列山峰，站在 a[i] 的山顶仰望两侧的山峰，是看不到高山背后的矮山的，只能看到一座座更高的山峰 这就启发我们引入一个底大顶小的单调栈，入栈时不断比较栈顶元素直到找到一个比当前元素大的 技巧：事先压入一个边界元素到栈底，这样保证循环时栈一定不会为空，从而简化逻辑 一些转换： ​ 若区间 [l,r] 的最大值等于 a[r]，则 l 必须 &gt; left[r] ​ 若区间 [l,r] 的最大值等于 a[l]，则 r 必须 &lt; right[l] ​ 这一结论可以用于思考一些双变量的题目\"}],[\"meta\",{\"property\":\"og:type\",\"content\":\"article\"}],[\"meta\",{\"property\":\"og:locale\",\"content\":\"zh-CN\"}]]},\"headers\":[{\"level\":2,\"title\":\"模板题\",\"slug\":\"模板题\",\"link\":\"#模板题\",\"children\":[]},{\"level\":2,\"title\":\"计算贡献\",\"slug\":\"计算贡献\",\"link\":\"#计算贡献\",\"children\":[]},{\"level\":2,\"title\":\"与 DP 结合\",\"slug\":\"与-dp-结合\",\"link\":\"#与-dp-结合\",\"children\":[]},{\"level\":2,\"title\":\"结合线段树，或者巧妙地在单调栈中去维护最值\",\"slug\":\"结合线段树-或者巧妙地在单调栈中去维护最值\",\"link\":\"#结合线段树-或者巧妙地在单调栈中去维护最值\",\"children\":[]},{\"level\":2,\"title\":\"其他\",\"slug\":\"其他\",\"link\":\"#其他\",\"children\":[]},{\"level\":2,\"title\":\"单调栈例题\",\"slug\":\"单调栈例题\",\"link\":\"#单调栈例题\",\"children\":[]}],\"readingTime\":{\"minutes\":6.1,\"words\":1830},\"filePathRelative\":\"article/algorithm/monotonicstack/单调栈.md\",\"excerpt\":\"<h1> 单调栈 Monotone Stack</h1>\\n<p>举例：返回每个元素两侧严格大于它的元素位置（不存在则为 -1 或 n）</p>\\n<p>如何理解：把数组想象成一列山峰，站在 a[i] 的山顶仰望两侧的山峰，是看不到高山背后的矮山的，只能看到一座座更高的山峰</p>\\n<p>这就启发我们引入一个底大顶小的单调栈，入栈时不断比较栈顶元素直到找到一个比当前元素大的</p>\\n<p>技巧：事先压入一个边界元素到栈底，这样保证循环时栈一定不会为空，从而简化逻辑</p>\\n<p>一些转换：</p>\\n<ol>\\n<li>​    若区间 [l,r] 的最大值等于 a[r]，则 l 必须 &gt; left[r]</li>\\n<li>​    若区间 [l,r] 的最大值等于 a[l]，则 r 必须 &lt; right[l]</li>\\n<li>​    这一结论可以用于思考一些双变量的题目</li>\\n</ol>\",\"autoDesc\":true}")
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updatePageData) {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ data }) => {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  })
+}

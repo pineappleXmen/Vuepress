@@ -1,0 +1,14 @@
+export const data = JSON.parse("{\"key\":\"v-dad1be72\",\"path\":\"/article/network/rpc.html\",\"title\":\"RPC\",\"lang\":\"zh-CN\",\"frontmatter\":{\"lang\":\"zh-CN\",\"title\":\"RPC\",\"description\":\"计算机网络\",\"category\":[\"Network\"],\"tag\":[\"计算机网络\"],\"head\":[[\"meta\",{\"property\":\"og:url\",\"content\":\"https://vuepress-theme-hope-docs-demo.netlify.app/article/network/rpc.html\"}],[\"meta\",{\"property\":\"og:site_name\",\"content\":\"Pineapple Coding\"}],[\"meta\",{\"property\":\"og:title\",\"content\":\"RPC\"}],[\"meta\",{\"property\":\"og:description\",\"content\":\"计算机网络\"}],[\"meta\",{\"property\":\"og:type\",\"content\":\"article\"}],[\"meta\",{\"property\":\"og:locale\",\"content\":\"zh-CN\"}],[\"meta\",{\"property\":\"article:tag\",\"content\":\"计算机网络\"}]]},\"headers\":[{\"level\":2,\"title\":\"1.常见的RPC框架\",\"slug\":\"_1-常见的rpc框架\",\"link\":\"#_1-常见的rpc框架\",\"children\":[]},{\"level\":2,\"title\":\"2.gRPC\",\"slug\":\"_2-grpc\",\"link\":\"#_2-grpc\",\"children\":[{\"level\":3,\"title\":\"代码生成\",\"slug\":\"代码生成\",\"link\":\"#代码生成\",\"children\":[]},{\"level\":3,\"title\":\"严格的规范\",\"slug\":\"严格的规范\",\"link\":\"#严格的规范\",\"children\":[]},{\"level\":3,\"title\":\"流\",\"slug\":\"流\",\"link\":\"#流\",\"children\":[]},{\"level\":3,\"title\":\"截至时间/超时和取消\",\"slug\":\"截至时间-超时和取消\",\"link\":\"#截至时间-超时和取消\",\"children\":[]},{\"level\":3,\"title\":\"劣势\",\"slug\":\"劣势\",\"link\":\"#劣势\",\"children\":[]},{\"level\":3,\"title\":\"浏览器支持有限\",\"slug\":\"浏览器支持有限\",\"link\":\"#浏览器支持有限\",\"children\":[]},{\"level\":3,\"title\":\"不是人类可读的\",\"slug\":\"不是人类可读的\",\"link\":\"#不是人类可读的\",\"children\":[]}]},{\"level\":2,\"title\":\"gRPC场景\",\"slug\":\"grpc场景\",\"link\":\"#grpc场景\",\"children\":[{\"level\":3,\"title\":\"适合场景\",\"slug\":\"适合场景\",\"link\":\"#适合场景\",\"children\":[]},{\"level\":3,\"title\":\"不建议使用场景\",\"slug\":\"不建议使用场景\",\"link\":\"#不建议使用场景\",\"children\":[]}]},{\"level\":2,\"title\":\"3.Thrift\",\"slug\":\"_3-thrift\",\"link\":\"#_3-thrift\",\"children\":[]}],\"readingTime\":{\"minutes\":8.07,\"words\":2421},\"filePathRelative\":\"article/network/rpc.md\",\"excerpt\":\"<h2> 1.常见的RPC框架</h2>\\n<p>RPC 框架说白了就是让你可以像调用本地方法一样调用远程服务提供的方法，而不需要关心底层的通信细节。简单地说就让远程服务调用更加简单、透明。 RPC包含了客户端（Client）和服务端（Server）</p>\\n<p>业界主流的 RPC 框架整体上分为三类：</p>\\n<ul>\\n<li>支持多语言的 RPC 框架，比较成熟的有 Google 的 gRPC、Apache（Facebook）的 Thrift；</li>\\n<li>只支持特定语言的 RPC 框架，例如新浪微博的 Motan；</li>\\n<li>支持服务治理等服务化特性的分布式服务框架，其底层内核仍然是 RPC 框架, 例如阿里的 Dubbo。</li>\\n</ul>\"}")
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updatePageData) {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ data }) => {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  })
+}

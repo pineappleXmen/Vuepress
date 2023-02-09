@@ -1,0 +1,14 @@
+export const data = JSON.parse("{\"key\":\"v-79bab0b9\",\"path\":\"/article/algorithm/binarysearch/4.html\",\"title\":\"4. 寻找两个正序数组的中位数\",\"lang\":\"zh-CN\",\"frontmatter\":{\"lang\":\"zh-CN\",\"title\":\"4. 寻找两个正序数组的中位数\",\"description\":\"二分法题目\",\"category\":[\"算法\"],\"tag\":[\"二分法\"],\"head\":[[\"meta\",{\"property\":\"og:url\",\"content\":\"https://vuepress-theme-hope-docs-demo.netlify.app/article/algorithm/binarysearch/4.html\"}],[\"meta\",{\"property\":\"og:site_name\",\"content\":\"Pineapple Coding\"}],[\"meta\",{\"property\":\"og:title\",\"content\":\"4. 寻找两个正序数组的中位数\"}],[\"meta\",{\"property\":\"og:description\",\"content\":\"二分法题目\"}],[\"meta\",{\"property\":\"og:type\",\"content\":\"article\"}],[\"meta\",{\"property\":\"og:locale\",\"content\":\"zh-CN\"}],[\"meta\",{\"property\":\"article:tag\",\"content\":\"二分法\"}]]},\"headers\":[],\"readingTime\":{\"minutes\":1.01,\"words\":304},\"filePathRelative\":\"article/algorithm/binarysearch/4.md\",\"excerpt\":\"<h4> <a href=\\\"https://leetcode.cn/problems/median-of-two-sorted-arrays/\\\" target=\\\"_blank\\\" rel=\\\"noopener noreferrer\\\">4. 寻找两个正序数组的中位数</a></h4>\\n<p>难度困难5898</p>\\n<p>给定两个大小分别为 <code>m</code> 和 <code>n</code> 的正序（从小到大）数组 <code>nums1</code> 和 <code>nums2</code>。请你找出并返回这两个正序数组的 <strong>中位数</strong> 。</p>\\n<p>算法的时间复杂度应该为 <code>O(log (m+n))</code> 。</p>\"}")
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updatePageData) {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ data }) => {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  })
+}

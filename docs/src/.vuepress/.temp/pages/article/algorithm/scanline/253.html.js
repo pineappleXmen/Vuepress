@@ -1,0 +1,14 @@
+export const data = JSON.parse("{\"key\":\"v-57738fd6\",\"path\":\"/article/algorithm/scanline/253.html\",\"title\":\"253. 会议室 II\",\"lang\":\"zh-CN\",\"frontmatter\":{\"lang\":\"zh-CN\",\"title\":\"253. 会议室 II\",\"description\":\"扫描线\",\"category\":[\"算法\"],\"tag\":[\"扫描线\"],\"head\":[[\"meta\",{\"property\":\"og:url\",\"content\":\"https://vuepress-theme-hope-docs-demo.netlify.app/article/algorithm/scanline/253.html\"}],[\"meta\",{\"property\":\"og:site_name\",\"content\":\"Pineapple Coding\"}],[\"meta\",{\"property\":\"og:title\",\"content\":\"253. 会议室 II\"}],[\"meta\",{\"property\":\"og:description\",\"content\":\"扫描线\"}],[\"meta\",{\"property\":\"og:type\",\"content\":\"article\"}],[\"meta\",{\"property\":\"og:locale\",\"content\":\"zh-CN\"}],[\"meta\",{\"property\":\"article:tag\",\"content\":\"扫描线\"}]]},\"headers\":[],\"readingTime\":{\"minutes\":0.6,\"words\":179},\"filePathRelative\":\"article/algorithm/scanline/253.md\",\"excerpt\":\"<h4> <a href=\\\"https://leetcode.cn/problems/meeting-rooms-ii/\\\" target=\\\"_blank\\\" rel=\\\"noopener noreferrer\\\">253. 会议室 II</a></h4>\\n<p>难度中等457</p>\\n<p>给你一个会议时间安排的数组 <code>intervals</code> ，每个会议时间都会包括开始和结束的时间 <code>intervals[i] = [starti, endi]</code> ，返回 <em>所需会议室的最小数量</em> 。</p>\\n<p><strong>示例 1：</strong></p>\"}")
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updatePageData) {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ data }) => {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  })
+}

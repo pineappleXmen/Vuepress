@@ -1,0 +1,14 @@
+export const data = JSON.parse("{\"key\":\"v-23f7fa5d\",\"path\":\"/article/distrubutedsystem/papers/raft-extended.html\",\"title\":\"raft\",\"lang\":\"zh-CN\",\"frontmatter\":{\"lang\":\"zh-CN\",\"title\":\"raft\",\"description\":\"Paper\",\"category\":[\"Paper\",\"gfs\"],\"tag\":[\"Distrubuted System\"],\"head\":[[\"meta\",{\"property\":\"og:url\",\"content\":\"https://vuepress-theme-hope-docs-demo.netlify.app/article/distrubutedsystem/papers/raft-extended.html\"}],[\"meta\",{\"property\":\"og:site_name\",\"content\":\"Pineapple Coding\"}],[\"meta\",{\"property\":\"og:title\",\"content\":\"raft\"}],[\"meta\",{\"property\":\"og:description\",\"content\":\"Paper\"}],[\"meta\",{\"property\":\"og:type\",\"content\":\"article\"}],[\"meta\",{\"property\":\"og:locale\",\"content\":\"zh-CN\"}],[\"meta\",{\"property\":\"article:tag\",\"content\":\"Distrubuted System\"}]]},\"headers\":[],\"readingTime\":{\"minutes\":0.08,\"words\":23},\"filePathRelative\":\"article/distrubutedsystem/papers/raft-extended.md\",\"excerpt\":\"\"}")
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updatePageData) {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ data }) => {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  })
+}

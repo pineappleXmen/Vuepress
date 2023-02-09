@@ -1,0 +1,14 @@
+export const data = JSON.parse("{\"key\":\"v-91645fd2\",\"path\":\"/article/algorithm/slidingwindow/76.html\",\"title\":\"76. 最小覆盖子串\",\"lang\":\"zh-CN\",\"frontmatter\":{\"lang\":\"zh-CN\",\"title\":\"76. 最小覆盖子串\",\"description\":\"滑动窗口题目\",\"category\":[\"算法\"],\"tag\":[\"滑动窗口\"],\"head\":[[\"meta\",{\"property\":\"og:url\",\"content\":\"https://vuepress-theme-hope-docs-demo.netlify.app/article/algorithm/slidingwindow/76.html\"}],[\"meta\",{\"property\":\"og:site_name\",\"content\":\"Pineapple Coding\"}],[\"meta\",{\"property\":\"og:title\",\"content\":\"76. 最小覆盖子串\"}],[\"meta\",{\"property\":\"og:description\",\"content\":\"滑动窗口题目\"}],[\"meta\",{\"property\":\"og:type\",\"content\":\"article\"}],[\"meta\",{\"property\":\"og:locale\",\"content\":\"zh-CN\"}],[\"meta\",{\"property\":\"article:tag\",\"content\":\"滑动窗口\"}]]},\"headers\":[],\"readingTime\":{\"minutes\":1.15,\"words\":345},\"filePathRelative\":\"article/algorithm/slidingwindow/76.md\",\"excerpt\":\"<h4> <a href=\\\"https://leetcode.cn/problems/minimum-window-substring/\\\" target=\\\"_blank\\\" rel=\\\"noopener noreferrer\\\">76. 最小覆盖子串</a></h4>\\n<p>难度困难2092</p>\\n<p>给你一个字符串 <code>s</code> 、一个字符串 <code>t</code> 。返回 <code>s</code> 中涵盖 <code>t</code> 所有字符的最小子串。如果 <code>s</code> 中不存在涵盖 <code>t</code> 所有字符的子串，则返回空字符串 <code>\\\"\\\"</code> 。</p>\"}")
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updatePageData) {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ data }) => {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  })
+}

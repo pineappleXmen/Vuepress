@@ -1,0 +1,14 @@
+export const data = JSON.parse("{\"key\":\"v-0a74d23f\",\"path\":\"/article/mysql/\",\"title\":\"MySQL学习资料\",\"lang\":\"zh-CN\",\"frontmatter\":{\"lang\":\"zh-CN\",\"title\":\"MySQL学习资料\",\"description\":\"MySQL\",\"category\":[\"MySQL\"],\"tag\":[\"MySQL\"],\"head\":[[\"meta\",{\"property\":\"og:url\",\"content\":\"https://vuepress-theme-hope-docs-demo.netlify.app/article/mysql/\"}],[\"meta\",{\"property\":\"og:site_name\",\"content\":\"Pineapple Coding\"}],[\"meta\",{\"property\":\"og:title\",\"content\":\"MySQL学习资料\"}],[\"meta\",{\"property\":\"og:description\",\"content\":\"MySQL\"}],[\"meta\",{\"property\":\"og:type\",\"content\":\"article\"}],[\"meta\",{\"property\":\"og:locale\",\"content\":\"zh-CN\"}],[\"meta\",{\"property\":\"article:tag\",\"content\":\"MySQL\"}]]},\"headers\":[],\"readingTime\":{\"minutes\":0.1,\"words\":30},\"filePathRelative\":\"article/mysql/README.md\",\"excerpt\":\"<h1> MySQL官方文档</h1>\\n<p><a href=\\\"/article/mysql/mysqldoc.html\\\" target=\\\"blank\\\">MySQL官方文档全文</a></p>\\n\"}")
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updatePageData) {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ data }) => {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  })
+}

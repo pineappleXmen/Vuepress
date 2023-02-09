@@ -1,0 +1,14 @@
+export const data = JSON.parse("{\"key\":\"v-5c88a248\",\"path\":\"/article/algorithm/dp/2376.html\",\"title\":\"2376. 统计特殊整数\",\"lang\":\"zh-CN\",\"frontmatter\":{\"lang\":\"zh-CN\",\"title\":\"2376. 统计特殊整数\",\"description\":\"数位动态规划\",\"category\":[\"算法\"],\"tag\":[\"动态规划\"],\"head\":[[\"meta\",{\"property\":\"og:url\",\"content\":\"https://vuepress-theme-hope-docs-demo.netlify.app/article/algorithm/dp/2376.html\"}],[\"meta\",{\"property\":\"og:site_name\",\"content\":\"Pineapple Coding\"}],[\"meta\",{\"property\":\"og:title\",\"content\":\"2376. 统计特殊整数\"}],[\"meta\",{\"property\":\"og:description\",\"content\":\"数位动态规划\"}],[\"meta\",{\"property\":\"og:type\",\"content\":\"article\"}],[\"meta\",{\"property\":\"og:locale\",\"content\":\"zh-CN\"}],[\"meta\",{\"property\":\"article:tag\",\"content\":\"动态规划\"}]]},\"headers\":[],\"readingTime\":{\"minutes\":3.63,\"words\":1089},\"filePathRelative\":\"article/algorithm/dp/2376.md\",\"excerpt\":\"<h4> <a href=\\\"https://leetcode.cn/problems/count-special-integers/\\\" target=\\\"_blank\\\" rel=\\\"noopener noreferrer\\\">2376. 统计特殊整数</a></h4>\\n<p>难度困难34</p>\\n<p>如果一个正整数每一个数位都是 <strong>互不相同</strong> 的，我们称它是 <strong>特殊整数</strong> 。</p>\\n<p>给你一个 <strong>正</strong> 整数 <code>n</code> ，请你返回区间 <code>[1, n]</code> 之间特殊整数的数目。</p>\"}")
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updatePageData) {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ data }) => {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  })
+}

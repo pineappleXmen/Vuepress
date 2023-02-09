@@ -1,0 +1,14 @@
+export const data = JSON.parse("{\"key\":\"v-00975204\",\"path\":\"/article/algorithm/datastruct/146.html\",\"title\":\"146. LRU 缓存\",\"lang\":\"zh-CN\",\"frontmatter\":{\"lang\":\"zh-CN\",\"title\":\"146. LRU 缓存\",\"description\":\"数据结构\",\"category\":[\"算法\"],\"tag\":[\"数据结构\"],\"head\":[[\"meta\",{\"property\":\"og:url\",\"content\":\"https://vuepress-theme-hope-docs-demo.netlify.app/article/algorithm/datastruct/146.html\"}],[\"meta\",{\"property\":\"og:site_name\",\"content\":\"Pineapple Coding\"}],[\"meta\",{\"property\":\"og:title\",\"content\":\"146. LRU 缓存\"}],[\"meta\",{\"property\":\"og:description\",\"content\":\"数据结构\"}],[\"meta\",{\"property\":\"og:type\",\"content\":\"article\"}],[\"meta\",{\"property\":\"og:locale\",\"content\":\"zh-CN\"}],[\"meta\",{\"property\":\"article:tag\",\"content\":\"数据结构\"}]]},\"headers\":[],\"readingTime\":{\"minutes\":2.19,\"words\":656},\"filePathRelative\":\"article/algorithm/datastruct/146.md\",\"excerpt\":\"<h4> <a href=\\\"https://leetcode.cn/problems/lru-cache/\\\" target=\\\"_blank\\\" rel=\\\"noopener noreferrer\\\">146. LRU 缓存</a></h4>\\n<p>难度中等2336</p>\\n<p>请你设计并实现一个满足 <a href=\\\"https://baike.baidu.com/item/LRU\\\" target=\\\"_blank\\\" rel=\\\"noopener noreferrer\\\">LRU (最近最少使用) 缓存</a> 约束的数据结构。</p>\\n<p>实现 <code>LRUCache</code> 类：</p>\"}")
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updatePageData) {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ data }) => {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  })
+}

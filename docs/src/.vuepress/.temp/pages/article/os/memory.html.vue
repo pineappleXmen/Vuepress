@@ -1,0 +1,279 @@
+<template><div><h2 id="_1-虚拟内存概述" tabindex="-1"><a class="header-anchor" href="#_1-虚拟内存概述" aria-hidden="true">#</a> 1.虚拟内存概述</h2>
+<p>像大多数现代内核一样，Linux 采用了一种称为虚拟内存管理的技术。该技术的目的是通过利用大多数程序的典型属性：引用局部性来有效利用 CPU 和 RAM（物理内存）。大多数程序展示了两种局部性：</p>
+<p><strong>空间局部性</strong></p>
+<p>是程序引用最近访问的内存地址附近的内存地址的趋势（因为指令的顺序处理，有时还有数据结构的顺序处理）。</p>
+<p><strong>时间局部性</strong></p>
+<p>是程序引用会在未来一段时间内访问最近访问过的区域的趋势。因为循环所导致。</p>
+<figure><img src="\os\image-20220906160641064.png" alt="image-20220906160641064" tabindex="0" loading="lazy"><figcaption>image-20220906160641064</figcaption></figure>
+<p>引用<strong>局部性效应</strong>的结果是可以在执行程序的同时仅将其部分地址空间保留在 RAM 中。虚拟内存方案将每个程序使用的内存分割成小的、固定大小的单元，称为<strong>页</strong>。相应地，RAM被划分为一系列相同大小的<strong>页</strong>。在任何时候，只有程序的部分页面需要驻留在物理内存页中；这些页面形成所谓的<strong>常驻集</strong>。程序未使用页面的副本保存在<strong>交换区域</strong>（用于补充计算机 RAM 的磁盘空间的保留区域）中，并且仅在需要时才加载到物理内存中。当进程引用当前不驻留在物理内存中的页面时，会发生页面错误，此时内核会暂停进程的执行，同时将页面从磁盘加载到内存中。</p>
+<p><strong>在 x86-32位操作系统上，页大小为 4096 字节（4kb）。</strong></p>
+<figure><img src="\os\image-20220906161013684.png" alt="image-20220906161013684" tabindex="0" loading="lazy"><figcaption>image-20220906161013684</figcaption></figure>
+<p>为了支持这种组织，内核为每个进程维护一个<strong>页表</strong>（图 6-2）。页表描述了每个页面在进程的虚拟地址空间（进程可用的所有虚拟内存页面的集合）中的位置。页表中的每个条目要么指示虚拟页面在 RAM 中的位置，要么指示它当前驻留在磁盘上。并非进程的虚拟地址空间中的所有地址范围都需要页表条目。通常，大范围的潜在虚拟地址空间未被使用，因此没有必要维护相应的页表条目。如果一个进程试图访问一个没有相应页表条目的地址，它会收到一个 SIGSEGV 信号。</p>
+<h2 id="_2-为什么要有虚拟内存-虚拟内存的优点" tabindex="-1"><a class="header-anchor" href="#_2-为什么要有虚拟内存-虚拟内存的优点" aria-hidden="true">#</a> 2.为什么要有虚拟内存（虚拟内存的优点）</h2>
+<p>虚拟内存管理将进程的<strong>虚拟地址空间与 RAM 的物理地址空间分开</strong>。这提供了许多优点：</p>
+<ul>
+<li>
+<p><strong>进程相互隔离，也与内核隔离，因此一个进程无法读取或修改另一个进程或内核的内存</strong>。这是通过让每个进程的页表条目指向 RAM（或交换区域）中不同的物理页集来实现的。</p>
+</li>
+<li>
+<p><strong>在适当的情况下，两个或多个进程可以共享内存</strong>。内核通过让不同进程中的页表条目引用相同的 RAM 页来实现这一点。内存共享发生在两种常见情况下：</p>
+<ul>
+<li>执行同一程序的多个进程可以共享程序代码的单个（只读）副本。当多个程序执行同一个程序文件（或加载同一个共享库）时，这种类型的共享会隐式执行。</li>
+<li>进程可以使用 shmget() 和 mmap() 系统调用来显式请求与其他进程共享内存区域。这样做是为了进程间通信。</li>
+</ul>
+</li>
+<li>
+<p><strong>便于内存保护方案的实施</strong>；也就是说，可以标记页表条目以指示相应页面的内容是可读的、可写的、可执行的或这些保护的某种组合。在多个进程共享内存页的情况下，可以指定每个进程对内存有不同的保护；例如，一个进程可能对页面具有只读访问权限，而另一个进程具有读写访问权限。</p>
+</li>
+<li>
+<p>程序员以及编译器和链接器等工具<strong>不需要关心程序在 RAM 中的物理布局</strong>。</p>
+</li>
+<li>
+<p>因为<strong>只有程序的一部分需要驻留在内存中</strong>，所以程序<strong>加载和运行速度更快</strong>。此外，<strong>进程的内存占用（即虚拟大小）可能超过 RAM 的容量</strong>。</p>
+</li>
+<li>
+<p>由于每个进程使用较少的 RAM，因此可以同时将更多进程保存在 RAM 中。这通常会导致<strong>更好的 CPU 利用率</strong>，因为它增加了在任何时刻至少有一个 CPU 可以执行的进程的可能性。</p>
+</li>
+</ul>
+<h2 id="_3-内存管理方式" tabindex="-1"><a class="header-anchor" href="#_3-内存管理方式" aria-hidden="true">#</a> 3.内存管理方式</h2>
+<h3 id="_3-1内存分段式管理" tabindex="-1"><a class="header-anchor" href="#_3-1内存分段式管理" aria-hidden="true">#</a> 3.1内存分段式管理</h3>
+<p>一个程序是由若干个逻辑分段组成的，可分为存放运行代码的代码分段、存放运行时数据分段、运行方法的栈段、以及堆段组成。<strong>不同的段是有不同的属性的，所以就用分段（Segmentation）的形式把这些段分离出来。</strong></p>
+<p>分段机制下的虚拟地址由两部分组成，<strong>段选择因子</strong>和<strong>段内偏移量</strong>。</p>
+<figure><img src="https://img-blog.csdnimg.cn/a9ed979e2ed8414f9828767592aadc21.png" alt="img" tabindex="0" loading="lazy"><figcaption>img</figcaption></figure>
+<p>段选择因子和段内偏移量：</p>
+<ul>
+<li><strong>段选择子</strong>就保存在段寄存器里面。段选择子里面最重要的是<strong>段号</strong>，用作段表的索引。<strong>段表</strong>里面保存的是这个<strong>段的基地址、段的界限和特权等级</strong>等。</li>
+<li>虚拟地址中的<strong>段内偏移量</strong>应该位于 0 和段界限之间，如果段内偏移量是合法的，就将段基地址加上段内偏移量得到物理内存地址。</li>
+</ul>
+<p>在上面，知道了虚拟地址是通过<strong>段表</strong>与物理地址进行映射的，分段机制会把程序的虚拟地址分成 4 个段，每个段在段表中有一个项，在这一项找到段的基地址，再加上偏移量，于是就能找到物理内存中的地址，如下图：</p>
+<figure><img src="https://img-blog.csdnimg.cn/c5e2ab63e6ee4c8db575f3c7c9c85962.png" alt="img" tabindex="0" loading="lazy"><figcaption>img</figcaption></figure>
+<p>如果要访问段 3 中偏移量 500 的虚拟地址，我们可以计算出物理地址为，段 3 基地址 7000 + 偏移量 500 = 7500。</p>
+<p>分段的办法很好，解决了程序本身不需要关心具体的物理内存地址的问题，但它也有一些不足之处：</p>
+<ul>
+<li>第一个就是<strong>内存碎片</strong>的问题。</li>
+<li>第二个就是<strong>内存交换的效率低</strong>的问题。</li>
+</ul>
+<h3 id="_3-2-内存分页式处理" tabindex="-1"><a class="header-anchor" href="#_3-2-内存分页式处理" aria-hidden="true">#</a> 3.2 内存分页式处理</h3>
+<p><strong>分页是把整个虚拟和物理内存空间切成一段段固定尺寸的大小</strong>。这样一个连续并且尺寸固定的内存空间，我们叫<strong>页</strong>（<em>Page</em>）。在 Linux 下，每一页的大小为 <code v-pre>4KB</code>。</p>
+<p>虚拟地址与物理地址之间通过<strong>页表</strong>来映射，如下图：</p>
+<figure><img src="https://img-blog.csdnimg.cn/08a8e315fedc4a858060db5cb4a654af.png" alt="img" tabindex="0" loading="lazy"><figcaption>img</figcaption></figure>
+<p>页表是存储在内存里的，<strong>内存管理单元</strong> （<em>MMU</em>）就做将虚拟内存地址转换成物理地址的工作。</p>
+<p>而当进程访问的虚拟地址在页表中查不到时，系统会产生一个<strong>缺页异常</strong>，进入系统内核空间分配物理内存、更新进程页表，最后再返回用户空间，恢复进程的运行。</p>
+<blockquote>
+<p>分页是怎么解决分段的「外部内存碎片和内存交换效率低」的问题？</p>
+</blockquote>
+<p>内存分页由于内存空间都是预先划分好的，也就不会像内存分段一样，在段与段之间会产生间隙非常小的内存，这正是分段会产生外部内存碎片的原因。而<strong>采用了分页，页与页之间是紧密排列的，所以不会有外部碎片。</strong></p>
+<p>但是，因为内存分页机制分配内存的最小单位是一页，即使程序不足一页大小，我们最少只能分配一个页，所以页内会出现内存浪费，所以针对<strong>内存分页机制会有内部内存碎片</strong>的现象。</p>
+<p>如果内存空间不够，操作系统会把其他正在运行的进程中的「最近没被使用」的内存页面给释放掉，也就是暂时写在硬盘上，称为<strong>换出</strong>（<em>Swap Out</em>）。一旦需要的时候，再加载进来，称为<strong>换入</strong>（<em>Swap In</em>）。所以，一次性写入磁盘的也只有少数的一个页或者几个页，不会花太多时间，<strong>内存交换的效率就相对比较高。</strong></p>
+<figure><img src="https://img-blog.csdnimg.cn/388a29f45fe947e5a49240e4eff13538.png" alt="img" tabindex="0" loading="lazy"><figcaption>img</figcaption></figure>
+<p>更进一步地，分页的方式使得我们在加载程序的时候，不再需要一次性都把程序加载到物理内存中。我们完全可以在进行虚拟内存和物理内存的页之间的映射之后，并不真的把页加载到物理内存里，而是<strong>只有在程序运行中，需要用到对应虚拟内存页里面的指令和数据时，再加载到物理内存里面去。</strong></p>
+<blockquote>
+<p>分页机制下，虚拟地址和物理地址是如何映射的？</p>
+</blockquote>
+<p>在分页机制下，虚拟地址分为两部分，<strong>页号</strong>和<strong>页内偏移</strong>。页号作为页表的索引，<strong>页表</strong>包含物理页每页所在<strong>物理内存的基地址</strong>，这个基地址与页内偏移的组合就形成了物理内存地址，见下图。</p>
+<figure><img src="https://img-blog.csdnimg.cn/7884f4d8db4949f7a5bb4bbd0f452609.png" alt="img" tabindex="0" loading="lazy"><figcaption>img</figcaption></figure>
+<p>总结一下，对于一个内存地址转换，其实就是这样三个步骤：</p>
+<ul>
+<li>把虚拟内存地址，切分成页号和偏移量；</li>
+<li>根据页号，从页表里面，查询对应的物理页号；</li>
+<li>直接拿物理页号，加上前面的偏移量，就得到了物理内存地址。</li>
+</ul>
+<p>下面举个例子，虚拟内存中的页通过页表映射为了物理内存中的页，如下图：</p>
+<figure><img src="https://img-blog.csdnimg.cn/8f187878c809414ca2486b0b71e8880e.png" alt="img" tabindex="0" loading="lazy"><figcaption>img</figcaption></figure>
+<p>这看起来似乎没什么毛病，但是放到实际中操作系统，这种简单的分页是肯定是会有问题的。</p>
+<blockquote>
+<p>简单的分页有什么缺陷吗？</p>
+</blockquote>
+<p>有空间上的缺陷。</p>
+<p>因为操作系统是可以同时运行非常多的进程的，那这不就意味着页表会非常的庞大。</p>
+<p>在 32 位的环境下，虚拟地址空间共有 4GB，假设一个页的大小是 4KB（2^12），那么就需要大约 100 万 （2^20） 个页，每个「页表项」需要 4 个字节大小来存储，那么整个 4GB 空间的映射就需要有 <code v-pre>4MB</code> 的内存来存储页表。</p>
+<p>这 4MB 大小的页表，看起来也不是很大。但是要知道每个进程都是有自己的虚拟地址空间的，也就说都有自己的页表。</p>
+<p>那么，<code v-pre>100</code> 个进程的话，就需要 <code v-pre>400MB</code> 的内存来存储页表，这是非常大的内存了，更别说 64 位的环境了。</p>
+<h3 id="多级页表" tabindex="-1"><a class="header-anchor" href="#多级页表" aria-hidden="true">#</a> 多级页表</h3>
+<p>要解决上面的问题，就需要采用一种叫作<strong>多级页表</strong>（<em>Multi-Level Page Table</em>）的解决方案。</p>
+<p>在前面我们知道了，对于单页表的实现方式，在 32 位和页大小 <code v-pre>4KB</code> 的环境下，一个进程的页表需要装下 100 多万个「页表项」，并且每个页表项是占用 4 字节大小的，于是相当于每个页表需占用 4MB 大小的空间。</p>
+<p>我们把这个 100 多万个「页表项」的单级页表再分页，将页表（一级页表）分为 <code v-pre>1024</code> 个页表（二级页表），每个表（二级页表）中包含 <code v-pre>1024</code> 个「页表项」，形成<strong>二级分页</strong>。如下图所示：</p>
+<figure><img src="https://img-blog.csdnimg.cn/19296e249b2240c29f9c52be70f611d5.png" alt="img" tabindex="0" loading="lazy"><figcaption>img</figcaption></figure>
+<blockquote>
+<p>你可能会问，分了二级表，映射 4GB 地址空间就需要 4KB（一级页表）+ 4MB（二级页表）的内存，这样占用空间不是更大了吗？</p>
+</blockquote>
+<p>当然如果 4GB 的虚拟地址全部都映射到了物理内存上的话，二级分页占用空间确实是更大了，但是，我们往往不会为一个进程分配那么多内存。</p>
+<p>其实我们应该换个角度来看问题，还记得计算机组成原理里面无处不在的<strong>局部性原理</strong>么？</p>
+<p>每个进程都有 4GB 的虚拟地址空间，而显然对于大多数程序来说，其使用到的空间远未达到 4GB，因为会存在部分对应的页表项都是空的，根本没有分配，对于已分配的页表项，如果存在最近一定时间未访问的页表，在物理内存紧张的情况下，操作系统会将页面换出到硬盘，也就是说不会占用物理内存。</p>
+<p>如果使用了二级分页，一级页表就可以覆盖整个 4GB 虚拟地址空间，但<strong>如果某个一级页表的页表项没有被用到，也就不需要创建这个页表项对应的二级页表了，即可以在需要时才创建二级页表</strong>。做个简单的计算，假设只有 20% 的一级页表项被用到了，那么页表占用的内存空间就只有 4KB（一级页表） + 20% * 4MB（二级页表）= <code v-pre>0.804MB</code>，这对比单级页表的 <code v-pre>4MB</code> 是不是一个巨大的节约？</p>
+<p>那么为什么不分级的页表就做不到这样节约内存呢？</p>
+<p>我们从页表的性质来看，保存在内存中的页表承担的职责是将虚拟地址翻译成物理地址。假如虚拟地址在页表中找不到对应的页表项，计算机系统就不能工作了。所以<strong>页表一定要覆盖全部虚拟地址空间，不分级的页表就需要有 100 多万个页表项来映射，而二级分页则只需要 1024 个页表项</strong>（此时一级页表覆盖到了全部虚拟地址空间，二级页表在需要时创建）。</p>
+<p>我们把二级分页再推广到多级页表，就会发现页表占用的内存空间更少了，这一切都要归功于对局部性原理的充分应用。</p>
+<p>对于 64 位的系统，两级分页肯定不够了，就变成了四级目录，分别是：</p>
+<ul>
+<li>全局页目录项 PGD（<em>Page Global Directory</em>）；</li>
+<li>上层页目录项 PUD（<em>Page Upper Directory</em>）；</li>
+<li>中间页目录项 PMD（<em>Page Middle Directory</em>）；</li>
+<li>页表项 PTE（<em>Page Table Entry</em>）；</li>
+</ul>
+<figure><img src="https://cdn.xiaolincoding.com/gh/xiaolincoder/ImageHost/操作系统/内存管理/四级分页.png" alt="img" tabindex="0" loading="lazy"><figcaption>img</figcaption></figure>
+<h3 id="tlb-cache" tabindex="-1"><a class="header-anchor" href="#tlb-cache" aria-hidden="true">#</a> TLB Cache</h3>
+<p>多级页表虽然解决了空间上的问题，但是虚拟地址到物理地址的转换就多了几道转换的工序，这显然就降低了这俩地址转换的速度，也就是带来了时间上的开销。</p>
+<p>程序是有局部性的，即在一段时间内，整个程序的执行仅限于程序中的某一部分。相应地，执行所访问的存储空间也局限于某个内存区域。</p>
+<figure><img src="https://img-blog.csdnimg.cn/edce58534d9342ff89f5261b1929c754.png" alt="img" tabindex="0" loading="lazy"><figcaption>img</figcaption></figure>
+<p>我们就可以利用这一特性，把最常访问的几个页表项存储到访问速度更快的硬件，于是计算机科学家们，就在 CPU 芯片中，加入了一个专门存放程序最常访问的页表项的 Cache，这个 Cache 就是 TLB（<em>Translation Lookaside Buffer</em>） ，通常称为页表缓存、转址旁路缓存、快表等。</p>
+<figure><img src="https://img-blog.csdnimg.cn/a3cdf27646b24614a64cfc5d7ccffa35.png" alt="img" tabindex="0" loading="lazy"><figcaption>img</figcaption></figure>
+<p>在 CPU 芯片里面，封装了内存管理单元（<em>Memory Management Unit</em>）芯片，它用来完成地址转换和 TLB 的访问与交互。</p>
+<p>有了 TLB 后，那么 CPU 在寻址时，会先查 TLB，如果没找到，才会继续查常规的页表。</p>
+<p>TLB 的命中率其实是很高的，因为程序最常访问的页就那么几个。</p>
+<h3 id="段页式内存管理" tabindex="-1"><a class="header-anchor" href="#段页式内存管理" aria-hidden="true">#</a> 段页式内存管理</h3>
+<p>内存分段和内存分页并不是对立的，它们是可以组合起来在同一个系统中使用的，那么组合起来后，通常称为<strong>段页式内存管理</strong>。</p>
+<figure><img src="https://img-blog.csdnimg.cn/f19ebd6f70f84083b0d87cc5e9dea8e3.png" alt="img" tabindex="0" loading="lazy"><figcaption>img</figcaption></figure>
+<p>段页式内存管理实现的方式：</p>
+<ul>
+<li>先将程序划分为多个有逻辑意义的段，也就是前面提到的分段机制；</li>
+<li>接着再把每个段划分为多个页，也就是对分段划分出来的连续空间，再划分固定大小的页；</li>
+</ul>
+<p>这样，地址结构就由<strong>段号、段内页号和页内位移</strong>三部分组成。</p>
+<p>用于段页式地址变换的数据结构是每一个程序一张段表，每个段又建立一张页表，段表中的地址是页表的起始地址，而页表中的地址则为某页的物理页号，如图所示：</p>
+<figure><img src="https://img-blog.csdnimg.cn/8904fb89ae0c49c4b0f2f7b5a0a7b099.png" alt="img" tabindex="0" loading="lazy"><figcaption>img</figcaption></figure>
+<p>段页式地址变换中要得到物理地址须经过三次内存访问：</p>
+<ul>
+<li>第一次访问段表，得到页表起始地址；</li>
+<li>第二次访问页表，得到物理页号；</li>
+<li>第三次将物理页号与页内位移组合，得到物理地址。</li>
+</ul>
+<p>可用软、硬件相结合的方法实现段页式地址变换，这样虽然增加了硬件成本和系统开销，但提高了内存的利用率。</p>
+<h3 id="_3-3-linux-内存管理方法" tabindex="-1"><a class="header-anchor" href="#_3-3-linux-内存管理方法" aria-hidden="true">#</a> 3.3 Linux 内存管理方法</h3>
+<p><strong>inux 内存主要采用的是页式内存管理，但同时也不可避免地涉及了段机制</strong>。</p>
+<p>这主要是上面 Intel 处理器发展历史导致的，因为 Intel X86 CPU 一律对程序中使用的地址先进行段式映射，然后才能进行页式映射。既然 CPU 的硬件结构是这样，Linux 内核也只好服从 Intel 的选择。</p>
+<p>但是事实上，Linux 内核所采取的办法是使段式映射的过程实际上不起什么作用。也就是说，“上有政策，下有对策”，若惹不起就躲着走。</p>
+<p><strong>Linux 系统中的每个段都是从 0 地址开始的整个 4GB 虚拟空间（32 位环境下），也就是所有的段的起始地址都是一样的。这意味着，Linux 系统中的代码，包括操作系统本身的代码和应用程序代码，所面对的地址空间都是线性地址空间（虚拟地址），这种做法相当于屏蔽了处理器中的逻辑地址概念，段只被用于访问控制和内存保护。</strong></p>
+<blockquote>
+<p>我们再来瞧一瞧，Linux 的虚拟地址空间是如何分布的？</p>
+</blockquote>
+<p>在 Linux 操作系统中，虚拟地址空间的内部又被分为<strong>内核空间和用户空间</strong>两部分，不同位数的系统，地址空间的范围也不同。比如最常见的 32 位和 64 位系统，如下所示：</p>
+<figure><img src="https://img-blog.csdnimg.cn/3a6cb4e3f27241d3b09b4766bb0b1124.png" alt="img" tabindex="0" loading="lazy"><figcaption>img</figcaption></figure>
+<p>通过这里可以看出：</p>
+<ul>
+<li><code v-pre>32</code> 位系统的内核空间占用 <code v-pre>1G</code>，位于最高处，剩下的 <code v-pre>3G</code> 是用户空间；</li>
+<li><code v-pre>64</code> 位系统的内核空间和用户空间都是 <code v-pre>128T</code>，分别占据整个内存空间的最高和最低处，剩下的中间部分是未定义的。</li>
+</ul>
+<p>再来说说，内核空间与用户空间的区别：</p>
+<ul>
+<li>进程在用户态时，只能访问用户空间内存；</li>
+<li>只有进入内核态后，才可以访问内核空间的内存；</li>
+</ul>
+<p>虽然每个进程都各自有独立的虚拟内存，但是<strong>每个虚拟内存中的内核地址，其实关联的都是相同的物理内存</strong>。这样，进程切换到内核态后，就可以很方便地访问内核空间内存。</p>
+<figure><img src="https://img-blog.csdnimg.cn/48403193b7354e618bf336892886bcff.png" alt="img" tabindex="0" loading="lazy"><figcaption>img</figcaption></figure>
+<p>接下来，进一步了解虚拟空间的划分情况，用户空间和内核空间划分的方式是不同的，内核空间的分布情况就不多说了。</p>
+<p>我们看看用户空间分布的情况，以 32 位系统为例，我画了一张图来表示它们的关系：</p>
+<figure><img src="https://img-blog.csdnimg.cn/img_convert/b4f882b9447760ce5321de109276ec23.png" alt="虚拟内存空间划分" tabindex="0" loading="lazy"><figcaption>虚拟内存空间划分</figcaption></figure>
+<p>通过这张图你可以看到，用户空间内存，从<strong>低到高</strong>分别是 6 种不同的内存段：</p>
+<ul>
+<li>程序文件段（.text），包括二进制可执行代码；</li>
+<li>已初始化数据段（.data），包括静态常量；</li>
+<li>未初始化数据段（.bss），包括未初始化的静态变量；</li>
+<li>堆段，包括动态分配的内存，从低地址开始向上增长；</li>
+<li>文件映射段，包括动态库、共享内存等，从低地址开始向上增长（<a href="http://lishiwen4.github.io/linux/linux-process-memory-location" target="_blank" rel="noopener noreferrer">跟硬件和内核版本有关 (opens new window)<ExternalLinkIcon/></a>）；</li>
+<li>栈段，包括局部变量和函数调用的上下文等。栈的大小是固定的，一般是 <code v-pre>8 MB</code>。当然系统也提供了参数，以便我们自定义大小；</li>
+</ul>
+<p>在这 7 个内存段中，堆和文件映射段的内存是动态分配的。比如说，使用 C 标准库的 <code v-pre>malloc()</code> 或者 <code v-pre>mmap()</code> ，就可以分别在堆和文件映射段动态分配内存。</p>
+<h2 id="_4-如何分配内存" tabindex="-1"><a class="header-anchor" href="#_4-如何分配内存" aria-hidden="true">#</a> 4.如何分配内存</h2>
+<figure><img src="\os\image-20220906165346203.png" alt="image-20220906165346203" tabindex="0" loading="lazy"><figcaption>image-20220906165346203</figcaption></figure>
+<h3 id="_4-1-brk-和sbrk" tabindex="-1"><a class="header-anchor" href="#_4-1-brk-和sbrk" aria-hidden="true">#</a> 4.1 brk()和sbrk()</h3>
+<p>调整堆的大小（即分配或释放内存）实际上就是要告诉内核调整它的进程程序的中断位置的指针。最初，程序中断指针位于未初始化数据段的末尾（即与 &amp;end 相同的位置，如图 6-1 所示）。</p>
+<p>增加程序中断后，程序可以访问新分配区域中的任何地址，但还没有分配物理内存页。当进程第一次尝试访问这些页面中的地址时，内核会自动分配新的物理页面。传统上，UNIX 系统提供了两个用于操作程序中断的系统调用，这些都在 Linux 上可用：brk() 和 sbrk()。尽管这些系统调用很少直接在程序中使用，但理解它们有助于阐明内存分配的工作原理。</p>
+<div class="language-c line-numbers-mode" data-ext="c"><pre v-pre class="language-c"><code><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;unistd.h></span></span>
+<span class="token keyword">int</span> <span class="token function">brk</span><span class="token punctuation">(</span><span class="token keyword">void</span> <span class="token operator">*</span>end_data_segment<span class="token punctuation">)</span><span class="token punctuation">;</span>
+ 										Returns <span class="token number">0</span> on success<span class="token punctuation">,</span> or –<span class="token number">1</span> on error
+<span class="token keyword">void</span> <span class="token operator">*</span><span class="token function">sbrk</span><span class="token punctuation">(</span><span class="token class-name">intptr_t</span> increment<span class="token punctuation">)</span><span class="token punctuation">;</span>
+					Returns previous program <span class="token keyword">break</span> on success<span class="token punctuation">,</span> <span class="token function">or</span> <span class="token punctuation">(</span><span class="token keyword">void</span> <span class="token operator">*</span><span class="token punctuation">)</span> –<span class="token number">1</span> on error
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><strong>brk() 系统调用将程序中断位置设置为 end_data_segment 指定的位置。<strong>由于虚拟内存是以页面为单位分配的，因此 end_data_segment 有效地向上舍入到下一个页面边界。尝试将程序中断设置为低于其初始值（即低于 &amp;end）这可能会导致意外行为，例如当尝试访问当前不存在的部分中的数据时出现分段错误（第 20.2 节中描述的 SIGSEGV 信号）已初始化或未初始化的数据段。可以设置程序中断的精确上限取决于一系列因素，包括： 数据段大小的进程资源限制（RLIMIT_DATA，在第 36.3 节中描述）；以及内存映射、共享内存段和共享库的位置。调</strong>用 sbrk() 通过增加增量来调整程序中断。</strong> （在 Linux 上，sbrk() 是在 brk() 之上实现的库函数。）用于声明增量的 intptr_t 类型是整数数据类型。成功时，sbrk() 返回程序中断的前一个地址。换句话说，如果我们增加了程序中断，那么<strong>返回值就是一个指向新分配的内存块开始的指针</strong>。调用 sbrk(0) 返回程序中断的当前设置而不更改它。如果我们想跟踪堆的大小，这可能很有用，也许是为了监视内存分配包的行为。</p>
+<h3 id="_4-2-在堆上分配内存-malloc-和-free" tabindex="-1"><a class="header-anchor" href="#_4-2-在堆上分配内存-malloc-和-free" aria-hidden="true">#</a> 4.2 在堆上分配内存：malloc() 和 free()</h3>
+<p>malloc() 函数从堆中分配 size 个字节，并返回一个指向新分配内存块开始的指针。分配的内存未初始化。</p>
+<div class="language-c line-numbers-mode" data-ext="c"><pre v-pre class="language-c"><code><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdlib.h></span></span>
+<span class="token keyword">void</span> <span class="token operator">*</span><span class="token function">malloc</span><span class="token punctuation">(</span><span class="token class-name">size_t</span> size<span class="token punctuation">)</span><span class="token punctuation">;</span>
+						Returns pointer to allocated memory on success<span class="token punctuation">,</span> or <span class="token constant">NULL</span> on error
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>malloc负责在堆上分配内存</p>
+<p>主要依靠brk()和mmap来实现</p>
+<ul>
+<li>如果用户分配的内存小于 128 KB，则通过 brk() 申请内存；</li>
+<li>如果用户分配的内存大于 128 KB，则通过 mmap() 申请内存；</li>
+</ul>
+<p><strong>这么做的原因是 brk 分配的内存需要等到高地址内存释放以后才能释放</strong></p>
+<p><strong>而mmap操作的内存可以直接释放</strong></p>
+<h2 id="malloc分配的是什么内存" tabindex="-1"><a class="header-anchor" href="#malloc分配的是什么内存" aria-hidden="true">#</a> malloc分配的是什么内存？</h2>
+<p>不是的，<strong>malloc() 分配的是虚拟内存</strong>。</p>
+<p>如果分配后的虚拟内存没有被访问的话，虚拟内存是不会映射到物理内存的，这样就不会占用物理内存了。</p>
+<p>只有在访问已分配的虚拟地址空间的时候，操作系统通过查找页表，发现虚拟内存对应的页没有在物理内存中，就会触发缺页中断，然后操作系统会建立虚拟内存和物理内存之间的映射关系。</p>
+<h2 id="malloc-1-会分配多大的虚拟内存" tabindex="-1"><a class="header-anchor" href="#malloc-1-会分配多大的虚拟内存" aria-hidden="true">#</a> malloc(1) 会分配多大的虚拟内存？</h2>
+<p>malloc() 在分配内存的时候，并不是老老实实按用户预期申请的字节数来分配内存空间大小，而是<strong>会预分配更大的空间作为内存池</strong>。</p>
+<p>可以看到，堆空间的内存地址范围是 00d73000-00d94000，这个范围大小是 132KB，也就说明了 <strong>malloc(1) 实际上预分配 132K 字节的内存</strong>。</p>
+<p>程序里打印的内存起始地址是 <code v-pre>d73010</code>，而 maps 文件显示堆内存空间的起始地址是 <code v-pre>d73000</code>，为什么会多出来 <code v-pre>0x10</code> （16字节）呢？其中还包括16字节的头信息。</p>
+<h2 id="free-释放内存-会归还给操作系统吗" tabindex="-1"><a class="header-anchor" href="#free-释放内存-会归还给操作系统吗" aria-hidden="true">#</a> free 释放内存，会归还给操作系统吗？</h2>
+<p>这是因为与其把这 1 字节释放给操作系统，不如先缓存着放进 malloc 的内存池里，当进程再次申请 1 字节的内存时就可以直接复用，这样速度快了很多。</p>
+<p>当然，当进程退出后，操作系统就会回收进程的所有资源。</p>
+<p>上面说的 free 内存后堆内存还存在，是针对 malloc 通过 brk() 方式申请的内存的情况。</p>
+<p>如果 malloc 通过 mmap 方式申请的内存，free 释放内存后就会归归还给操作系统。</p>
+<ul>
+<li>malloc 通过 <strong>brk()</strong> 方式申请的内存，free 释放内存的时候，<strong>并不会把内存归还给操作系统，而是缓存在 malloc 的内存池中，待下次使用</strong>；</li>
+<li>malloc 通过 <strong>mmap()</strong> 方式申请的内存，free 释放内存的时候，<strong>会把内存归还给操作系统，内存得到真正的释放</strong>。</li>
+</ul>
+<h2 id="为什么不全部使用-mmap-来分配内存" tabindex="-1"><a class="header-anchor" href="#为什么不全部使用-mmap-来分配内存" aria-hidden="true">#</a> 为什么不全部使用 mmap 来分配内存？</h2>
+<p>mmap方法是<strong>系统调用</strong>，执行系统调用是要进入内核态的，然后在回到用户态，会进行上下文切换。</p>
+<p>所以，申请内存的操作应该避免频繁的系统调用，如果都用 mmap 来分配内存，等于每次都要执行系统调用。</p>
+<p>另外，因为 mmap 分配的内存每次释放的时候，都会归还给操作系统，于是每次 mmap 分配的虚拟地址都是缺页状态的，然后在第一次访问该虚拟地址的时候，就会触发缺页中断。</p>
+<p>也就是说，<strong>频繁通过 mmap 分配的内存话，不仅每次都会发生运行态的切换，还会发生缺页中断（在第一次访问虚拟地址后），这样会导致 CPU 消耗较大</strong>。</p>
+<p>为了改进这两个问题，malloc 通过 brk() 系统调用在堆空间申请内存的时候，由于堆空间是连续的，所以直接预分配更大的内存来作为内存池，当内存释放的时候，就缓存在内存池中。</p>
+<p><strong>等下次在申请内存的时候，就直接从内存池取出对应的内存块就行了，而且可能这个内存块的虚拟地址与物理地址的映射关系还存在，这样不仅减少了系统调用的次数，也减少了缺页中断的次数，这将大大降低 CPU 的消耗</strong>。</p>
+<h2 id="free-函数只传入一个内存地址-为什么能知道要释放多大的内存" tabindex="-1"><a class="header-anchor" href="#free-函数只传入一个内存地址-为什么能知道要释放多大的内存" aria-hidden="true">#</a> free() 函数只传入一个内存地址，为什么能知道要释放多大的内存？</h2>
+<p>通过内存头信息16kb 获取大小</p>
+<h2 id="_5-内存紧张了怎么办" tabindex="-1"><a class="header-anchor" href="#_5-内存紧张了怎么办" aria-hidden="true">#</a> 5.内存紧张了怎么办</h2>
+<p>内核在给应用程序分配物理内存的时候，如果空闲物理内存不够，那么就会进行内存回收的工作，主要有两种方式：</p>
+<ul>
+<li>后台内存回收：在物理内存紧张的时候，会唤醒 kswapd <strong>内核线程</strong>来回收内存，这个回收内存的过程异步的，不会阻塞进程的执行。</li>
+<li>直接内存回收：如果后台异步回收跟不上进程内存申请的速度，就会开始直接回收，这个回收内存的过程是同步的，会阻塞进程的执行。</li>
+</ul>
+<p>可被回收的内存类型有文件页和匿名页：</p>
+<ul>
+<li>文件页的回收：对于干净页是直接释放内存，这个操作不会影响性能，而对于脏页会先写回到磁盘再释放内存，这个操作会发生磁盘 I/O 的，这个操作是会影响系统性能的。</li>
+<li>匿名页的回收：如果开启了 Swap 机制，那么 Swap 机制会将不常访问的匿名页换出到磁盘中，下次访问时，再从磁盘换入到内存中，这个操作是会影响系统性能的。</li>
+</ul>
+<p>文件页和匿名页的回收都是基于 LRU 算法，也就是优先回收不常访问的内存。回收内存的操作基本都会发生磁盘 I/O 的，如果回收内存的操作很频繁，意味着磁盘 I/O 次数会很多，这个过程势必会影响系统的性能。</p>
+<p>针对回收内存导致的性能影响，常见的解决方式。</p>
+<ul>
+<li>设置 /proc/sys/vm/swappiness，调整文件页和匿名页的回收倾向，尽量倾向于回收文件页；</li>
+<li>设置 /proc/sys/vm/min_free_kbytes，调整 kswapd 内核线程异步回收内存的时机；</li>
+<li>设置 /proc/sys/vm/zone_reclaim_mode，调整 NUMA 架构下内存回收策略，建议设置为 0，这样在回收本地内存之前，会在其他 Node 寻找空闲内存，从而避免在系统还有很多空闲内存的情况下，因本地 Node 的本地内存不足，发生频繁直接内存回收导致性能下降的问题；</li>
+</ul>
+<p>在经历完直接内存回收后，空闲的物理内存大小依然不够，那么就会触发 OOM 机制，OOM killer 就会根据每个进程的内存占用情况和 oom_score_adj 的值进行打分，得分最高的进程就会被首先杀掉。</p>
+<p>我们可以通过调整进程的 /proc/[pid]/oom_score_adj 值，来降低被 OOM killer 杀掉的概率。</p>
+<h2 id="_6-如何降低预先读取失效和缓存污染问题" tabindex="-1"><a class="header-anchor" href="#_6-如何降低预先读取失效和缓存污染问题" aria-hidden="true">#</a> 6.如何降低预先读取失效和缓存污染问题</h2>
+<p>传统的 LRU 算法法无法避免下面这两个问题：</p>
+<ul>
+<li>预读失效导致缓存命中率下降；</li>
+<li>缓存污染导致缓存命中率下降；</li>
+</ul>
+<p>为了避免「预读失效」造成的影响，Linux 和 MySQL 对传统的 LRU 链表做了改进：</p>
+<ul>
+<li>Linux 操作系统实现两个了 LRU 链表：<strong>活跃 LRU 链表（active list）和非活跃 LRU 链表（inactive list）</strong>。</li>
+<li>MySQL Innodb 存储引擎是在一个 LRU 链表上划分来 2 个区域：<strong>young 区域 和 old 区域</strong>。</li>
+</ul>
+<p>但是如果还是使用「只要数据被访问一次，就将数据加入到活跃 LRU 链表头部（或者 young 区域）」这种方式的话，那么<strong>还存在缓存污染的问题</strong>。</p>
+<p>为了避免「缓存污染」造成的影响，Linux 操作系统和 MySQL Innodb 存储引擎分别提高了升级为热点数据的门槛：</p>
+<ul>
+<li>
+<p>Linux 操作系统：在内存页被访问<strong>第二次</strong>的时候，才将页从 inactive list 升级到 active list 里。</p>
+</li>
+<li>
+<p>MySQL Innodb：在内存页被访问</p>
+<p>第二次</p>
+<p>的时候，并不会马上将该页从 old 区域升级到 young 区域，因为还要进行</p>
+<p>停留在 old 区域的时间判断</p>
+<p>：</p>
+<ul>
+<li>如果第二次的访问时间与第一次访问的时间<strong>在 1 秒内</strong>（默认值），那么该页就<strong>不会</strong>被从 old 区域升级到 young 区域；</li>
+<li>如果第二次的访问时间与第一次访问的时间<strong>超过 1 秒</strong>，那么该页就<strong>会</strong>从 old 区域升级到 young 区域；</li>
+</ul>
+</li>
+</ul>
+<p>通过提高了进入 active list （或者 young 区域）的门槛后，就很好了避免缓存污染带来的影响。</p>
+</div></template>
+
+

@@ -1,0 +1,14 @@
+export const data = JSON.parse("{\"key\":\"v-021c72e8\",\"path\":\"/article/algorithm/scanline/1288.html\",\"title\":\"1288. 删除被覆盖区间\",\"lang\":\"zh-CN\",\"frontmatter\":{\"lang\":\"zh-CN\",\"title\":\"1288. 删除被覆盖区间\",\"description\":\"扫描线\",\"category\":[\"算法\"],\"tag\":[\"扫描线\"],\"head\":[[\"meta\",{\"property\":\"og:url\",\"content\":\"https://vuepress-theme-hope-docs-demo.netlify.app/article/algorithm/scanline/1288.html\"}],[\"meta\",{\"property\":\"og:site_name\",\"content\":\"Pineapple Coding\"}],[\"meta\",{\"property\":\"og:title\",\"content\":\"1288. 删除被覆盖区间\"}],[\"meta\",{\"property\":\"og:description\",\"content\":\"扫描线\"}],[\"meta\",{\"property\":\"og:type\",\"content\":\"article\"}],[\"meta\",{\"property\":\"og:locale\",\"content\":\"zh-CN\"}],[\"meta\",{\"property\":\"article:tag\",\"content\":\"扫描线\"}]]},\"headers\":[],\"readingTime\":{\"minutes\":0.75,\"words\":224},\"filePathRelative\":\"article/algorithm/scanline/1288.md\",\"excerpt\":\"<h4> <a href=\\\"https://leetcode.cn/problems/remove-covered-intervals/\\\" target=\\\"_blank\\\" rel=\\\"noopener noreferrer\\\">1288. 删除被覆盖区间</a></h4>\\n<p>难度中等85</p>\\n<p>给你一个区间列表，请你删除列表中被其他区间所覆盖的区间。</p>\\n<p>只有当 <code>c &lt;= a</code> 且 <code>b &lt;= d</code> 时，我们才认为区间 <code>[a,b)</code> 被区间 <code>[c,d)</code> 覆盖。</p>\\n\"}")
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updatePageData) {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ data }) => {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  })
+}

@@ -1,0 +1,14 @@
+export const data = JSON.parse("{\"key\":\"v-3e109858\",\"path\":\"/article/algorithm/BFS/102.html\",\"title\":\"102. 二叉树的层序遍历\",\"lang\":\"zh-CN\",\"frontmatter\":{\"lang\":\"zh-CN\",\"title\":\"102. 二叉树的层序遍历\",\"description\":\"BFS\",\"category\":[\"算法\"],\"tag\":[\"BFS\"],\"head\":[[\"meta\",{\"property\":\"og:url\",\"content\":\"https://vuepress-theme-hope-docs-demo.netlify.app/article/algorithm/BFS/102.html\"}],[\"meta\",{\"property\":\"og:site_name\",\"content\":\"Pineapple Coding\"}],[\"meta\",{\"property\":\"og:title\",\"content\":\"102. 二叉树的层序遍历\"}],[\"meta\",{\"property\":\"og:description\",\"content\":\"BFS\"}],[\"meta\",{\"property\":\"og:type\",\"content\":\"article\"}],[\"meta\",{\"property\":\"og:locale\",\"content\":\"zh-CN\"}],[\"meta\",{\"property\":\"article:tag\",\"content\":\"BFS\"}]]},\"headers\":[],\"readingTime\":{\"minutes\":0.77,\"words\":232},\"filePathRelative\":\"article/algorithm/BFS/102.md\",\"excerpt\":\"<h4> <a href=\\\"https://leetcode.cn/problems/binary-tree-level-order-traversal/\\\" target=\\\"_blank\\\" rel=\\\"noopener noreferrer\\\">102. 二叉树的层序遍历</a></h4>\\n<p>难度中等1424</p>\\n<p>给你二叉树的根节点 <code>root</code> ，返回其节点值的 <strong>层序遍历</strong> 。 （即逐层地，从左到右访问所有节点）。</p>\\n<p><strong>示例 1：</strong></p>\\n<figure><img src=\\\"https://assets.leetcode.com/uploads/2021/02/19/tree1.jpg\\\" alt=\\\"img\\\" tabindex=\\\"0\\\" loading=\\\"lazy\\\"><figcaption>img</figcaption></figure>\"}")
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updatePageData) {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ data }) => {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  })
+}

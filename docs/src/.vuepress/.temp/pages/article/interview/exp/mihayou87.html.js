@@ -1,0 +1,14 @@
+export const data = JSON.parse("{\"key\":\"v-538c2ffc\",\"path\":\"/article/interview/exp/mihayou87.html\",\"title\":\"米哈游2022.08.07笔试记录\",\"lang\":\"zh-CN\",\"frontmatter\":{\"title\":\"米哈游2022.08.07笔试记录\",\"lang\":\"zh-CN\",\"description\":\"米哈游笔试\",\"category\":[\"笔试\"],\"tag\":[\"米哈游\",\"笔试\"],\"head\":[[\"meta\",{\"property\":\"og:url\",\"content\":\"https://vuepress-theme-hope-docs-demo.netlify.app/article/interview/exp/mihayou87.html\"}],[\"meta\",{\"property\":\"og:site_name\",\"content\":\"Pineapple Coding\"}],[\"meta\",{\"property\":\"og:title\",\"content\":\"米哈游2022.08.07笔试记录\"}],[\"meta\",{\"property\":\"og:description\",\"content\":\"米哈游笔试\"}],[\"meta\",{\"property\":\"og:type\",\"content\":\"article\"}],[\"meta\",{\"property\":\"og:locale\",\"content\":\"zh-CN\"}],[\"meta\",{\"property\":\"article:tag\",\"content\":\"米哈游\"}],[\"meta\",{\"property\":\"article:tag\",\"content\":\"笔试\"}]]},\"headers\":[],\"readingTime\":{\"minutes\":2.27,\"words\":682},\"filePathRelative\":\"article/interview/exp/mihayou87.md\",\"excerpt\":\"<p>米哈游有点坑 只能用CPP 导致Java选手全程都在回忆CPP的API 浪费了很长时间 CPP不太会写 大佬勿喷 之后更新Java版本的题解</p>\\n<div class=\\\"custom-container tip\\\">\\n<p class=\\\"custom-container-title\\\">1.有七种不同类型的怪物用七个不同字母表示（w,i,t,f,g,s,b），随后输入第一个数字表示查询的数目，在查询中，1表示往队列中加入一个类型的怪兽，2表示从队首弹出该怪兽，3表示返回该队列中不同怪兽类型的数量；</p>\\n<blockquote>\\n<p>例：\\n输入\\n2\\n1 b\\n3\\n输出\\n1</p>\\n</blockquote>\\n</div>\"}")
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updatePageData) {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ data }) => {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  })
+}

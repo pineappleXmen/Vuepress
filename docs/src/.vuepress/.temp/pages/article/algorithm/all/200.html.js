@@ -1,0 +1,14 @@
+export const data = JSON.parse("{\"key\":\"v-f3aca1b2\",\"path\":\"/article/algorithm/all/200.html\",\"title\":\"200. 岛屿数量\",\"lang\":\"zh-CN\",\"frontmatter\":{\"lang\":\"zh-CN\",\"title\":\"200. 岛屿数量\",\"description\":\"BFS\",\"category\":[\"算法\"],\"tag\":[\"BFS\"],\"head\":[[\"meta\",{\"property\":\"og:url\",\"content\":\"https://vuepress-theme-hope-docs-demo.netlify.app/article/algorithm/all/200.html\"}],[\"meta\",{\"property\":\"og:site_name\",\"content\":\"Pineapple Coding\"}],[\"meta\",{\"property\":\"og:title\",\"content\":\"200. 岛屿数量\"}],[\"meta\",{\"property\":\"og:description\",\"content\":\"BFS\"}],[\"meta\",{\"property\":\"og:type\",\"content\":\"article\"}],[\"meta\",{\"property\":\"og:locale\",\"content\":\"zh-CN\"}],[\"meta\",{\"property\":\"article:tag\",\"content\":\"BFS\"}]]},\"headers\":[],\"readingTime\":{\"minutes\":1.17,\"words\":351},\"filePathRelative\":\"article/algorithm/all/200.md\",\"excerpt\":\"<ol start=\\\"200\\\">\\n<li>岛屿数量</li>\\n</ol>\\n<h4> <a href=\\\"https://leetcode.cn/problems/number-of-islands/\\\" target=\\\"_blank\\\" rel=\\\"noopener noreferrer\\\"></a></h4>\\n<p>难度中等</p>\\n<p>给你一个由 <code>'1'</code>（陆地）和 <code>'0'</code>（水）组成的的二维网格，请你计算网格中岛屿的数量。</p>\\n<p>岛屿总是被水包围，并且每座岛屿只能由水平方向和/或竖直方向上相邻的陆地连接形成。</p>\\n<p>此外，你可以假设该网格的四条边均被水包围。</p>\"}")
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updatePageData) {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ data }) => {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  })
+}

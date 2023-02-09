@@ -1,0 +1,113 @@
+// place your custom styles here
+
+//code font import 
+@font-face
+{
+font-family:"Hack";
+font-display:swap;
+src:
+url("//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/fonts/hack-regular.woff2") format(url("woff2")),
+url("//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/fonts/hack-regular.woff") format(url("woff"));
+src:
+url("//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/fonts/hack-regular.woff2") format("woff2"),
+url("//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/fonts/hack-regular.woff") format("woff");
+}
+
+
+
+pre{
+    position: relative;
+    &::after{
+        display: block;
+        content: " ";
+        position: absolute;
+        border-radius: 50%;
+        background: #ff5f56;
+        width: 20px;
+        height: 20px;
+        top:0;
+        left: 15px;
+        margin-top: 15px;
+        -webkit-box-shadow:30px 0 #ffbd2e,60px 0 #27c93f ;
+        box-shadow: 30px 0 #ffbd2e,60px 0 #27c93f;
+    }
+}
+
+:root {
+    --font-family-code: Hack,微软雅黑,monospace!important;
+    --line-numbers-width:0;
+}
+
+
+.theme-hope-content pre, .theme-hope-content pre[class*=language-] {
+    padding: 50px 40px 40px 40px;
+}
+
+html[data-theme=light] #app {
+    --code-bg-color: #2b2b2b;
+}
+
+pre[class*=language-] > code {
+    color: #fd971f!important;
+    
+}
+
+html[data-theme=light] .token.keyword{
+    color: #f92672!important;
+}
+
+
+html[data-theme=light] .token.doctype, html[data-theme=light] .token.punctuation, html[data-theme=light] .token.entity {
+    color: #fff;
+}
+
+html[data-theme=light] .token.variable, html[data-theme=light] .token.operator, html[data-theme=light] .token.function {
+    color:  #9effff!important;
+}
+
+html[data-theme=light] .token.attr-name, html[data-theme=light] .token.class-name, html[data-theme=light] .token.boolean, html[data-theme=light] .token.constant, html[data-theme=light] .token.number, html[data-theme=light] .token.atrule {
+    color: #ae81ff!important;
+}
+
+code {
+    font-size: 0.8em;
+}
+
+div[class*=language-].line-numbers-mode .line-numbers{
+    color: #2b2b2b;
+    top: 21px;
+    line-height: 3;
+}
+div[class*=language-].line-numbers-mode::after{
+    border-right: #2b2b2b;
+}
+
+div[class*=language-].line-numbers-mode pre {
+    padding-left: 2rem;
+}
+
+body{
+    font-size: 20px;
+}
+
+.home.project .feature h2 {
+    font-size: 1.5rem;
+}
+.home.project .feature p {
+    font-size: 17px;
+}
+
+.code-tabs-nav {
+    background-color: #000000;
+}
+.code-tabs-nav-tab{
+    color: #c4c4c4;
+    font-family: Hack,微软雅黑,monospace!important;
+}
+
+h2 {
+    border-bottom: 1px solid #ffffff00;
+}
+
+
+

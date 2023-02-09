@@ -1,0 +1,14 @@
+export const data = JSON.parse("{\"key\":\"v-fc3815b8\",\"path\":\"/article/algorithm/doublepointer/11.html\",\"title\":\"11. 盛最多水的容器\",\"lang\":\"zh-CN\",\"frontmatter\":{\"lang\":\"zh-CN\",\"title\":\"11. 盛最多水的容器\",\"description\":\"双指针题目\",\"category\":[\"算法\"],\"tag\":[\"双指针\"],\"head\":[[\"meta\",{\"property\":\"og:url\",\"content\":\"https://vuepress-theme-hope-docs-demo.netlify.app/article/algorithm/doublepointer/11.html\"}],[\"meta\",{\"property\":\"og:site_name\",\"content\":\"Pineapple Coding\"}],[\"meta\",{\"property\":\"og:title\",\"content\":\"11. 盛最多水的容器\"}],[\"meta\",{\"property\":\"og:description\",\"content\":\"双指针题目\"}],[\"meta\",{\"property\":\"og:type\",\"content\":\"article\"}],[\"meta\",{\"property\":\"og:locale\",\"content\":\"zh-CN\"}],[\"meta\",{\"property\":\"article:tag\",\"content\":\"双指针\"}]]},\"headers\":[],\"readingTime\":{\"minutes\":0.85,\"words\":256},\"filePathRelative\":\"article/algorithm/doublepointer/11.md\",\"excerpt\":\"<h4> <a href=\\\"https://leetcode.cn/problems/container-with-most-water/\\\" target=\\\"_blank\\\" rel=\\\"noopener noreferrer\\\">11. 盛最多水的容器</a></h4>\\n<p>难度中等3714</p>\\n<p>给定一个长度为 <code>n</code> 的整数数组 <code>height</code> 。有 <code>n</code> 条垂线，第 <code>i</code> 条线的两个端点是 <code>(i, 0)</code> 和 <code>(i, height[i])</code> 。</p>\"}")
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updatePageData) {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ data }) => {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  })
+}

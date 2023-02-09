@@ -1,0 +1,14 @@
+export const data = JSON.parse("{\"key\":\"v-e46cc8ae\",\"path\":\"/article/algorithm/DFS/77.html\",\"title\":\"77. 组合\",\"lang\":\"zh-CN\",\"frontmatter\":{\"lang\":\"zh-CN\",\"title\":\"77. 组合\",\"description\":\"DFS\",\"category\":[\"算法\"],\"tag\":[\"DFS\"],\"head\":[[\"meta\",{\"property\":\"og:url\",\"content\":\"https://vuepress-theme-hope-docs-demo.netlify.app/article/algorithm/DFS/77.html\"}],[\"meta\",{\"property\":\"og:site_name\",\"content\":\"Pineapple Coding\"}],[\"meta\",{\"property\":\"og:title\",\"content\":\"77. 组合\"}],[\"meta\",{\"property\":\"og:description\",\"content\":\"DFS\"}],[\"meta\",{\"property\":\"og:type\",\"content\":\"article\"}],[\"meta\",{\"property\":\"og:locale\",\"content\":\"zh-CN\"}],[\"meta\",{\"property\":\"article:tag\",\"content\":\"DFS\"}]]},\"headers\":[],\"readingTime\":{\"minutes\":0.59,\"words\":178},\"filePathRelative\":\"article/algorithm/DFS/77.md\",\"excerpt\":\"<h4> <a href=\\\"https://leetcode.cn/problems/combinations/\\\" target=\\\"_blank\\\" rel=\\\"noopener noreferrer\\\">77. 组合</a></h4>\\n<p>难度中等1145</p>\\n<p>给定两个整数 <code>n</code> 和 <code>k</code>，返回范围 <code>[1, n]</code> 中所有可能的 <code>k</code> 个数的组合。</p>\\n<p>你可以按 <strong>任何顺序</strong> 返回答案。</p>\\n<p><strong>示例 1：</strong></p>\"}")
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updatePageData) {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ data }) => {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  })
+}

@@ -1,0 +1,14 @@
+export const data = JSON.parse("{\"key\":\"v-605dc8b6\",\"path\":\"/article/distrubutedsystem/project/rpc.html\",\"title\":\"RPC框架\",\"lang\":\"zh-CN\",\"frontmatter\":{\"description\":\"RPC框架 1.RPC简介 image-20221021203931934 RPC是不同JVM之间的方法调用过程。 通过RPC将调用过程封装为黑盒，供服务使用方使用。 为了达到最终的调用目的，需要具体实现几个模块 序列化模块：将java pojo对象转化为json格式 字节数组，或其他的方便 1.1 Dubbo如何实现RPC image-20221031212018616\",\"head\":[[\"meta\",{\"property\":\"og:url\",\"content\":\"https://vuepress-theme-hope-docs-demo.netlify.app/article/distrubutedsystem/project/rpc.html\"}],[\"meta\",{\"property\":\"og:site_name\",\"content\":\"Pineapple Coding\"}],[\"meta\",{\"property\":\"og:title\",\"content\":\"RPC框架\"}],[\"meta\",{\"property\":\"og:description\",\"content\":\"RPC框架 1.RPC简介 image-20221021203931934 RPC是不同JVM之间的方法调用过程。 通过RPC将调用过程封装为黑盒，供服务使用方使用。 为了达到最终的调用目的，需要具体实现几个模块 序列化模块：将java pojo对象转化为json格式 字节数组，或其他的方便 1.1 Dubbo如何实现RPC image-20221031212018616\"}],[\"meta\",{\"property\":\"og:type\",\"content\":\"article\"}],[\"meta\",{\"property\":\"og:locale\",\"content\":\"zh-CN\"}]]},\"headers\":[{\"level\":2,\"title\":\"1.RPC简介\",\"slug\":\"_1-rpc简介\",\"link\":\"#_1-rpc简介\",\"children\":[{\"level\":3,\"title\":\"1.1 Dubbo如何实现RPC\",\"slug\":\"_1-1-dubbo如何实现rpc\",\"link\":\"#_1-1-dubbo如何实现rpc\",\"children\":[]}]}],\"readingTime\":{\"minutes\":1.42,\"words\":426},\"filePathRelative\":\"article/distrubutedsystem/project/rpc.md\",\"excerpt\":\"<h1> RPC框架</h1>\\n<h2> 1.RPC简介</h2>\\n<figure><figcaption>image-20221021203931934</figcaption></figure>\\n<p>RPC是不同JVM之间的方法调用过程。</p>\\n<p>通过RPC将调用过程封装为黑盒，供服务使用方使用。</p>\\n<p>为了达到最终的调用目的，需要具体实现几个模块</p>\\n<p>序列化模块：将java pojo对象转化为json格式 字节数组，或其他的方便</p>\\n<h3> 1.1 Dubbo如何实现RPC</h3>\\n<figure><figcaption>image-20221031212018616</figcaption></figure>\",\"autoDesc\":true}")
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updatePageData) {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ data }) => {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  })
+}

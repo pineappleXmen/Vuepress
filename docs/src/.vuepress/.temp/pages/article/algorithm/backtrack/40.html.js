@@ -1,0 +1,14 @@
+export const data = JSON.parse("{\"key\":\"v-5380fcc0\",\"path\":\"/article/algorithm/backtrack/40.html\",\"title\":\"40. 组合总和 II\",\"lang\":\"zh-CN\",\"frontmatter\":{\"lang\":\"zh-CN\",\"title\":\"40. 组合总和 II\",\"description\":\"回溯题目\",\"category\":[\"算法\"],\"tag\":[\"回溯\"],\"head\":[[\"meta\",{\"property\":\"og:url\",\"content\":\"https://vuepress-theme-hope-docs-demo.netlify.app/article/algorithm/backtrack/40.html\"}],[\"meta\",{\"property\":\"og:site_name\",\"content\":\"Pineapple Coding\"}],[\"meta\",{\"property\":\"og:title\",\"content\":\"40. 组合总和 II\"}],[\"meta\",{\"property\":\"og:description\",\"content\":\"回溯题目\"}],[\"meta\",{\"property\":\"og:type\",\"content\":\"article\"}],[\"meta\",{\"property\":\"og:locale\",\"content\":\"zh-CN\"}],[\"meta\",{\"property\":\"article:tag\",\"content\":\"回溯\"}]]},\"headers\":[],\"readingTime\":{\"minutes\":0.54,\"words\":163},\"filePathRelative\":\"article/algorithm/backtrack/40.md\",\"excerpt\":\"<h4> <a href=\\\"https://leetcode.cn/problems/combination-sum-ii/\\\" target=\\\"_blank\\\" rel=\\\"noopener noreferrer\\\">40. 组合总和 II</a></h4>\\n<p>难度中等1086</p>\\n<p>给定一个候选人编号的集合 <code>candidates</code> 和一个目标数 <code>target</code> ，找出 <code>candidates</code> 中所有可以使数字和为 <code>target</code> 的组合。</p>\\n<p><code>candidates</code> 中的每个数字在每个组合中只能使用 <strong>一次</strong> 。</p>\"}")
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updatePageData) {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ data }) => {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  })
+}

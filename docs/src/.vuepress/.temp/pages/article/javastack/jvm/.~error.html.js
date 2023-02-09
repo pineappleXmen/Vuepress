@@ -1,0 +1,14 @@
+export const data = JSON.parse("{\"key\":\"v-2a34816c\",\"path\":\"/article/javastack/jvm/.~error.html\",\"title\":\"异常处理\",\"lang\":\"zh-CN\",\"frontmatter\":{\"lang\":\"zh-CN\",\"title\":\"异常处理\",\"description\":\"错误处理\",\"category\":[\"Java\"],\"tag\":[\"JVM\"],\"head\":[[\"meta\",{\"property\":\"og:url\",\"content\":\"https://vuepress-theme-hope-docs-demo.netlify.app/article/javastack/jvm/.~error.html\"}],[\"meta\",{\"property\":\"og:site_name\",\"content\":\"Pineapple Coding\"}],[\"meta\",{\"property\":\"og:title\",\"content\":\"异常处理\"}],[\"meta\",{\"property\":\"og:description\",\"content\":\"错误处理\"}],[\"meta\",{\"property\":\"og:type\",\"content\":\"article\"}],[\"meta\",{\"property\":\"og:locale\",\"content\":\"zh-CN\"}],[\"meta\",{\"property\":\"article:tag\",\"content\":\"JVM\"}]]},\"headers\":[{\"level\":2,\"title\":\"Java中的异常处理\",\"slug\":\"java中的异常处理\",\"link\":\"#java中的异常处理\",\"children\":[]}],\"readingTime\":{\"minutes\":9.37,\"words\":2812},\"filePathRelative\":\"article/javastack/jvm/.~error.md\",\"excerpt\":\"<h2> Java中的异常处理</h2>\\n<p>ava 的异常分为 Exception 和 Error 两种，而 Exception 又分为 RuntimeException 和其他类型。RuntimeException 和 Error 属于非检查异常。其他的 Exception 皆属于检查异常，在触发时需要显式捕获，或者在方法头用 throws 关键字声明。Java 字节码中，每个方法对应一个异常表。当程序触发异常时，Java 虚拟机将查找异常表，并依此决定需要将控制流转移至哪个异常处理器之中。Java 代码中的 catch 代码块和 finally 代码块都会生成异常表条目。Java 7 引入了 Suppressed 异常、try-with-resources，以及多异常捕获。后两者属于语法糖，能够极大地精简我们的代码。</p>\"}")
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updatePageData) {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ data }) => {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  })
+}

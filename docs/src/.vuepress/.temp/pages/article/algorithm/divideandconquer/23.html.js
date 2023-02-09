@@ -1,0 +1,14 @@
+export const data = JSON.parse("{\"key\":\"v-0301ee10\",\"path\":\"/article/algorithm/divideandconquer/23.html\",\"title\":\"23. 合并K个升序链表\",\"lang\":\"zh-CN\",\"frontmatter\":{\"lang\":\"zh-CN\",\"title\":\"23. 合并K个升序链表\",\"description\":\"数据结构\",\"category\":[\"算法\"],\"tag\":[\"数据结构\"],\"head\":[[\"meta\",{\"property\":\"og:url\",\"content\":\"https://vuepress-theme-hope-docs-demo.netlify.app/article/algorithm/divideandconquer/23.html\"}],[\"meta\",{\"property\":\"og:site_name\",\"content\":\"Pineapple Coding\"}],[\"meta\",{\"property\":\"og:title\",\"content\":\"23. 合并K个升序链表\"}],[\"meta\",{\"property\":\"og:description\",\"content\":\"数据结构\"}],[\"meta\",{\"property\":\"og:type\",\"content\":\"article\"}],[\"meta\",{\"property\":\"og:locale\",\"content\":\"zh-CN\"}],[\"meta\",{\"property\":\"article:tag\",\"content\":\"数据结构\"}]]},\"headers\":[],\"readingTime\":{\"minutes\":1.12,\"words\":336},\"filePathRelative\":\"article/algorithm/divideandconquer/23.md\",\"excerpt\":\"<h4> <a href=\\\"https://leetcode.cn/problems/merge-k-sorted-lists/\\\" target=\\\"_blank\\\" rel=\\\"noopener noreferrer\\\">23. 合并K个升序链表</a></h4>\\n<p>难度困难2168</p>\\n<p>给你一个链表数组，每个链表都已经按升序排列。</p>\\n<p>请你将所有链表合并到一个升序链表中，返回合并后的链表。</p>\\n<p><strong>示例 1：</strong></p>\\n<div class=\\\"language-text line-numbers-mode\\\" data-ext=\\\"text\\\"><pre class=\\\"language-text\\\"><code>输入：lists = [[1,4,5],[1,3,4],[2,6]]\\n输出：[1,1,2,3,4,4,5,6]\\n解释：链表数组如下：\\n[\\n  1-&gt;4-&gt;5,\\n  1-&gt;3-&gt;4,\\n  2-&gt;6\\n]\\n将它们合并到一个有序链表中得到。\\n1-&gt;1-&gt;2-&gt;3-&gt;4-&gt;4-&gt;5-&gt;6\\n</code></pre><div class=\\\"line-numbers\\\" aria-hidden=\\\"true\\\"><div class=\\\"line-number\\\"></div><div class=\\\"line-number\\\"></div><div class=\\\"line-number\\\"></div><div class=\\\"line-number\\\"></div><div class=\\\"line-number\\\"></div><div class=\\\"line-number\\\"></div><div class=\\\"line-number\\\"></div><div class=\\\"line-number\\\"></div><div class=\\\"line-number\\\"></div><div class=\\\"line-number\\\"></div></div></div>\"}")
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updatePageData) {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ data }) => {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  })
+}

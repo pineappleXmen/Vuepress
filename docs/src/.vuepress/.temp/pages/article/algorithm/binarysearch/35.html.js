@@ -1,0 +1,14 @@
+export const data = JSON.parse("{\"key\":\"v-dd1f2aba\",\"path\":\"/article/algorithm/binarysearch/35.html\",\"title\":\"35. 搜索插入位置\",\"lang\":\"zh-CN\",\"frontmatter\":{\"lang\":\"zh-CN\",\"title\":\"35. 搜索插入位置\",\"description\":\"二分法题目\",\"category\":[\"算法\"],\"tag\":[\"二分法\"],\"head\":[[\"meta\",{\"property\":\"og:url\",\"content\":\"https://vuepress-theme-hope-docs-demo.netlify.app/article/algorithm/binarysearch/35.html\"}],[\"meta\",{\"property\":\"og:site_name\",\"content\":\"Pineapple Coding\"}],[\"meta\",{\"property\":\"og:title\",\"content\":\"35. 搜索插入位置\"}],[\"meta\",{\"property\":\"og:description\",\"content\":\"二分法题目\"}],[\"meta\",{\"property\":\"og:type\",\"content\":\"article\"}],[\"meta\",{\"property\":\"og:locale\",\"content\":\"zh-CN\"}],[\"meta\",{\"property\":\"article:tag\",\"content\":\"二分法\"}]]},\"headers\":[],\"readingTime\":{\"minutes\":0.98,\"words\":293},\"filePathRelative\":\"article/algorithm/binarysearch/35.md\",\"excerpt\":\"<h4> <a href=\\\"https://leetcode.cn/problems/search-insert-position/\\\" target=\\\"_blank\\\" rel=\\\"noopener noreferrer\\\">35. 搜索插入位置</a></h4>\\n<blockquote>\\n<p>给定一个排序数组和一个目标值，在数组中找到目标值，并返回其索引。如果目标值不存在于数组中，返回它将会被按顺序插入的位置。</p>\\n<p>请必须使用时间复杂度为 O(log n) 的算法。</p>\\n<p>示例 1:</p>\\n<p>输入: nums = [1,3,5,6], target = 5\\n输出: 2\\n示例 2:</p>\\n<p>输入: nums = [1,3,5,6], target = 2\\n输出: 1\\n示例 3:</p>\\n<p>输入: nums = [1,3,5,6], target = 7\\n输出: 4</p>\\n</blockquote>\"}")
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updatePageData) {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ data }) => {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  })
+}

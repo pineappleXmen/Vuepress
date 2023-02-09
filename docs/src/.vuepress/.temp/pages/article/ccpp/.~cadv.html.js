@@ -1,0 +1,14 @@
+export const data = JSON.parse("{\"key\":\"v-b3243fc8\",\"path\":\"/article/ccpp/.~cadv.html\",\"title\":\"C语言进阶\",\"lang\":\"zh-CN\",\"frontmatter\":{\"lang\":\"zh-CN\",\"title\":\"C语言进阶\",\"description\":\"内联汇编 内联汇编 内联汇编（Inline assembly）是部分编译器支持的一种功能。可以将汇编语言内嵌在高级语言源代码中。 编译器GCC(GNU Compiler for Linux) 提供C语言的汇编功能。 GCC内联汇编文档\",\"category\":[\"C\"],\"tag\":[\"C\"],\"head\":[[\"meta\",{\"property\":\"og:url\",\"content\":\"https://vuepress-theme-hope-docs-demo.netlify.app/article/ccpp/.~cadv.html\"}],[\"meta\",{\"property\":\"og:site_name\",\"content\":\"Pineapple Coding\"}],[\"meta\",{\"property\":\"og:title\",\"content\":\"C语言进阶\"}],[\"meta\",{\"property\":\"og:description\",\"content\":\"内联汇编 内联汇编 内联汇编（Inline assembly）是部分编译器支持的一种功能。可以将汇编语言内嵌在高级语言源代码中。 编译器GCC(GNU Compiler for Linux) 提供C语言的汇编功能。 GCC内联汇编文档\"}],[\"meta\",{\"property\":\"og:type\",\"content\":\"article\"}],[\"meta\",{\"property\":\"og:locale\",\"content\":\"zh-CN\"}],[\"meta\",{\"property\":\"article:tag\",\"content\":\"C\"}]]},\"headers\":[{\"level\":2,\"title\":\"内联汇编\",\"slug\":\"内联汇编\",\"link\":\"#内联汇编\",\"children\":[{\"level\":3,\"title\":\"基本内联汇编\",\"slug\":\"基本内联汇编\",\"link\":\"#基本内联汇编\",\"children\":[]},{\"level\":3,\"title\":\"扩展内联汇编\",\"slug\":\"扩展内联汇编\",\"link\":\"#扩展内联汇编\",\"children\":[]},{\"level\":3,\"title\":\"操作数格式(operand format)\",\"slug\":\"操作数格式-operand-format\",\"link\":\"#操作数格式-operand-format\",\"children\":[]},{\"level\":3,\"title\":\"破坏清单 （Clobber List）\",\"slug\":\"破坏清单-clobber-list\",\"link\":\"#破坏清单-clobber-list\",\"children\":[]},{\"level\":3,\"title\":\"lock 关键字\",\"slug\":\"lock-关键字\",\"link\":\"#lock-关键字\",\"children\":[]}]}],\"readingTime\":{\"minutes\":2.04,\"words\":612},\"filePathRelative\":\"article/ccpp/.~cadv.md\",\"excerpt\":\"<h2> <strong>内联汇编</strong></h2>\\n<div class=\\\"custom-container tip\\\">\\n<p class=\\\"custom-container-title\\\">内联汇编</p>\\n<p><strong>内联汇编</strong>（<strong>Inline assembly</strong>）是<strong>部分编译器</strong>支持的一种功能。可以将<strong>汇编语言</strong>内嵌在高级语言源代码中。</p>\\n<p>编译器GCC(GNU Compiler for Linux)  提供C语言的汇编功能。</p>\\n<p><a href=\\\"http://www.ibiblio.org/gferg/ldp/GCC-Inline-Assembly-HOWTO.html#s4\\\" target=\\\"_blank\\\" rel=\\\"noopener noreferrer\\\">GCC内联汇编文档</a></p>\\n</div>\",\"autoDesc\":true}")
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updatePageData) {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ data }) => {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  })
+}

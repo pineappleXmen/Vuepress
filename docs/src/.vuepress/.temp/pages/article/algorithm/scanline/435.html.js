@@ -1,0 +1,14 @@
+export const data = JSON.parse("{\"key\":\"v-3da5cc8f\",\"path\":\"/article/algorithm/scanline/435.html\",\"title\":\"435. 无重叠区间\",\"lang\":\"zh-CN\",\"frontmatter\":{\"lang\":\"zh-CN\",\"title\":\"435. 无重叠区间\",\"description\":\"扫描线\",\"category\":[\"算法\"],\"tag\":[\"扫描线\"],\"head\":[[\"meta\",{\"property\":\"og:url\",\"content\":\"https://vuepress-theme-hope-docs-demo.netlify.app/article/algorithm/scanline/435.html\"}],[\"meta\",{\"property\":\"og:site_name\",\"content\":\"Pineapple Coding\"}],[\"meta\",{\"property\":\"og:title\",\"content\":\"435. 无重叠区间\"}],[\"meta\",{\"property\":\"og:description\",\"content\":\"扫描线\"}],[\"meta\",{\"property\":\"og:type\",\"content\":\"article\"}],[\"meta\",{\"property\":\"og:locale\",\"content\":\"zh-CN\"}],[\"meta\",{\"property\":\"article:tag\",\"content\":\"扫描线\"}]]},\"headers\":[],\"readingTime\":{\"minutes\":0.73,\"words\":219},\"filePathRelative\":\"article/algorithm/scanline/435.md\",\"excerpt\":\"<h4> <a href=\\\"https://leetcode.cn/problems/non-overlapping-intervals/\\\" target=\\\"_blank\\\" rel=\\\"noopener noreferrer\\\">435. 无重叠区间</a></h4>\\n<p>难度中等  770</p>\\n<p>给定一个区间的集合 <code>intervals</code> ，其中 <code>intervals[i] = [starti, endi]</code> 。返回 <em>需要移除区间的最小数量，使剩余区间互不重叠</em> 。</p>\\n<p><strong>示例 1:</strong></p>\"}")
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updatePageData) {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ data }) => {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  })
+}

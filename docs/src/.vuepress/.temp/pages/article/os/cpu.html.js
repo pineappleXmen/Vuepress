@@ -1,0 +1,14 @@
+export const data = JSON.parse("{\"key\":\"v-5ed0166c\",\"path\":\"/article/os/cpu.html\",\"title\":\"CPU\",\"lang\":\"zh-CN\",\"frontmatter\":{\"lang\":\"zh-CN\",\"title\":\"CPU\",\"description\":\"Linux操作系统\",\"category\":[\"Linux\"],\"tag\":[\"OS\"],\"head\":[[\"meta\",{\"property\":\"og:url\",\"content\":\"https://vuepress-theme-hope-docs-demo.netlify.app/article/os/cpu.html\"}],[\"meta\",{\"property\":\"og:site_name\",\"content\":\"Pineapple Coding\"}],[\"meta\",{\"property\":\"og:title\",\"content\":\"CPU\"}],[\"meta\",{\"property\":\"og:description\",\"content\":\"Linux操作系统\"}],[\"meta\",{\"property\":\"og:type\",\"content\":\"article\"}],[\"meta\",{\"property\":\"og:locale\",\"content\":\"zh-CN\"}],[\"meta\",{\"property\":\"article:tag\",\"content\":\"OS\"}]]},\"headers\":[{\"level\":2,\"title\":\"1.CPU\",\"slug\":\"_1-cpu\",\"link\":\"#_1-cpu\",\"children\":[{\"level\":3,\"title\":\"运算逻辑单元（Arithmetic Logic Unit）\",\"slug\":\"运算逻辑单元-arithmetic-logic-unit\",\"link\":\"#运算逻辑单元-arithmetic-logic-unit\",\"children\":[]},{\"level\":3,\"title\":\"寄存器（Registers）\",\"slug\":\"寄存器-registers\",\"link\":\"#寄存器-registers\",\"children\":[]},{\"level\":3,\"title\":\"控制单元\",\"slug\":\"控制单元\",\"link\":\"#控制单元\",\"children\":[]},{\"level\":3,\"title\":\"CPU运行流程\",\"slug\":\"cpu运行流程\",\"link\":\"#cpu运行流程\",\"children\":[]},{\"level\":3,\"title\":\"输入、输出设备\",\"slug\":\"输入、输出设备\",\"link\":\"#输入、输出设备\",\"children\":[]},{\"level\":3,\"title\":\"线路位宽与 CPU 位宽\",\"slug\":\"线路位宽与-cpu-位宽\",\"link\":\"#线路位宽与-cpu-位宽\",\"children\":[]},{\"level\":3,\"title\":\"CPU缓存一致性\",\"slug\":\"cpu缓存一致性\",\"link\":\"#cpu缓存一致性\",\"children\":[]},{\"level\":3,\"title\":\"软中断\",\"slug\":\"软中断\",\"link\":\"#软中断\",\"children\":[]},{\"level\":3,\"title\":\"中断是什么？\",\"slug\":\"中断是什么\",\"link\":\"#中断是什么\",\"children\":[]},{\"level\":3,\"title\":\"什么是软中断？\",\"slug\":\"什么是软中断\",\"link\":\"#什么是软中断\",\"children\":[]},{\"level\":3,\"title\":\"系统里有哪些软中断？\",\"slug\":\"系统里有哪些软中断\",\"link\":\"#系统里有哪些软中断\",\"children\":[]},{\"level\":3,\"title\":\"如何定位软中断 CPU 使用率过高的问题？\",\"slug\":\"如何定位软中断-cpu-使用率过高的问题\",\"link\":\"#如何定位软中断-cpu-使用率过高的问题\",\"children\":[]}]}],\"readingTime\":{\"minutes\":44.05,\"words\":13216},\"filePathRelative\":\"article/os/cpu.md\",\"excerpt\":\"<h2> 1.CPU</h2>\\n<p><strong>CPU</strong>(Central Processing Unit) 也就是中央处理器，是计算机系统的运算和控制核心，是信息处理、程序运行的最终执行单元。</p>\\n<p>CPU主要由<strong>运算逻辑单元、控制单元、寄存器、以及I/O单元</strong>组成。接下来我们尝试细致了解一下各个单元的作用。</p>\\n<h3> <strong>运算逻辑单元（Arithmetic Logic Unit）</strong></h3>\\n<p>顾名思义，ALU主要处理运算和逻辑计算。第一个封装在单个芯片内的完整ALU是英特尔74181，在1970年发布。</p>\"}")
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updatePageData) {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ data }) => {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  })
+}

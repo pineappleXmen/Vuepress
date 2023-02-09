@@ -1,0 +1,14 @@
+export const data = JSON.parse("{\"key\":\"v-f093ec54\",\"path\":\"/article/os/thread.html\",\"title\":\"线程\",\"lang\":\"zh-CN\",\"frontmatter\":{\"lang\":\"zh-CN\",\"title\":\"线程\",\"description\":\"Linux操作系统\",\"category\":[\"Linux\"],\"tag\":[\"OS\",\"线程\"],\"head\":[[\"meta\",{\"property\":\"og:url\",\"content\":\"https://vuepress-theme-hope-docs-demo.netlify.app/article/os/thread.html\"}],[\"meta\",{\"property\":\"og:site_name\",\"content\":\"Pineapple Coding\"}],[\"meta\",{\"property\":\"og:title\",\"content\":\"线程\"}],[\"meta\",{\"property\":\"og:description\",\"content\":\"Linux操作系统\"}],[\"meta\",{\"property\":\"og:type\",\"content\":\"article\"}],[\"meta\",{\"property\":\"og:locale\",\"content\":\"zh-CN\"}],[\"meta\",{\"property\":\"article:tag\",\"content\":\"OS\"}],[\"meta\",{\"property\":\"article:tag\",\"content\":\"线程\"}]]},\"headers\":[{\"level\":2,\"title\":\"1.1 线程基础知识\",\"slug\":\"_1-1-线程基础知识\",\"link\":\"#_1-1-线程基础知识\",\"children\":[]},{\"level\":2,\"title\":\"1.2 线程的创建\",\"slug\":\"_1-2-线程的创建\",\"link\":\"#_1-2-线程的创建\",\"children\":[]},{\"level\":2,\"title\":\"1.3 线程的终止\",\"slug\":\"_1-3-线程的终止\",\"link\":\"#_1-3-线程的终止\",\"children\":[]},{\"level\":2,\"title\":\"1.4 线程 vs 进程\",\"slug\":\"_1-4-线程-vs-进程\",\"link\":\"#_1-4-线程-vs-进程\",\"children\":[]},{\"level\":2,\"title\":\"1.5 线程的栈\",\"slug\":\"_1-5-线程的栈\",\"link\":\"#_1-5-线程的栈\",\"children\":[]},{\"level\":2,\"title\":\"1.6 线程和进程控制\",\"slug\":\"_1-6-线程和进程控制\",\"link\":\"#_1-6-线程和进程控制\",\"children\":[]}],\"readingTime\":{\"minutes\":11.6,\"words\":3481},\"filePathRelative\":\"article/os/thread.md\",\"excerpt\":\"<h2> 1.1 线程基础知识</h2>\\n<p><strong>与进程一样，线程是一种允许应用程序同时执行多个任务的机制。一个进程可以包含多个线程，如图 29-1 所示。所有这些线程都独立执行同一个程序，它们都共享同一个全局内存，包括初始化数据、未初始化数据和堆段。</strong> （传统的 UNIX 进程只是多线程进程的一种特殊情况；它是一个只包含一个线程的进程。）</p>\\n<figure><figcaption>image-20220901103543811</figcaption></figure>\\n<p>在某些应用程序中，线程提供了优于进程的优势。考虑通过创建多个进程来实现并发的传统 UNIX 方法。这方面的一个示例是网络服务器设计，其中父进程接受来自客户端的传入连接，<strong>然后使用 fork() 创建一个单独的子进程来处理与每个客户端的通信（请参阅第 60.3 节）。这样的设计可以同时为多个客户提供服务。虽然这种方法适用于许多场景，但在某些应用程序中确实存在以下限制：</strong></p>\"}")
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updatePageData) {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ data }) => {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  })
+}

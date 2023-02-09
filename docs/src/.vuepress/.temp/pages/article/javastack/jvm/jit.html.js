@@ -1,0 +1,14 @@
+export const data = JSON.parse("{\"key\":\"v-018100cd\",\"path\":\"/article/javastack/jvm/jit.html\",\"title\":\"即时编译篇\",\"lang\":\"zh-CN\",\"frontmatter\":{\"lang\":\"zh-CN\",\"title\":\"即时编译篇\",\"description\":\"JVM\",\"category\":[\"Java\"],\"tag\":[\"JVM\"],\"head\":[[\"meta\",{\"property\":\"og:url\",\"content\":\"https://vuepress-theme-hope-docs-demo.netlify.app/article/javastack/jvm/jit.html\"}],[\"meta\",{\"property\":\"og:site_name\",\"content\":\"Pineapple Coding\"}],[\"meta\",{\"property\":\"og:title\",\"content\":\"即时编译篇\"}],[\"meta\",{\"property\":\"og:description\",\"content\":\"JVM\"}],[\"meta\",{\"property\":\"og:type\",\"content\":\"article\"}],[\"meta\",{\"property\":\"og:locale\",\"content\":\"zh-CN\"}],[\"meta\",{\"property\":\"article:tag\",\"content\":\"JVM\"}]]},\"headers\":[],\"readingTime\":{\"minutes\":18.77,\"words\":5632},\"filePathRelative\":\"article/javastack/jvm/jit.md\",\"excerpt\":\"<p>HotSpot 虚拟机包含多个即时编译器 C1、C2 和 Graal。</p>\\n<p>其中，Graal 是一个实验性质的即时编译器，可以通过参数 -XX:+UnlockExperimentalVMOptions -XX:+UseJVMCICompiler 启用，并且替换 C2。</p>\\n<p>在 Java 7 以前，我们需要根据程序的特性选择对应的即时编译器。对于执行时间较短的，或者对启动性能有要求的程序，我们采用编译效率较快的 C1，对应参数 -client。对于执行时间较长的，或者对峰值性能有要求的程序，我们采用生成代码执行效率较快的 C2，对应参数 -server。Java 7 引入了分层编译（对应参数 -XX:+TieredCompilation）的概念，综合了 C1 的启动性能优势和 C2 的峰值性能优势。分层编译将 Java 虚拟机的执行状态分为了五个层次。为了方便阐述，我用“C1 代码”来指代由 C1 生成的机器码，“C2 代码”来指代由 C2 生成的机器码。五个层级分别是：解释执行；执行不带 profiling 的 C1 代码；执行仅带方法调用次数以及循环回边执行次数 profiling 的 C1 代码；执行带所有 profiling 的 C1 代码；执行 C2 代码。</p>\"}")
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updatePageData) {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ data }) => {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  })
+}

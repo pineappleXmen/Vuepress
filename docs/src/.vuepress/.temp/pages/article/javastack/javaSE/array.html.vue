@@ -1,0 +1,107 @@
+<template><div><h2 id="数组" tabindex="-1"><a class="header-anchor" href="#数组" aria-hidden="true">#</a> 数组</h2>
+<p>指的是一种容器，可以同来存储同种数据类型的多个值。</p>
+<p>但是数组容器在存储数据的时候，需要结合隐式转换考虑。</p>
+<p>容器的类，和存储的数据类型保持一致。</p>
+<div class="language-java line-numbers-mode" data-ext="java"><pre v-pre class="language-java"><code>数据类型 <span class="token punctuation">[</span><span class="token punctuation">]</span> 数组名
+<span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> arr<span class="token punctuation">;</span> <span class="token comment">//JAVA Syntax</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div></div></div><div class="language-java line-numbers-mode" data-ext="java"><pre v-pre class="language-java"><code>数据类型  数组名 <span class="token punctuation">[</span><span class="token punctuation">]</span>
+<span class="token keyword">int</span> arr<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div></div></div><p>平时习惯使用第一种方式。</p>
+<h2 id="数组静态初始化" tabindex="-1"><a class="header-anchor" href="#数组静态初始化" aria-hidden="true">#</a> 数组静态初始化</h2>
+<div class="language-java line-numbers-mode" data-ext="java"><pre v-pre class="language-java"><code>数据类型<span class="token punctuation">[</span><span class="token punctuation">]</span> 数组名 <span class="token operator">=</span> <span class="token keyword">new</span> 数据类型<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">{</span>元素<span class="token number">1</span>，元素<span class="token number">2</span>，元素<span class="token number">3</span>，元素<span class="token number">4.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> array <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">double</span><span class="token punctuation">[</span><span class="token punctuation">]</span> array <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">1.1</span><span class="token punctuation">,</span><span class="token number">1.2</span><span class="token punctuation">,</span><span class="token number">1.3</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><ul>
+<li>等号前后的数据类型必须保持一致。</li>
+<li>数组一旦创建之后，长度不能发生变化。</li>
+</ul>
+<h2 id="地址" tabindex="-1"><a class="header-anchor" href="#地址" aria-hidden="true">#</a> 地址</h2>
+<div class="language-java line-numbers-mode" data-ext="java"><pre v-pre class="language-java"><code><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> arr <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//[I@6d03e736</span>
+
+<span class="token keyword">double</span><span class="token punctuation">[</span><span class="token punctuation">]</span> arr2 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">1.1</span><span class="token punctuation">,</span><span class="token number">2.2</span><span class="token punctuation">,</span><span class="token number">3.3</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>arr2<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//[D@568db2f2</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>打印数组的时候，实际出现的是数组的地址值。</p>
+<p>数组的地址值：就表示数组在内存中的位置。</p>
+<p>以[I@6d03e736为例：</p>
+<p>[ ：表示现在打印的是一个数组。</p>
+<p>I：表示现在打印的数组是int类型的。</p>
+<p>@：仅仅是一个间隔符号而已。</p>
+<p>6d03e736：就是数组在内存中真正的地址值。（十六进制的）</p>
+<p>但是，我们习惯性会把[I@6d03e736这个整体称之为数组的地址值。</p>
+<h2 id="访问数组元素" tabindex="-1"><a class="header-anchor" href="#访问数组元素" aria-hidden="true">#</a> 访问数组元素</h2>
+<div class="language-text line-numbers-mode" data-ext="text"><pre v-pre class="language-text"><code>数组名[索引];
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><div class="language-java line-numbers-mode" data-ext="java"><pre v-pre class="language-java"><code><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ArrDemo2</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+       <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> arr <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+       <span class="token comment">//需求1：获取arr数组中，3索引上的值</span>
+        <span class="token keyword">int</span> number <span class="token operator">=</span> arr<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>number<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>arr<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+       <span class="token comment">//需求2：将arr数组中，3索引上的值修改为10</span>
+            arr<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"修改之后为:"</span> <span class="token operator">+</span> arr<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="索引" tabindex="-1"><a class="header-anchor" href="#索引" aria-hidden="true">#</a> 索引</h2>
+<p>​	也叫角标、下标</p>
+<p>​	就是数组容器中每一个小格子对应的编号。</p>
+<ul>
+<li>
+<p>索引一定是从0开始的。</p>
+</li>
+<li>
+<p>连续不间断。</p>
+</li>
+<li>
+<p>逐个+1增长。</p>
+</li>
+</ul>
+<h2 id="数组的遍历" tabindex="-1"><a class="header-anchor" href="#数组的遍历" aria-hidden="true">#</a> 数组的遍历</h2>
+<p>遍历：就是把数组里面所有的内容一个一个全部取出来。</p>
+<p>数组的长度：数组名.length;</p>
+<p>通用代码：</p>
+<div class="language-java line-numbers-mode" data-ext="java"><pre v-pre class="language-java"><code><span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> arr<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token comment">//在循环的过程中，i依次表示数组中的每一个索引</span>
+    <span class="token function">sout</span><span class="token punctuation">(</span>arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//就可以把数组里面的每一个元素都获取出来，并打印在控制台上了。</span>
+<span class="token punctuation">}</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="数组的动态初始化" tabindex="-1"><a class="header-anchor" href="#数组的动态初始化" aria-hidden="true">#</a> 数组的动态初始化</h2>
+<p>初始化时只指定数组长度，不指定具体存入的元素。</p>
+<div class="language-text line-numbers-mode" data-ext="text"><pre v-pre class="language-text"><code>数据类型[] 数组名 = new 数据类型[数组的长度];
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><div class="language-java line-numbers-mode" data-ext="java"><pre v-pre class="language-java"><code><span class="token comment">//1.定义一个数组，存3个人的年龄，年龄未知</span>
+<span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> agesArr <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+
+<span class="token comment">//2.定义一个数组，存班级10名学生的考试成绩，考试成绩暂时未知，考完才知道。</span>
+<span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> scoresArr <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="默认初始化值" tabindex="-1"><a class="header-anchor" href="#默认初始化值" aria-hidden="true">#</a> 默认初始化值：</h4>
+<p>整数类型：0</p>
+<p>小数类型：0.0</p>
+<p>布尔类型：false</p>
+<p>字符类型：'\u0000'</p>
+<p>引用类型：null</p>
+<h2 id="数组两种初始化方式的区别" tabindex="-1"><a class="header-anchor" href="#数组两种初始化方式的区别" aria-hidden="true">#</a> 数组两种初始化方式的区别</h2>
+<p>静态初始化：int[] arr = {1,2,3,4,5};</p>
+<p>动态初始化：int[] arr = new int[3];</p>
+<p>静态初始化：手动指定数组的元素，系统会根据元素的个数，计算出数组的长度。</p>
+<p>动态初始化：手动指定数组长度，由系统给出默认初始化值。</p>
+<h2 id="数组常见问题" tabindex="-1"><a class="header-anchor" href="#数组常见问题" aria-hidden="true">#</a> 数组常见问题</h2>
+<p>当访问了数组中不存在的索引，就会引发索引越界异常。</p>
+<p>避免：</p>
+<p>​	针对于任意一个数组，索引的范围：
+最小索引：0
+最大索引：数组的长度 - 1
+​           		    数组名.length - 1</p>
+<div class="language-java line-numbers-mode" data-ext="java"><pre v-pre class="language-java"><code><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ArrDemo6</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+       <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> arr <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+        <span class="token comment">//用索引来访问数组中的元素</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>arr<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>arr<span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//ArrayIndexOutOfBoundsException</span>
+
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></div></template>
+
+

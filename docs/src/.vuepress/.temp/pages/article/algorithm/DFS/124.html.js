@@ -1,0 +1,14 @@
+export const data = JSON.parse("{\"key\":\"v-8aabea54\",\"path\":\"/article/algorithm/DFS/124.html\",\"title\":\"124. 二叉树中的最大路径和\",\"lang\":\"zh-CN\",\"frontmatter\":{\"lang\":\"zh-CN\",\"title\":\"124. 二叉树中的最大路径和\",\"description\":\"DFS\",\"category\":[\"算法\"],\"tag\":[\"DFS\"],\"head\":[[\"meta\",{\"property\":\"og:url\",\"content\":\"https://vuepress-theme-hope-docs-demo.netlify.app/article/algorithm/DFS/124.html\"}],[\"meta\",{\"property\":\"og:site_name\",\"content\":\"Pineapple Coding\"}],[\"meta\",{\"property\":\"og:title\",\"content\":\"124. 二叉树中的最大路径和\"}],[\"meta\",{\"property\":\"og:description\",\"content\":\"DFS\"}],[\"meta\",{\"property\":\"og:type\",\"content\":\"article\"}],[\"meta\",{\"property\":\"og:locale\",\"content\":\"zh-CN\"}],[\"meta\",{\"property\":\"article:tag\",\"content\":\"DFS\"}]]},\"headers\":[],\"readingTime\":{\"minutes\":0.95,\"words\":286},\"filePathRelative\":\"article/algorithm/DFS/124.md\",\"excerpt\":\"<h4> <a href=\\\"https://leetcode.cn/problems/binary-tree-maximum-path-sum/\\\" target=\\\"_blank\\\" rel=\\\"noopener noreferrer\\\">124. 二叉树中的最大路径和</a></h4>\\n<p>难度困难</p>\\n<p><strong>路径</strong> 被定义为一条从树中任意节点出发，沿父节点-子节点连接，达到任意节点的序列。同一个节点在一条路径序列中 <strong>至多出现一次</strong> 。该路径 <strong>至少包含一个</strong> 节点，且不一定经过根节点。</p>\\n<p><strong>路径和</strong> 是路径中各节点值的总和。</p>\"}")
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updatePageData) {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ data }) => {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  })
+}

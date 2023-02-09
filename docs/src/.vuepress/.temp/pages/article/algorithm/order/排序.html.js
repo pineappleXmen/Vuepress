@@ -1,0 +1,14 @@
+export const data = JSON.parse("{\"key\":\"v-4674e404\",\"path\":\"/article/algorithm/order/%E6%8E%92%E5%BA%8F.html\",\"title\":\"排序\",\"lang\":\"zh-CN\",\"frontmatter\":{\"description\":\"排序 排序方法 时间复杂度 是否稳定 冒泡排序 O(N2) 稳定 选择排序 O(N2) 不稳定 插入排序 O(N2) 稳定 归并排序 O(nlogn) 稳定 快速排序 O(nlogn) 不稳定 堆排序 O(nlogn) 不稳定\",\"head\":[[\"meta\",{\"property\":\"og:url\",\"content\":\"https://vuepress-theme-hope-docs-demo.netlify.app/article/algorithm/order/%E6%8E%92%E5%BA%8F.html\"}],[\"meta\",{\"property\":\"og:site_name\",\"content\":\"Pineapple Coding\"}],[\"meta\",{\"property\":\"og:title\",\"content\":\"排序\"}],[\"meta\",{\"property\":\"og:description\",\"content\":\"排序 排序方法 时间复杂度 是否稳定 冒泡排序 O(N2) 稳定 选择排序 O(N2) 不稳定 插入排序 O(N2) 稳定 归并排序 O(nlogn) 稳定 快速排序 O(nlogn) 不稳定 堆排序 O(nlogn) 不稳定\"}],[\"meta\",{\"property\":\"og:type\",\"content\":\"article\"}],[\"meta\",{\"property\":\"og:locale\",\"content\":\"zh-CN\"}]]},\"headers\":[],\"readingTime\":{\"minutes\":2.26,\"words\":679},\"filePathRelative\":\"article/algorithm/order/排序.md\",\"excerpt\":\"<h1> 排序</h1>\\n<table>\\n<thead>\\n<tr>\\n<th>排序方法</th>\\n<th>时间复杂度</th>\\n<th>是否稳定</th>\\n</tr>\\n</thead>\\n<tbody>\\n<tr>\\n<td>冒泡排序</td>\\n<td>O(N2)</td>\\n<td>稳定</td>\\n</tr>\\n<tr>\\n<td>选择排序</td>\\n<td>O(N2)</td>\\n<td>不稳定</td>\\n</tr>\\n<tr>\\n<td>插入排序</td>\\n<td>O(N2)</td>\\n<td>稳定</td>\\n</tr>\\n<tr>\\n<td>归并排序</td>\\n<td>O(nlogn)</td>\\n<td>稳定</td>\\n</tr>\\n<tr>\\n<td>快速排序</td>\\n<td>O(nlogn)</td>\\n<td>不稳定</td>\\n</tr>\\n<tr>\\n<td>堆排序</td>\\n<td>O(nlogn)</td>\\n<td>不稳定</td>\\n</tr>\\n</tbody>\\n</table>\",\"autoDesc\":true}")
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updatePageData) {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ data }) => {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  })
+}

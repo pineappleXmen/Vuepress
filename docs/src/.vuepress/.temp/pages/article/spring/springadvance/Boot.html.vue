@@ -1,0 +1,603 @@
+<template><div><h2 id="boot" tabindex="-1"><a class="header-anchor" href="#boot" aria-hidden="true">#</a> Boot</h2>
+<h3 id="_37-boot-骨架项目" tabindex="-1"><a class="header-anchor" href="#_37-boot-骨架项目" aria-hidden="true">#</a> 37) Boot 骨架项目</h3>
+<p>如果是 linux 环境，用以下命令即可获取 spring boot 的骨架 pom.xml</p>
+<div class="language-bash line-numbers-mode" data-ext="sh"><pre v-pre class="language-bash"><code><span class="token function">curl</span> <span class="token parameter variable">-G</span> https://start.spring.io/pom.xml <span class="token parameter variable">-d</span> <span class="token assign-left variable">dependencies</span><span class="token operator">=</span>web,mysql,mybatis <span class="token parameter variable">-o</span> pom.xml
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><p>也可以使用 Postman 等工具实现</p>
+<p>若想获取更多用法，请参考</p>
+<div class="language-bash line-numbers-mode" data-ext="sh"><pre v-pre class="language-bash"><code><span class="token function">curl</span> https://start.spring.io
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><h3 id="_38-boot-war项目" tabindex="-1"><a class="header-anchor" href="#_38-boot-war项目" aria-hidden="true">#</a> 38) Boot War项目</h3>
+<p>步骤1：创建模块，区别在于打包方式选择 war</p>
+<!-- <img src="img/image-20211021160145072.png" alt="image-20211021160145072" style="zoom: 50%;" /> -->
+<p><img src="/spring/springadvance/image-20211021160145072.png" alt="markdown picture" loading="lazy">
+接下来勾选 Spring Web 支持</p>
+<!-- <img src="img/image-20211021162416525.png" alt="image-20211021162416525" style="zoom:50%;" /> -->
+<figure><img src="/spring/springadvance/image-20211021162416525.png" alt="markdown picture" tabindex="0" loading="lazy"><figcaption>markdown picture</figcaption></figure>
+<p>步骤2：编写控制器</p>
+<div class="language-java line-numbers-mode" data-ext="java"><pre v-pre class="language-java"><code><span class="token annotation punctuation">@Controller</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MyController</span> <span class="token punctuation">{</span>
+
+    <span class="token annotation punctuation">@RequestMapping</span><span class="token punctuation">(</span><span class="token string">"/hello"</span><span class="token punctuation">)</span>
+    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">abc</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"进入了控制器"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token string">"hello"</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>步骤3：编写 jsp 视图，新建 webapp 目录和一个 hello.jsp 文件，注意文件名与控制器方法返回的视图逻辑名一致</p>
+<div class="language-text line-numbers-mode" data-ext="text"><pre v-pre class="language-text"><code>src
+	|- main
+		|- java
+		|- resources
+		|- webapp
+			|- hello.jsp
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>步骤4：配置视图路径，打开 application.properties 文件</p>
+<div class="language-properties line-numbers-mode" data-ext="properties"><pre v-pre class="language-properties"><code><span class="token key attr-name">spring.mvc.view.prefix</span><span class="token punctuation">=</span><span class="token value attr-value">/</span>
+<span class="token key attr-name">spring.mvc.view.suffix</span><span class="token punctuation">=</span><span class="token value attr-value">.jsp</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div></div></div><blockquote>
+<p>将来 prefix + 控制器方法返回值 + suffix 即为视图完整路径</p>
+</blockquote>
+<h4 id="测试" tabindex="-1"><a class="header-anchor" href="#测试" aria-hidden="true">#</a> 测试</h4>
+<p>如果用 mvn 插件 <code v-pre>mvn spring-boot:run</code> 或 main 方法测试</p>
+<ul>
+<li>必须添加如下依赖，因为此时用的还是内嵌 tomcat，而内嵌 tomcat 默认不带 jasper（用来解析 jsp）</li>
+</ul>
+<div class="language-xml line-numbers-mode" data-ext="xml"><pre v-pre class="language-xml"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.apache.tomcat.embed<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>tomcat-embed-jasper<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>scope</span><span class="token punctuation">></span></span>provided<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>scope</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>也可以使用 Idea 配置 tomcat 来测试，此时用的是外置 tomcat</p>
+<ul>
+<li>骨架生成的代码中，多了一个 ServletInitializer，它的作用就是配置外置 Tomcat 使用的，在外置 Tomcat 启动后，去调用它创建和运行 SpringApplication</li>
+</ul>
+<h4 id="启示" tabindex="-1"><a class="header-anchor" href="#启示" aria-hidden="true">#</a> 启示</h4>
+<p>对于 jar 项目，若要支持 jsp，也可以在加入 jasper 依赖的前提下，把 jsp 文件置入 <code v-pre>META-INF/resources</code></p>
+<h3 id="_39-boot-启动过程" tabindex="-1"><a class="header-anchor" href="#_39-boot-启动过程" aria-hidden="true">#</a> 39) Boot 启动过程</h3>
+<p>阶段一：SpringApplication 构造</p>
+<ol>
+<li>记录 BeanDefinition 源</li>
+<li>推断应用类型</li>
+<li>记录 ApplicationContext 初始化器</li>
+<li>记录监听器</li>
+<li>推断主启动类</li>
+</ol>
+<p>阶段二：执行 run 方法</p>
+<ol>
+<li>
+<p>得到 SpringApplicationRunListeners，名字取得不好，实际是事件发布器</p>
+<ul>
+<li>发布 application starting 事件1️⃣</li>
+</ul>
+</li>
+<li>
+<p>封装启动 args</p>
+</li>
+<li>
+<p>准备 Environment 添加命令行参数（*）</p>
+</li>
+<li>
+<p>ConfigurationPropertySources 处理（*）</p>
+<ul>
+<li>发布 application environment 已准备事件2️⃣</li>
+</ul>
+</li>
+<li>
+<p>通过 EnvironmentPostProcessorApplicationListener 进行 env 后处理（*）</p>
+<ul>
+<li>application.properties，由 StandardConfigDataLocationResolver 解析</li>
+<li>spring.application.json</li>
+</ul>
+</li>
+<li>
+<p>绑定 spring.main 到 SpringApplication 对象（*）</p>
+</li>
+<li>
+<p>打印 banner（*）</p>
+</li>
+<li>
+<p>创建容器</p>
+</li>
+<li>
+<p>准备容器</p>
+<ul>
+<li>发布 application context 已初始化事件3️⃣</li>
+</ul>
+</li>
+<li>
+<p>加载 bean 定义</p>
+<ul>
+<li>发布 application prepared 事件4️⃣</li>
+</ul>
+</li>
+<li>
+<p>refresh 容器</p>
+<ul>
+<li>发布 application started 事件5️⃣</li>
+</ul>
+</li>
+<li>
+<p>执行 runner</p>
+<ul>
+<li>
+<p>发布 application ready 事件6️⃣</p>
+</li>
+<li>
+<p>这其中有异常，发布 application failed 事件7️⃣</p>
+</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p>带 * 的有独立的示例</p>
+</blockquote>
+<h4 id="演示-启动过程" tabindex="-1"><a class="header-anchor" href="#演示-启动过程" aria-hidden="true">#</a> 演示 - 启动过程</h4>
+<p><strong>com.itheima.a39.A39_1</strong> 对应 SpringApplication 构造</p>
+<p><strong>com.itheima.a39.A39_2</strong> 对应第1步，并演示 7 个事件</p>
+<p><strong>com.itheima.a39.A39_3</strong> 对应第2、8到12步</p>
+<p><strong>org.springframework.boot.Step3</strong></p>
+<p><strong>org.springframework.boot.Step4</strong></p>
+<p><strong>org.springframework.boot.Step5</strong></p>
+<p><strong>org.springframework.boot.Step6</strong></p>
+<p><strong>org.springframework.boot.Step7</strong></p>
+<h4 id="收获💡" tabindex="-1"><a class="header-anchor" href="#收获💡" aria-hidden="true">#</a> 收获💡</h4>
+<ol>
+<li>SpringApplication 构造方法中所做的操作
+<ul>
+<li>可以有多种源用来加载 bean 定义</li>
+<li>应用类型推断</li>
+<li>添加容器初始化器</li>
+<li>添加监听器</li>
+<li>演示主类推断</li>
+</ul>
+</li>
+<li>如何读取 spring.factories 中的配置</li>
+<li>从配置中获取重要的事件发布器：SpringApplicationRunListeners</li>
+<li>容器的创建、初始化器增强、加载 bean 定义等</li>
+<li>CommandLineRunner、ApplicationRunner 的作用</li>
+<li>环境对象
+<ol>
+<li>命令行 PropertySource</li>
+<li>ConfigurationPropertySources 规范环境键名称</li>
+<li>EnvironmentPostProcessor 后处理增强
+<ul>
+<li>由 EventPublishingRunListener 通过监听事件2️⃣来调用</li>
+</ul>
+</li>
+<li>绑定 spring.main 前缀的 key value 至 SpringApplication</li>
+</ol>
+</li>
+<li>Banner</li>
+</ol>
+<h3 id="_40-tomcat-内嵌容器" tabindex="-1"><a class="header-anchor" href="#_40-tomcat-内嵌容器" aria-hidden="true">#</a> 40) Tomcat 内嵌容器</h3>
+<p>Tomcat 基本结构</p>
+<div class="language-text line-numbers-mode" data-ext="text"><pre v-pre class="language-text"><code>Server
+└───Service
+    ├───Connector (协议, 端口)
+    └───Engine
+        └───Host(虚拟主机 localhost)
+            ├───Context1 (应用1, 可以设置虚拟路径, / 即 url 起始路径; 项目磁盘路径, 即 docBase )
+            │   │   index.html
+            │   └───WEB-INF
+            │       │   web.xml (servlet, filter, listener) 3.0
+            │       ├───classes (servlet, controller, service ...)
+            │       ├───jsp
+            │       └───lib (第三方 jar 包)
+            └───Context2 (应用2)
+                │   index.html
+                └───WEB-INF
+                        web.xml
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="演示1-tomcat-内嵌容器" tabindex="-1"><a class="header-anchor" href="#演示1-tomcat-内嵌容器" aria-hidden="true">#</a> 演示1 - Tomcat 内嵌容器</h4>
+<h5 id="关键代码" tabindex="-1"><a class="header-anchor" href="#关键代码" aria-hidden="true">#</a> 关键代码</h5>
+<div class="language-java line-numbers-mode" data-ext="java"><pre v-pre class="language-java"><code><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">LifecycleException</span><span class="token punctuation">,</span> <span class="token class-name">IOException</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 1.创建 Tomcat 对象</span>
+    <span class="token class-name">Tomcat</span> tomcat <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Tomcat</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    tomcat<span class="token punctuation">.</span><span class="token function">setBaseDir</span><span class="token punctuation">(</span><span class="token string">"tomcat"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 2.创建项目文件夹, 即 docBase 文件夹</span>
+    <span class="token class-name">File</span> docBase <span class="token operator">=</span> <span class="token class-name">Files</span><span class="token punctuation">.</span><span class="token function">createTempDirectory</span><span class="token punctuation">(</span><span class="token string">"boot."</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toFile</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    docBase<span class="token punctuation">.</span><span class="token function">deleteOnExit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 3.创建 Tomcat 项目, 在 Tomcat 中称为 Context</span>
+    <span class="token class-name">Context</span> context <span class="token operator">=</span> tomcat<span class="token punctuation">.</span><span class="token function">addContext</span><span class="token punctuation">(</span><span class="token string">""</span><span class="token punctuation">,</span> docBase<span class="token punctuation">.</span><span class="token function">getAbsolutePath</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 4.编程添加 Servlet</span>
+    context<span class="token punctuation">.</span><span class="token function">addServletContainerInitializer</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">ServletContainerInitializer</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token annotation punctuation">@Override</span>
+        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onStartup</span><span class="token punctuation">(</span><span class="token class-name">Set</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Class</span><span class="token punctuation">&lt;</span><span class="token operator">?</span><span class="token punctuation">></span><span class="token punctuation">></span></span> c<span class="token punctuation">,</span> <span class="token class-name">ServletContext</span> ctx<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">ServletException</span> <span class="token punctuation">{</span>
+            <span class="token class-name">HelloServlet</span> helloServlet <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HelloServlet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            ctx<span class="token punctuation">.</span><span class="token function">addServlet</span><span class="token punctuation">(</span><span class="token string">"aaa"</span><span class="token punctuation">,</span> helloServlet<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">addMapping</span><span class="token punctuation">(</span><span class="token string">"/hello"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token class-name">Collections</span><span class="token punctuation">.</span><span class="token function">emptySet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 5.启动 Tomcat</span>
+    tomcat<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 6.创建连接器, 设置监听端口</span>
+    <span class="token class-name">Connector</span> connector <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Connector</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Http11Nio2Protocol</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    connector<span class="token punctuation">.</span><span class="token function">setPort</span><span class="token punctuation">(</span><span class="token number">8080</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    tomcat<span class="token punctuation">.</span><span class="token function">setConnector</span><span class="token punctuation">(</span>connector<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="演示2-集成-spring-容器" tabindex="-1"><a class="header-anchor" href="#演示2-集成-spring-容器" aria-hidden="true">#</a> 演示2 - 集成 Spring 容器</h4>
+<h5 id="关键代码-1" tabindex="-1"><a class="header-anchor" href="#关键代码-1" aria-hidden="true">#</a> 关键代码</h5>
+<div class="language-java line-numbers-mode" data-ext="java"><pre v-pre class="language-java"><code><span class="token class-name">WebApplicationContext</span> springContext <span class="token operator">=</span> <span class="token function">getApplicationContext</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 4.编程添加 Servlet</span>
+context<span class="token punctuation">.</span><span class="token function">addServletContainerInitializer</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">ServletContainerInitializer</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onStartup</span><span class="token punctuation">(</span><span class="token class-name">Set</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Class</span><span class="token punctuation">&lt;</span><span class="token operator">?</span><span class="token punctuation">></span><span class="token punctuation">></span></span> c<span class="token punctuation">,</span> <span class="token class-name">ServletContext</span> ctx<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">ServletException</span> <span class="token punctuation">{</span>
+        <span class="token comment">// ⬇️通过 ServletRegistrationBean 添加 DispatcherServlet 等</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">ServletRegistrationBean</span> registrationBean <span class="token operator">:</span> 
+             springContext<span class="token punctuation">.</span><span class="token function">getBeansOfType</span><span class="token punctuation">(</span><span class="token class-name">ServletRegistrationBean</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">values</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            registrationBean<span class="token punctuation">.</span><span class="token function">onStartup</span><span class="token punctuation">(</span>ctx<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token class-name">Collections</span><span class="token punctuation">.</span><span class="token function">emptySet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="_41-boot-自动配置" tabindex="-1"><a class="header-anchor" href="#_41-boot-自动配置" aria-hidden="true">#</a> 41) Boot 自动配置</h3>
+<h4 id="aopautoconfiguration" tabindex="-1"><a class="header-anchor" href="#aopautoconfiguration" aria-hidden="true">#</a> AopAutoConfiguration</h4>
+<p>Spring Boot 是利用了自动配置类来简化了 aop 相关配置</p>
+<ul>
+<li>AOP 自动配置类为 <code v-pre>org.springframework.boot.autoconfigure.aop.AopAutoConfiguration</code></li>
+<li>可以通过 <code v-pre>spring.aop.auto=false</code> 禁用 aop 自动配置</li>
+<li>AOP 自动配置的本质是通过 <code v-pre>@EnableAspectJAutoProxy</code> 来开启了自动代理，如果在引导类上自己添加了 <code v-pre>@EnableAspectJAutoProxy</code> 那么以自己添加的为准</li>
+<li><code v-pre>@EnableAspectJAutoProxy</code> 的本质是向容器中添加了 <code v-pre>AnnotationAwareAspectJAutoProxyCreator</code> 这个 bean 后处理器，它能够找到容器中所有切面，并为匹配切点的目标类创建代理，创建代理的工作一般是在 bean 的初始化阶段完成的</li>
+</ul>
+<h4 id="datasourceautoconfiguration" tabindex="-1"><a class="header-anchor" href="#datasourceautoconfiguration" aria-hidden="true">#</a> DataSourceAutoConfiguration</h4>
+<ul>
+<li>对应的自动配置类为：org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration</li>
+<li>它内部采用了条件装配，通过检查容器的 bean，以及类路径下的 class，来决定该 @Bean 是否生效</li>
+</ul>
+<p>简单说明一下，Spring Boot 支持两大类数据源：</p>
+<ul>
+<li>EmbeddedDatabase - 内嵌数据库连接池</li>
+<li>PooledDataSource - 非内嵌数据库连接池</li>
+</ul>
+<p>PooledDataSource 又支持如下数据源</p>
+<ul>
+<li>hikari 提供的 HikariDataSource</li>
+<li>tomcat-jdbc 提供的 DataSource</li>
+<li>dbcp2 提供的 BasicDataSource</li>
+<li>oracle 提供的 PoolDataSourceImpl</li>
+</ul>
+<p>如果知道数据源的实现类类型，即指定了 <code v-pre>spring.datasource.type</code>，理论上可以支持所有数据源，但这样做的一个最大问题是无法订制每种数据源的详细配置（如最大、最小连接数等）</p>
+<h4 id="mybatisautoconfiguration" tabindex="-1"><a class="header-anchor" href="#mybatisautoconfiguration" aria-hidden="true">#</a> MybatisAutoConfiguration</h4>
+<ul>
+<li>MyBatis 自动配置类为 <code v-pre>org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration</code></li>
+<li>它主要配置了两个 bean
+<ul>
+<li>SqlSessionFactory - MyBatis 核心对象，用来创建 SqlSession</li>
+<li>SqlSessionTemplate - SqlSession 的实现，此实现会与当前线程绑定</li>
+<li>用 ImportBeanDefinitionRegistrar 的方式扫描所有标注了 @Mapper 注解的接口</li>
+<li>用 AutoConfigurationPackages 来确定扫描的包</li>
+</ul>
+</li>
+<li>还有一个相关的 bean：MybatisProperties，它会读取配置文件中带 <code v-pre>mybatis.</code> 前缀的配置项进行定制配置</li>
+</ul>
+<p>@MapperScan 注解的作用与 MybatisAutoConfiguration 类似，会注册 MapperScannerConfigurer 有如下区别</p>
+<ul>
+<li>@MapperScan 扫描具体包（当然也可以配置关注哪个注解）</li>
+<li>@MapperScan 如果不指定扫描具体包，则会把引导类范围内，所有接口当做 Mapper 接口</li>
+<li>MybatisAutoConfiguration 关注的是所有标注 @Mapper 注解的接口，会忽略掉非 @Mapper 标注的接口</li>
+</ul>
+<p>这里有同学有疑问，之前介绍的都是将具体类交给 Spring 管理，怎么到了 MyBatis 这儿，接口就可以被管理呢？</p>
+<ul>
+<li>其实并非将接口交给 Spring 管理，而是每个接口会对应一个 MapperFactoryBean，是后者被 Spring 所管理，接口只是作为 MapperFactoryBean 的一个属性来配置</li>
+</ul>
+<h4 id="transactionautoconfiguration" tabindex="-1"><a class="header-anchor" href="#transactionautoconfiguration" aria-hidden="true">#</a> TransactionAutoConfiguration</h4>
+<ul>
+<li>
+<p>事务自动配置类有两个：</p>
+<ul>
+<li><code v-pre>org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration</code></li>
+<li><code v-pre>org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration</code></li>
+</ul>
+</li>
+<li>
+<p>前者配置了 DataSourceTransactionManager 用来执行事务的提交、回滚操作</p>
+</li>
+<li>
+<p>后者功能上对标 @EnableTransactionManagement，包含以下三个 bean</p>
+<ul>
+<li>BeanFactoryTransactionAttributeSourceAdvisor 事务切面类，包含通知和切点</li>
+<li>TransactionInterceptor 事务通知类，由它在目标方法调用前后加入事务操作</li>
+<li>AnnotationTransactionAttributeSource 会解析 @Transactional 及事务属性，也包含了切点功能</li>
+</ul>
+</li>
+<li>
+<p>如果自己配置了 DataSourceTransactionManager 或是在引导类加了 @EnableTransactionManagement，则以自己配置的为准</p>
+</li>
+</ul>
+<h4 id="servletwebserverfactoryautoconfiguration" tabindex="-1"><a class="header-anchor" href="#servletwebserverfactoryautoconfiguration" aria-hidden="true">#</a> ServletWebServerFactoryAutoConfiguration</h4>
+<ul>
+<li>提供 ServletWebServerFactory</li>
+</ul>
+<h4 id="dispatcherservletautoconfiguration" tabindex="-1"><a class="header-anchor" href="#dispatcherservletautoconfiguration" aria-hidden="true">#</a> DispatcherServletAutoConfiguration</h4>
+<ul>
+<li>提供 DispatcherServlet</li>
+<li>提供 DispatcherServletRegistrationBean</li>
+</ul>
+<h4 id="webmvcautoconfiguration" tabindex="-1"><a class="header-anchor" href="#webmvcautoconfiguration" aria-hidden="true">#</a> WebMvcAutoConfiguration</h4>
+<ul>
+<li>配置 DispatcherServlet 的各项组件，提供的 bean 见过的有
+<ul>
+<li>多项 HandlerMapping</li>
+<li>多项 HandlerAdapter</li>
+<li>HandlerExceptionResolver</li>
+</ul>
+</li>
+</ul>
+<h4 id="errormvcautoconfiguration" tabindex="-1"><a class="header-anchor" href="#errormvcautoconfiguration" aria-hidden="true">#</a> ErrorMvcAutoConfiguration</h4>
+<ul>
+<li>提供的 bean 有 BasicErrorController</li>
+</ul>
+<h4 id="multipartautoconfiguration" tabindex="-1"><a class="header-anchor" href="#multipartautoconfiguration" aria-hidden="true">#</a> MultipartAutoConfiguration</h4>
+<ul>
+<li>它提供了 org.springframework.web.multipart.support.StandardServletMultipartResolver</li>
+<li>该 bean 用来解析 multipart/form-data 格式的数据</li>
+</ul>
+<h4 id="httpencodingautoconfiguration" tabindex="-1"><a class="header-anchor" href="#httpencodingautoconfiguration" aria-hidden="true">#</a> HttpEncodingAutoConfiguration</h4>
+<ul>
+<li>POST 请求参数如果有中文，无需特殊设置，这是因为 Spring Boot 已经配置了 org.springframework.boot.web.servlet.filter.OrderedCharacterEncodingFilter</li>
+<li>对应配置 server.servlet.encoding.charset=UTF-8，默认就是 UTF-8</li>
+<li>当然，它只影响非 json 格式的数据</li>
+</ul>
+<h4 id="演示-自动配置类原理" tabindex="-1"><a class="header-anchor" href="#演示-自动配置类原理" aria-hidden="true">#</a> 演示 - 自动配置类原理</h4>
+<h5 id="关键代码-2" tabindex="-1"><a class="header-anchor" href="#关键代码-2" aria-hidden="true">#</a> 关键代码</h5>
+<p>假设已有第三方的两个自动配置类</p>
+<div class="language-java line-numbers-mode" data-ext="java"><pre v-pre class="language-java"><code><span class="token annotation punctuation">@Configuration</span> <span class="token comment">// ⬅️第三方的配置类</span>
+<span class="token keyword">static</span> <span class="token keyword">class</span> <span class="token class-name">AutoConfiguration1</span> <span class="token punctuation">{</span>
+    <span class="token annotation punctuation">@Bean</span>
+    <span class="token keyword">public</span> <span class="token class-name">Bean1</span> <span class="token function">bean1</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Bean1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token annotation punctuation">@Configuration</span> <span class="token comment">// ⬅️第三方的配置类</span>
+<span class="token keyword">static</span> <span class="token keyword">class</span> <span class="token class-name">AutoConfiguration2</span> <span class="token punctuation">{</span>
+    <span class="token annotation punctuation">@Bean</span>
+    <span class="token keyword">public</span> <span class="token class-name">Bean2</span> <span class="token function">bean2</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Bean2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>提供一个配置文件 META-INF/spring.factories，key 为导入器类名，值为多个自动配置类名，用逗号分隔</p>
+<div class="language-properties line-numbers-mode" data-ext="properties"><pre v-pre class="language-properties"><code><span class="token key attr-name">MyImportSelector</span><span class="token punctuation">=</span><span class="token value attr-value">\
+AutoConfiguration1,\
+AutoConfiguration2</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><blockquote>
+<p><em><strong>注意</strong></em></p>
+<ul>
+<li>上述配置文件中 MyImportSelector 与 AutoConfiguration1，AutoConfiguration2 为简洁均省略了包名，自己测试时请将包名根据情况补全</li>
+</ul>
+</blockquote>
+<p>引入自动配置</p>
+<div class="language-java line-numbers-mode" data-ext="java"><pre v-pre class="language-java"><code><span class="token annotation punctuation">@Configuration</span> <span class="token comment">// ⬅️本项目的配置类</span>
+<span class="token annotation punctuation">@Import</span><span class="token punctuation">(</span><span class="token class-name">MyImportSelector</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span>
+<span class="token keyword">static</span> <span class="token keyword">class</span> <span class="token class-name">Config</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
+
+<span class="token keyword">static</span> <span class="token keyword">class</span> <span class="token class-name">MyImportSelector</span> <span class="token keyword">implements</span> <span class="token class-name">DeferredImportSelector</span> <span class="token punctuation">{</span>
+    <span class="token comment">// ⬇️该方法从 META-INF/spring.factories 读取自动配置类名，返回的 String[] 即为要导入的配置类</span>
+    <span class="token keyword">public</span> <span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token function">selectImports</span><span class="token punctuation">(</span><span class="token class-name">AnnotationMetadata</span> importingClassMetadata<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token class-name">SpringFactoriesLoader</span>
+            <span class="token punctuation">.</span><span class="token function">loadFactoryNames</span><span class="token punctuation">(</span><span class="token class-name">MyImportSelector</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toArray</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="收获💡-1" tabindex="-1"><a class="header-anchor" href="#收获💡-1" aria-hidden="true">#</a> 收获💡</h4>
+<ol>
+<li>自动配置类本质上就是一个配置类而已，只是用 META-INF/spring.factories 管理，与应用配置类解耦</li>
+<li>@Enable 打头的注解本质是利用了 @Import</li>
+<li>@Import 配合 DeferredImportSelector 即可实现导入，selectImports 方法的返回值即为要导入的配置类名</li>
+<li>DeferredImportSelector 的导入会在最后执行，为的是让其它配置优先解析</li>
+</ol>
+<h3 id="_42-条件装配底层" tabindex="-1"><a class="header-anchor" href="#_42-条件装配底层" aria-hidden="true">#</a> 42) 条件装配底层</h3>
+<p>条件装配的底层是本质上是 @Conditional 与 Condition，这两个注解。引入自动配置类时，期望满足一定条件才能被 Spring 管理，不满足则不管理，怎么做呢？</p>
+<p>比如条件是【类路径下必须有 dataSource】这个 bean ，怎么做呢？</p>
+<p>首先编写条件判断类，它实现 Condition 接口，编写条件判断逻辑</p>
+<div class="language-java line-numbers-mode" data-ext="java"><pre v-pre class="language-java"><code><span class="token keyword">static</span> <span class="token keyword">class</span> <span class="token class-name">MyCondition1</span> <span class="token keyword">implements</span> <span class="token class-name">Condition</span> <span class="token punctuation">{</span> 
+    <span class="token comment">// ⬇️如果存在 Druid 依赖，条件成立</span>
+    <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">matches</span><span class="token punctuation">(</span><span class="token class-name">ConditionContext</span> context<span class="token punctuation">,</span> <span class="token class-name">AnnotatedTypeMetadata</span> metadata<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token class-name">ClassUtils</span><span class="token punctuation">.</span><span class="token function">isPresent</span><span class="token punctuation">(</span><span class="token string">"com.alibaba.druid.pool.DruidDataSource"</span><span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>其次，在要导入的自动配置类上添加 <code v-pre>@Conditional(MyCondition1.class)</code>，将来此类被导入时就会做条件检查</p>
+<div class="language-java line-numbers-mode" data-ext="java"><pre v-pre class="language-java"><code><span class="token annotation punctuation">@Configuration</span> <span class="token comment">// 第三方的配置类</span>
+<span class="token annotation punctuation">@Conditional</span><span class="token punctuation">(</span><span class="token class-name">MyCondition1</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span> <span class="token comment">// ⬅️加入条件</span>
+<span class="token keyword">static</span> <span class="token keyword">class</span> <span class="token class-name">AutoConfiguration1</span> <span class="token punctuation">{</span>
+    <span class="token annotation punctuation">@Bean</span>
+    <span class="token keyword">public</span> <span class="token class-name">Bean1</span> <span class="token function">bean1</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Bean1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>分别测试加入和去除 druid 依赖，观察 bean1 是否存在于容器</p>
+<div class="language-xml line-numbers-mode" data-ext="xml"><pre v-pre class="language-xml"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>com.alibaba<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>druid<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>1.1.17<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="收获💡-2" tabindex="-1"><a class="header-anchor" href="#收获💡-2" aria-hidden="true">#</a> 收获💡</h4>
+<ol>
+<li>学习一种特殊的 if - else</li>
+</ol>
+<h2 id="其它" tabindex="-1"><a class="header-anchor" href="#其它" aria-hidden="true">#</a> 其它</h2>
+<h3 id="_43-factorybean" tabindex="-1"><a class="header-anchor" href="#_43-factorybean" aria-hidden="true">#</a> 43) FactoryBean</h3>
+<h4 id="演示-factorybean" tabindex="-1"><a class="header-anchor" href="#演示-factorybean" aria-hidden="true">#</a> 演示 - FactoryBean</h4>
+<h5 id="代码参考" tabindex="-1"><a class="header-anchor" href="#代码参考" aria-hidden="true">#</a> 代码参考</h5>
+<p><strong>com.itheima.a43</strong> 包</p>
+<h4 id="收获💡-3" tabindex="-1"><a class="header-anchor" href="#收获💡-3" aria-hidden="true">#</a> 收获💡</h4>
+<ol>
+<li>它的作用是用制造创建过程较为复杂的产品, 如 SqlSessionFactory, 但 @Bean 已具备等价功能</li>
+<li>使用上较为古怪, 一不留神就会用错
+<ol>
+<li>被 FactoryBean 创建的产品
+<ul>
+<li>会认为创建、依赖注入、Aware 接口回调、前初始化这些都是 FactoryBean 的职责, 这些流程都不会走</li>
+<li>唯有后初始化的流程会走, 也就是产品可以被代理增强</li>
+<li>单例的产品不会存储于 BeanFactory 的 singletonObjects 成员中, 而是另一个 factoryBeanObjectCache 成员中</li>
+</ul>
+</li>
+<li>按名字去获取时, 拿到的是产品对象, 名字前面加 &amp; 获取的是工厂对象</li>
+</ol>
+</li>
+</ol>
+<h3 id="_44-indexed-原理" tabindex="-1"><a class="header-anchor" href="#_44-indexed-原理" aria-hidden="true">#</a> 44) @Indexed 原理</h3>
+<p>真实项目中，只需要加入以下依赖即可</p>
+<div class="language-xml line-numbers-mode" data-ext="xml"><pre v-pre class="language-xml"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-context-indexer<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>optional</span><span class="token punctuation">></span></span>true<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>optional</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="演示-indexed" tabindex="-1"><a class="header-anchor" href="#演示-indexed" aria-hidden="true">#</a> 演示 - @Indexed</h4>
+<h5 id="代码参考-1" tabindex="-1"><a class="header-anchor" href="#代码参考-1" aria-hidden="true">#</a> 代码参考</h5>
+<p><strong>com.itheima.a44</strong> 包</p>
+<h4 id="收获💡-4" tabindex="-1"><a class="header-anchor" href="#收获💡-4" aria-hidden="true">#</a> 收获💡</h4>
+<ol>
+<li>在编译时就根据 @Indexed 生成 META-INF/spring.components 文件</li>
+<li>扫描时
+<ul>
+<li>如果发现 META-INF/spring.components 存在, 以它为准加载 bean definition</li>
+<li>否则, 会遍历包下所有 class 资源 (包括 jar 内的)</li>
+</ul>
+</li>
+<li>解决的问题，在编译期就找到 @Component 组件，节省运行期间扫描 @Component 的时间</li>
+</ol>
+<h3 id="_45-代理进一步理解" tabindex="-1"><a class="header-anchor" href="#_45-代理进一步理解" aria-hidden="true">#</a> 45) 代理进一步理解</h3>
+<h4 id="演示-代理" tabindex="-1"><a class="header-anchor" href="#演示-代理" aria-hidden="true">#</a> 演示 - 代理</h4>
+<h5 id="代码参考-2" tabindex="-1"><a class="header-anchor" href="#代码参考-2" aria-hidden="true">#</a> 代码参考</h5>
+<p><strong>com.itheima.a45</strong> 包</p>
+<h4 id="收获💡-5" tabindex="-1"><a class="header-anchor" href="#收获💡-5" aria-hidden="true">#</a> 收获💡</h4>
+<ol>
+<li>
+<p>spring 代理的设计特点</p>
+<ul>
+<li>
+<p>依赖注入和初始化影响的是原始对象</p>
+<ul>
+<li>因此 cglib 不能用 MethodProxy.invokeSuper()</li>
+</ul>
+</li>
+<li>
+<p>代理与目标是两个对象，二者成员变量并不共用数据</p>
+</li>
+</ul>
+</li>
+<li>
+<p>static 方法、final 方法、private 方法均无法增强</p>
+<ul>
+<li>进一步理解代理增强基于方法重写</li>
+</ul>
+</li>
+</ol>
+<h3 id="_46-value-装配底层" tabindex="-1"><a class="header-anchor" href="#_46-value-装配底层" aria-hidden="true">#</a> 46) @Value 装配底层</h3>
+<h4 id="按类型装配的步骤" tabindex="-1"><a class="header-anchor" href="#按类型装配的步骤" aria-hidden="true">#</a> 按类型装配的步骤</h4>
+<ol>
+<li>查看需要的类型是否为 Optional，是，则进行封装（非延迟），否则向下走</li>
+<li>查看需要的类型是否为 ObjectFactory 或 ObjectProvider，是，则进行封装（延迟），否则向下走</li>
+<li>查看需要的类型（成员或参数）上是否用 @Lazy 修饰，是，则返回代理，否则向下走</li>
+<li>解析 @Value 的值
+<ol>
+<li>如果需要的值是字符串，先解析 ${ }，再解析 #</li>
+<li>不是字符串，需要用 TypeConverter 转换</li>
+</ol>
+</li>
+<li>看需要的类型是否为 Stream、Array、Collection、Map，是，则按集合处理，否则向下走</li>
+<li>在 BeanFactory 的 resolvableDependencies 中找有没有类型合适的对象注入，没有向下走</li>
+<li>在 BeanFactory 及父工厂中找类型匹配的 bean 进行筛选，筛选时会考虑 @Qualifier 及泛型</li>
+<li>结果个数为 0 抛出 NoSuchBeanDefinitionException 异常</li>
+<li>如果结果 &gt; 1，再根据 @Primary 进行筛选</li>
+<li>如果结果仍 &gt; 1，再根据成员名或变量名进行筛选</li>
+<li>结果仍 &gt; 1，抛出 NoUniqueBeanDefinitionException 异常</li>
+</ol>
+<h4 id="演示-value-装配过程" tabindex="-1"><a class="header-anchor" href="#演示-value-装配过程" aria-hidden="true">#</a> 演示 - @Value 装配过程</h4>
+<h5 id="代码参考-3" tabindex="-1"><a class="header-anchor" href="#代码参考-3" aria-hidden="true">#</a> 代码参考</h5>
+<p><strong>com.itheima.a46</strong> 包</p>
+<h4 id="收获💡-6" tabindex="-1"><a class="header-anchor" href="#收获💡-6" aria-hidden="true">#</a> 收获💡</h4>
+<ol>
+<li>ContextAnnotationAutowireCandidateResolver 作用之一，获取 @Value 的值</li>
+<li>了解 ${ } 对应的解析器</li>
+<li>了解 #{ } 对应的解析器</li>
+<li>TypeConvert 的一项体现</li>
+</ol>
+<h3 id="_47-autowired-装配底层" tabindex="-1"><a class="header-anchor" href="#_47-autowired-装配底层" aria-hidden="true">#</a> 47) @Autowired 装配底层</h3>
+<h4 id="演示-autowired-装配过程" tabindex="-1"><a class="header-anchor" href="#演示-autowired-装配过程" aria-hidden="true">#</a> 演示 - @Autowired 装配过程</h4>
+<h5 id="代码参考-4" tabindex="-1"><a class="header-anchor" href="#代码参考-4" aria-hidden="true">#</a> 代码参考</h5>
+<p><strong>com.itheima.a47</strong> 包</p>
+<h4 id="收获💡-7" tabindex="-1"><a class="header-anchor" href="#收获💡-7" aria-hidden="true">#</a> 收获💡</h4>
+<ol>
+<li>@Autowired 本质上是根据成员变量或方法参数的类型进行装配</li>
+<li>如果待装配类型是 Optional，需要根据 Optional 泛型找到 bean，再封装为 Optional 对象装配</li>
+<li>如果待装配的类型是 ObjectFactory，需要根据 ObjectFactory 泛型创建 ObjectFactory 对象装配
+<ul>
+<li>此方法可以延迟 bean 的获取</li>
+</ul>
+</li>
+<li>如果待装配的成员变量或方法参数上用 @Lazy 标注，会创建代理对象装配
+<ul>
+<li>此方法可以延迟真实 bean 的获取</li>
+<li>被装配的代理不作为 bean</li>
+</ul>
+</li>
+<li>如果待装配类型是数组，需要获取数组元素类型，根据此类型找到多个 bean 进行装配</li>
+<li>如果待装配类型是 Collection 或其子接口，需要获取 Collection 泛型，根据此类型找到多个 bean</li>
+<li>如果待装配类型是 ApplicationContext 等特殊类型
+<ul>
+<li>会在 BeanFactory 的 resolvableDependencies 成员按类型查找装配</li>
+<li>resolvableDependencies 是 map 集合，key 是特殊类型，value 是其对应对象</li>
+<li>不能直接根据 key 进行查找，而是用 isAssignableFrom 逐一尝试右边类型是否可以被赋值给左边的 key 类型</li>
+</ul>
+</li>
+<li>如果待装配类型有泛型参数
+<ul>
+<li>需要利用 ContextAnnotationAutowireCandidateResolver 按泛型参数类型筛选</li>
+</ul>
+</li>
+<li>如果待装配类型有 @Qualifier
+<ul>
+<li>需要利用 ContextAnnotationAutowireCandidateResolver 按注解提供的 bean 名称筛选</li>
+</ul>
+</li>
+<li>有 @Primary 标注的 @Component 或 @Bean 的处理</li>
+<li>与成员变量名或方法参数名同名 bean 的处理</li>
+</ol>
+<h3 id="_48-事件监听器" tabindex="-1"><a class="header-anchor" href="#_48-事件监听器" aria-hidden="true">#</a> 48) 事件监听器</h3>
+<h4 id="演示-事件监听器" tabindex="-1"><a class="header-anchor" href="#演示-事件监听器" aria-hidden="true">#</a> 演示 - 事件监听器</h4>
+<h5 id="代码参考-5" tabindex="-1"><a class="header-anchor" href="#代码参考-5" aria-hidden="true">#</a> 代码参考</h5>
+<p><strong>com.itheima.a48</strong> 包</p>
+<h4 id="收获💡-8" tabindex="-1"><a class="header-anchor" href="#收获💡-8" aria-hidden="true">#</a> 收获💡</h4>
+<p>事件监听器的两种方式</p>
+<ol>
+<li>实现 ApplicationListener 接口
+<ul>
+<li>根据接口泛型确定事件类型</li>
+</ul>
+</li>
+<li>@EventListener 标注监听方法
+<ul>
+<li>根据监听器方法参数确定事件类型</li>
+<li>解析时机：在 SmartInitializingSingleton（所有单例初始化完成后），解析每个单例 bean</li>
+</ul>
+</li>
+</ol>
+<h3 id="_49-事件发布器" tabindex="-1"><a class="header-anchor" href="#_49-事件发布器" aria-hidden="true">#</a> 49) 事件发布器</h3>
+<h4 id="演示-事件发布器" tabindex="-1"><a class="header-anchor" href="#演示-事件发布器" aria-hidden="true">#</a> 演示 - 事件发布器</h4>
+<h5 id="代码参考-6" tabindex="-1"><a class="header-anchor" href="#代码参考-6" aria-hidden="true">#</a> 代码参考</h5>
+<p><strong>com.itheima.a49</strong> 包</p>
+<h4 id="收获💡-9" tabindex="-1"><a class="header-anchor" href="#收获💡-9" aria-hidden="true">#</a> 收获💡</h4>
+<p>事件发布器模拟实现</p>
+<ol>
+<li>addApplicationListenerBean 负责收集容器中的监听器
+<ul>
+<li>监听器会统一转换为 GenericApplicationListener 对象，以支持判断事件类型</li>
+</ul>
+</li>
+<li>multicastEvent 遍历监听器集合，发布事件
+<ul>
+<li>发布前先通过 GenericApplicationListener.supportsEventType 判断支持该事件类型才发事件</li>
+<li>可以利用线程池进行异步发事件优化</li>
+</ul>
+</li>
+<li>如果发送的事件对象不是 ApplicationEvent 类型，Spring 会把它包装为 PayloadApplicationEvent 并用泛型技术解析事件对象的原始类型
+<ul>
+<li>视频中未讲解</li>
+</ul>
+</li>
+</ol>
+</div></template>
+
+

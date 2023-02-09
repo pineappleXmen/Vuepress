@@ -1,0 +1,14 @@
+export const data = JSON.parse("{\"key\":\"v-0ac2e4ec\",\"path\":\"/article/algorithm/backtrack/491.html\",\"title\":\"491. 递增子序列\",\"lang\":\"zh-CN\",\"frontmatter\":{\"Lang\":\"zh-CN\",\"title\":\"491. 递增子序列\",\"description\":\"回溯题目\",\"category\":[\"算法\"],\"tag\":[\"回溯\"],\"head\":[[\"meta\",{\"property\":\"og:url\",\"content\":\"https://vuepress-theme-hope-docs-demo.netlify.app/article/algorithm/backtrack/491.html\"}],[\"meta\",{\"property\":\"og:site_name\",\"content\":\"Pineapple Coding\"}],[\"meta\",{\"property\":\"og:title\",\"content\":\"491. 递增子序列\"}],[\"meta\",{\"property\":\"og:description\",\"content\":\"回溯题目\"}],[\"meta\",{\"property\":\"og:type\",\"content\":\"article\"}],[\"meta\",{\"property\":\"og:locale\",\"content\":\"zh-CN\"}],[\"meta\",{\"property\":\"article:tag\",\"content\":\"回溯\"}]]},\"headers\":[],\"readingTime\":{\"minutes\":0.81,\"words\":244},\"filePathRelative\":\"article/algorithm/backtrack/491.md\",\"excerpt\":\"<h4> <a href=\\\"https://leetcode.cn/problems/increasing-subsequences/\\\" target=\\\"_blank\\\" rel=\\\"noopener noreferrer\\\">491. 递增子序列</a></h4>\\n<p>难度中等508</p>\\n<p>给你一个整数数组 <code>nums</code> ，找出并返回所有该数组中不同的递增子序列，递增子序列中 <strong>至少有两个元素</strong> 。你可以按 <strong>任意顺序</strong> 返回答案。</p>\\n<p>数组中可能含有重复元素，如出现两个整数相等，也可以视作递增序列的一种特殊情况。</p>\"}")
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updatePageData) {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ data }) => {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  })
+}

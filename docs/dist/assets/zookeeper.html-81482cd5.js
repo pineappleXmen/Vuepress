@@ -1,0 +1,1 @@
+import{_ as o,V as t,W as r,$ as s,D as n}from"./framework-3845b112.js";const c={};function a(_,l){const e=n("PDF");return t(),r("div",null,[s(e,{url:"/distrubutedsystem/papers/zookeeper.pdf",toolbar:!1,height:800})])}const f=o(c,[["render",a],["__file","zookeeper.html.vue"]]);export{f as default};

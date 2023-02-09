@@ -1,0 +1,118 @@
+<template><div><h1 id="synchronized" tabindex="-1"><a class="header-anchor" href="#synchronized" aria-hidden="true">#</a> synchronized</h1>
+<p><strong>Java对象头 monitor</strong></p>
+<p>普通对象数据结构</p>
+<table>
+<thead>
+<tr>
+<th>Object header</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MarkWord（32bits）</td>
+<td>class word（32bits）</td>
+</tr>
+</tbody>
+</table>
+<p>有Object Header 其中有32bit（32bit JVM）为MarkWord （标记位）</p>
+<table>
+<thead>
+<tr>
+<th>State</th>
+<th>MarkWord（32bit）</th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Normal</td>
+<td><em><strong>Hashcode</strong></em>  25bit                  标识该对象的类名的hash</td>
+<td><em><strong>age</strong></em>   4bit 垃圾回收代</td>
+<td><em><strong>biased_lock</strong></em> 1bit  偏向锁标识**（0）**无偏向</td>
+<td><em><strong>状态位</strong></em>  2bit（01）</td>
+</tr>
+<tr>
+<td>Biased</td>
+<td>**thread **（23bit）标识偏向的线程+<em><strong>epoch</strong></em>（2bit）</td>
+<td><strong>age</strong>   4bit</td>
+<td><strong>（1）</strong>（表示有偏向）</td>
+<td>（01）</td>
+</tr>
+<tr>
+<td>Lightweight_locked</td>
+<td>ptr_to_lock_record（30bit）</td>
+<td></td>
+<td></td>
+<td>（00）</td>
+</tr>
+<tr>
+<td>Heavyweight_locked</td>
+<td>ptr_to_heavyweight_monitor (30bit)</td>
+<td></td>
+<td></td>
+<td>（10）</td>
+</tr>
+<tr>
+<td>Marked for GC</td>
+<td></td>
+<td></td>
+<td></td>
+<td>(11)</td>
+</tr>
+</tbody>
+</table>
+<h4 id="轻量级锁" tabindex="-1"><a class="header-anchor" href="#轻量级锁" aria-hidden="true">#</a> 轻量级锁</h4>
+<p>虽然有多个线程访问，但时间错开，无竞争，此时为轻量级锁</p>
+<figure><img src="\javastack\juc\image-20220829145057997.png" alt="image-20220829145057997" tabindex="0" loading="lazy"><figcaption>image-20220829145057997</figcaption></figure>
+<p>每个线程都有一个lock record记录当前线程使用的锁</p>
+<p>存储对象的markword</p>
+<figure><img src="\javastack\juc\image-20220829145457034.png" alt="image-20220829145457034" tabindex="0" loading="lazy"><figcaption>image-20220829145457034</figcaption></figure>
+<figure><img src="\javastack\juc\image-20220829145530240.png" alt="image-20220829145530240" tabindex="0" loading="lazy"><figcaption>image-20220829145530240</figcaption></figure>
+<figure><img src="\javastack\juc\image-20220829145618021.png" alt="image-20220829145618021" tabindex="0" loading="lazy"><figcaption>image-20220829145618021</figcaption></figure>
+<figure><img src="\javastack\juc\image-20220829145701598.png" alt="image-20220829145701598" tabindex="0" loading="lazy"><figcaption>image-20220829145701598</figcaption></figure>
+<figure><img src="\javastack\juc\image-20220829145726092.png" alt="image-20220829145726092" tabindex="0" loading="lazy"><figcaption>image-20220829145726092</figcaption></figure>
+<h4 id="重量级锁" tabindex="-1"><a class="header-anchor" href="#重量级锁" aria-hidden="true">#</a> 重量级锁</h4>
+<figure><img src="\javastack\juc\image-20220829145844269.png" alt="image-20220829145844269" tabindex="0" loading="lazy"><figcaption>image-20220829145844269</figcaption></figure>
+<figure><img src="\javastack\juc\image-20220829150240389.png" alt="image-20220829150240389" tabindex="0" loading="lazy"><figcaption>image-20220829150240389</figcaption></figure>
+<h4 id="偏向锁" tabindex="-1"><a class="header-anchor" href="#偏向锁" aria-hidden="true">#</a> 偏向锁</h4>
+<p>轻量级锁在没有竞争时（就自己这个线程），每次重入仍然需要执行CAS操作。
+Java6中引入了偏向锁来做进一步优化：只有第一次使用CAS将线程D设置到对象的Mark Word头，之后
+发现这个线程D是自己的就表示没有竞争，不用重新CAS。以后只要不发生竞争，这个对象就归该线程所
+有</p>
+<h4 id="monitor数据结构" tabindex="-1"><a class="header-anchor" href="#monitor数据结构" aria-hidden="true">#</a> <strong>monitor数据结构</strong></h4>
+<figure><img src="\javastack\juc\image-20220829142715657.png" alt="image-20220829142715657" tabindex="0" loading="lazy"><figcaption>image-20220829142715657</figcaption></figure>
+<ul>
+<li>执行synchronized时monitor会将当前线程设置为owner</li>
+<li>如果此时有其他线程来申请锁，则进入entrylist的blocked队列中</li>
+<li>执行完后通知entrylist来竞争锁 竞争是非公平的</li>
+</ul>
+<p>Synchronized锁由于需要切换上下文，也就是内核态和用户态 对性能消耗比较大 所以引入轻量级锁等优化</p>
+<p>由低到高为：无锁→偏向锁→轻量级锁→重量级锁 锁只能由低级到高级</p>
+<p>无竞争 单线程 无锁</p>
+<p>无竞争 多线程 偏向锁（实际并没有上锁/第一次存储线程信息后，下一次发现还是他，就继续给）</p>
+<p>有些许竞争 多线程 轻量级锁</p>
+<p>大量竞争 重量级锁</p>
+<p>每个Java对象都可以关联一个Monitor对象。如果用Synchronized给对象上锁（heavyweight）</p>
+<h2 id="wait-notify" tabindex="-1"><a class="header-anchor" href="#wait-notify" aria-hidden="true">#</a> wait/notify</h2>
+<figure><img src="\javastack\juc\image-20220829151243652.png" alt="image-20220829151243652" tabindex="0" loading="lazy"><figcaption>image-20220829151243652</figcaption></figure>
+<h4 id="wait-vs-sleep" tabindex="-1"><a class="header-anchor" href="#wait-vs-sleep" aria-hidden="true">#</a> <strong>wait vs sleep</strong></h4>
+<ul>
+<li>
+<p>sleep是thread方法 wait是object方法</p>
+</li>
+<li>
+<p>sleep不需要和synchronized配合使用 wait需要</p>
+</li>
+<li>
+<p>sleep在睡眠不会释放锁 wait会</p>
+</li>
+</ul>
+<h2 id="park-unpark" tabindex="-1"><a class="header-anchor" href="#park-unpark" aria-hidden="true">#</a> park &amp; unpark</h2>
+<p>LockSupport方法</p>
+<figure><img src="\javastack\juc\image-20220829151914461.png" alt="image-20220829151914461" tabindex="0" loading="lazy"><figcaption>image-20220829151914461</figcaption></figure>
+</div></template>
+
+

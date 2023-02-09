@@ -1,0 +1,14 @@
+export const data = JSON.parse("{\"key\":\"v-61867a6b\",\"path\":\"/article/algorithm/linkedlist/19.html\",\"title\":\"19. 删除链表的倒数第 N 个结点\",\"lang\":\"zh-CN\",\"frontmatter\":{\"lang\":\"zh-CN\",\"title\":\"19. 删除链表的倒数第 N 个结点\",\"description\":\"数据结构\",\"category\":[\"算法\"],\"tag\":[\"数据结构\"],\"head\":[[\"meta\",{\"property\":\"og:url\",\"content\":\"https://vuepress-theme-hope-docs-demo.netlify.app/article/algorithm/linkedlist/19.html\"}],[\"meta\",{\"property\":\"og:site_name\",\"content\":\"Pineapple Coding\"}],[\"meta\",{\"property\":\"og:title\",\"content\":\"19. 删除链表的倒数第 N 个结点\"}],[\"meta\",{\"property\":\"og:description\",\"content\":\"数据结构\"}],[\"meta\",{\"property\":\"og:type\",\"content\":\"article\"}],[\"meta\",{\"property\":\"og:locale\",\"content\":\"zh-CN\"}],[\"meta\",{\"property\":\"article:tag\",\"content\":\"数据结构\"}]]},\"headers\":[],\"readingTime\":{\"minutes\":0.7,\"words\":211},\"filePathRelative\":\"article/algorithm/linkedlist/19.md\",\"excerpt\":\"<h4> <a href=\\\"https://leetcode.cn/problems/remove-nth-node-from-end-of-list/\\\" target=\\\"_blank\\\" rel=\\\"noopener noreferrer\\\">19. 删除链表的倒数第 N 个结点</a></h4>\\n<p>难度中等2212</p>\\n<p>给你一个链表，删除链表的倒数第 <code>n</code> 个结点，并且返回链表的头结点。</p>\\n<p><strong>示例 1：</strong></p>\\n<figure><img src=\\\"https://assets.leetcode.com/uploads/2020/10/03/remove_ex1.jpg\\\" alt=\\\"img\\\" tabindex=\\\"0\\\" loading=\\\"lazy\\\"><figcaption>img</figcaption></figure>\"}")
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updatePageData) {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ data }) => {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  })
+}

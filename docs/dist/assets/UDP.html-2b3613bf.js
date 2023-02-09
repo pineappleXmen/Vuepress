@@ -1,0 +1,1 @@
+import{_ as t,V as a,W as c,Y as e,Z as r}from"./framework-3845b112.js";const s={},_=e("h1",{id:"_1-http字段",tabindex:"-1"},[e("a",{class:"header-anchor",href:"#_1-http字段","aria-hidden":"true"},"#"),r(" 1.HTTP字段")],-1),o=[_];function n(d,h){return a(),c("div",null,o)}const l=t(s,[["render",n],["__file","UDP.html.vue"]]);export{l as default};

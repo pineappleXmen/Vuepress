@@ -1,0 +1,1 @@
+import{_ as e,V as t,W as c,Y as s}from"./framework-3845b112.js";const _={},o=s("p",null,"栈是一种元素先入后出的数据结构",-1),n=[o];function a(r,l){return t(),c("div",null,n)}const f=e(_,[["render",a],["__file","stack.html.vue"]]);export{f as default};

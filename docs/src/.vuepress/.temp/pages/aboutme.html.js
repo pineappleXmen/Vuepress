@@ -1,0 +1,14 @@
+export const data = JSON.parse("{\"key\":\"v-03de6b8d\",\"path\":\"/aboutme.html\",\"title\":\"关于我\",\"lang\":\"zh-CN\",\"frontmatter\":{\"home\":true,\"layout\":\"BlogHome\",\"icon\":\"home\",\"title\":\"关于我\",\"heroImage\":\"/pineapple.png\",\"bgImage\":\"/1.png\",\"heroText\":\"Pineapple’s Blog\",\"heroFullScreen\":true,\"tagline\":\"So long as men can breathe or eyes can see, So long lives this\",\"projects\":[{\"icon\":\"project\",\"name\":\"GakkiRPC\",\"desc\":\"一个后端RPC项目\",\"link\":\"https://github.com/pineappleXmen/gakkiRPC\"}],\"footer\":\"Pineapple's Book\",\"description\":\"\",\"head\":[[\"meta\",{\"property\":\"og:url\",\"content\":\"https://vuepress-theme-hope-docs-demo.netlify.app/aboutme.html\"}],[\"meta\",{\"property\":\"og:site_name\",\"content\":\"Pineapple Coding\"}],[\"meta\",{\"property\":\"og:title\",\"content\":\"关于我\"}],[\"meta\",{\"property\":\"og:type\",\"content\":\"website\"}],[\"meta\",{\"property\":\"og:locale\",\"content\":\"zh-CN\"}]]},\"headers\":[],\"readingTime\":{\"minutes\":0.74,\"words\":221},\"filePathRelative\":\"aboutme.md\",\"excerpt\":\"<!-- 这是一个博客主页的案例。\\n\\n要使用此布局，你应该在页面前端设置 `layout: Blog` 和 `home: true`。\\n\\n相关配置文档请见 [博客主页](https://vuepress-theme-hope.github.io/v2/zh/guide/blog/home/)。 -->\\n\",\"autoDesc\":true}")
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updatePageData) {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ data }) => {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  })
+}

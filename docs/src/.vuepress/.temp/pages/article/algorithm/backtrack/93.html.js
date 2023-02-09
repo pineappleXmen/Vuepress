@@ -1,0 +1,14 @@
+export const data = JSON.parse("{\"key\":\"v-611eaee2\",\"path\":\"/article/algorithm/backtrack/93.html\",\"title\":\"93. 复原 IP 地址\",\"lang\":\"zh-CN\",\"frontmatter\":{\"Lang\":\"zh-CN\",\"title\":\"93. 复原 IP 地址\",\"description\":\"回溯题目\",\"category\":[\"算法\"],\"tag\":[\"回溯\"],\"head\":[[\"meta\",{\"property\":\"og:url\",\"content\":\"https://vuepress-theme-hope-docs-demo.netlify.app/article/algorithm/backtrack/93.html\"}],[\"meta\",{\"property\":\"og:site_name\",\"content\":\"Pineapple Coding\"}],[\"meta\",{\"property\":\"og:title\",\"content\":\"93. 复原 IP 地址\"}],[\"meta\",{\"property\":\"og:description\",\"content\":\"回溯题目\"}],[\"meta\",{\"property\":\"og:type\",\"content\":\"article\"}],[\"meta\",{\"property\":\"og:locale\",\"content\":\"zh-CN\"}],[\"meta\",{\"property\":\"article:tag\",\"content\":\"回溯\"}]]},\"headers\":[],\"readingTime\":{\"minutes\":1.39,\"words\":416},\"filePathRelative\":\"article/algorithm/backtrack/93.md\",\"excerpt\":\"<h4> <a href=\\\"https://leetcode.cn/problems/restore-ip-addresses/\\\" target=\\\"_blank\\\" rel=\\\"noopener noreferrer\\\">93. 复原 IP 地址</a></h4>\\n<p>难度中等1015</p>\\n<p><strong>有效 IP 地址</strong> 正好由四个整数（每个整数位于 <code>0</code> 到 <code>255</code> 之间组成，且不能含有前导 <code>0</code>），整数之间用 <code>'.'</code> 分隔。</p>\\n<ul>\\n<li>例如：<code>\\\"0.1.2.201\\\"</code> 和<code> \\\"192.168.1.1\\\"</code> 是 <strong>有效</strong> IP 地址，但是 <code>\\\"0.011.255.245\\\"</code>、<code>\\\"192.168.1.312\\\"</code> 和 <code>\\\"192.168@1.1\\\"</code> 是 <strong>无效</strong> IP 地址。</li>\\n</ul>\"}")
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updatePageData) {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ data }) => {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  })
+}

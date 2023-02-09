@@ -1,0 +1,338 @@
+<template><div><h2 id="_1-java语言特点" tabindex="-1"><a class="header-anchor" href="#_1-java语言特点" aria-hidden="true">#</a> 1.Java语言特点</h2>
+<ol>
+<li>简单易学；</li>
+<li>面向对象（封装，继承，多态）；</li>
+<li>平台无关性（ Java 虚拟机实现平台无关性）；</li>
+<li>支持多线程（ C++ 语言没有内置的多线程机制，因此必须调用操作系统的多线程功能来进行多线程程序设计，而 Java 语言却提供了多线程支持）；</li>
+<li>可靠性；</li>
+<li>安全性；</li>
+<li>支持网络编程并且很方便（ Java 语言诞生本身就是为简化网络编程设计的，因此 Java 语言不仅支持网络编程而且很方便）；</li>
+<li>编译与解释并存；</li>
+</ol>
+<h2 id="_2-java基础数据类型" tabindex="-1"><a class="header-anchor" href="#_2-java基础数据类型" aria-hidden="true">#</a> 2.Java基础数据类型</h2>
+<p>Java 中有 8 种基本数据类型，分别为：</p>
+<ul>
+<li>6 种数字类型：
+<ul>
+<li>4 种整数型：<code v-pre>byte</code>、<code v-pre>short</code>、<code v-pre>int</code>、<code v-pre>long</code></li>
+<li>2 种浮点型：<code v-pre>float</code>、<code v-pre>double</code></li>
+</ul>
+</li>
+<li>1 种字符类型：<code v-pre>char</code></li>
+<li>1 种布尔型：<code v-pre>boolean</code>。</li>
+</ul>
+<p>这 8 种基本数据类型的默认值以及所占空间的大小如下：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">基本类型</th>
+<th style="text-align:left">位数</th>
+<th style="text-align:left">字节</th>
+<th style="text-align:left">默认值</th>
+<th>取值范围</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code v-pre>byte</code></td>
+<td style="text-align:left">8</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">0</td>
+<td>-128 ~ 127</td>
+</tr>
+<tr>
+<td style="text-align:left"><code v-pre>short</code></td>
+<td style="text-align:left">16</td>
+<td style="text-align:left">2</td>
+<td style="text-align:left">0</td>
+<td>-32768 ~ 32767</td>
+</tr>
+<tr>
+<td style="text-align:left"><code v-pre>int</code></td>
+<td style="text-align:left">32</td>
+<td style="text-align:left">4</td>
+<td style="text-align:left">0</td>
+<td>-2147483648 ~ 2147483647</td>
+</tr>
+<tr>
+<td style="text-align:left"><code v-pre>long</code></td>
+<td style="text-align:left">64</td>
+<td style="text-align:left">8</td>
+<td style="text-align:left">0L</td>
+<td>-9223372036854775808 ~ 9223372036854775807</td>
+</tr>
+<tr>
+<td style="text-align:left"><code v-pre>char</code></td>
+<td style="text-align:left">16</td>
+<td style="text-align:left">2</td>
+<td style="text-align:left">'u0000'</td>
+<td>0 ~ 65535</td>
+</tr>
+<tr>
+<td style="text-align:left"><code v-pre>float</code></td>
+<td style="text-align:left">32</td>
+<td style="text-align:left">4</td>
+<td style="text-align:left">0f</td>
+<td>1.4E-45 ~ 3.4028235E38</td>
+</tr>
+<tr>
+<td style="text-align:left"><code v-pre>double</code></td>
+<td style="text-align:left">64</td>
+<td style="text-align:left">8</td>
+<td style="text-align:left">0d</td>
+<td>4.9E-324 ~ 1.7976931348623157E308</td>
+</tr>
+<tr>
+<td style="text-align:left"><code v-pre>boolean</code></td>
+<td style="text-align:left">1</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">false</td>
+<td>true、false</td>
+</tr>
+</tbody>
+</table>
+<p>对于 <code v-pre>boolean</code>，官方文档未明确定义，它依赖于 JVM 厂商的具体实现。逻辑上理解是占用 1 位，但是实际中会考虑计算机高效存储因素。</p>
+<p>另外，Java 的每种基本类型所占存储空间的大小不会像其他大多数语言那样随机器硬件架构的变化而变化。这种所占存储空间大小的不变性是 Java 程序比用其他大多数语言编写的程序更具可移植性的原因之一（《Java 编程思想》2.2 节有提到）。</p>
+<h2 id="_3-基本类型问题" tabindex="-1"><a class="header-anchor" href="#_3-基本类型问题" aria-hidden="true">#</a> 3.基本类型问题</h2>
+<h3 id="_3-1有哪些基本类型" tabindex="-1"><a class="header-anchor" href="#_3-1有哪些基本类型" aria-hidden="true">#</a> 3.1<strong>有哪些基本类型</strong></h3>
+<ul>
+<li>成员变量包装类型不赋值就是 <code v-pre>null</code> ，而基本类型有默认值且不是 <code v-pre>null</code>。</li>
+<li>包装类型可用于泛型，而基本类型不可以。</li>
+<li>基本数据类型的局部变量存放在 Java 虚拟机栈中的局部变量表中，基本数据类型的成员变量（未被 <code v-pre>static</code> 修饰 ）存放在 Java 虚拟机的堆中。包装类型属于对象类型，我们知道几乎所有对象实例都存在于堆中。</li>
+<li>相比于对象类型， 基本数据类型占用的空间非常小。</li>
+</ul>
+<p>ava 基本数据类型的包装类型的大部分都用到了缓存机制来提升性能。</p>
+<p><code v-pre>Byte</code>,<code v-pre>Short</code>,<code v-pre>Integer</code>,<code v-pre>Long</code> 这 4 种包装类默认创建了数值 <strong>[-128，127]</strong> 的相应类型的缓存数据，<code v-pre>Character</code> 创建了数值在 <strong>[0,127]</strong> 范围的缓存数据，<code v-pre>Boolean</code> 直接返回 <code v-pre>True</code> or <code v-pre>False</code>。</p>
+<h3 id="_3-2自动装箱与拆箱了解吗-原理是什么" tabindex="-1"><a class="header-anchor" href="#_3-2自动装箱与拆箱了解吗-原理是什么" aria-hidden="true">#</a> 3.2自动装箱与拆箱了解吗？原理是什么？</h3>
+<p><strong>什么是自动拆装箱？</strong></p>
+<ul>
+<li><strong>装箱</strong>：将基本类型用它们对应的引用类型包装起来；</li>
+<li><strong>拆箱</strong>：将包装类型转换为基本数据类型；</li>
+</ul>
+<p>从字节码中，我们发现装箱其实就是调用了 包装类的<code v-pre>valueOf()</code>方法，拆箱其实就是调用了 <code v-pre>xxxValue()</code>方法。</p>
+<h3 id="_3-3为什么浮点数运算的时候会有精度丢失的风险" tabindex="-1"><a class="header-anchor" href="#_3-3为什么浮点数运算的时候会有精度丢失的风险" aria-hidden="true">#</a> 3.3为什么浮点数运算的时候会有精度丢失的风险？</h3>
+<p>这个和计算机保存浮点数的机制有很大关系。我们知道计算机是二进制的，而且计算机在表示一个数字时，宽度是有限的，无限循环的小数存储在计算机时，只能被截断，所以就会导致小数精度发生损失的情况。这也就是解释了为什么浮点数没有办法用二进制精确表示。</p>
+<p>就比如说十进制下的 0.2 就没办法精确转换成二进制小数：</p>
+<div class="language-java line-numbers-mode" data-ext="java"><pre v-pre class="language-java"><code><span class="token comment">// 0.2 转换为二进制数的过程为，不断乘以 2，直到不存在小数为止，</span>
+<span class="token comment">// 在这个计算过程中，得到的整数部分从上到下排列就是二进制的结果。</span>
+<span class="token number">0.2</span> <span class="token operator">*</span> <span class="token number">2</span> <span class="token operator">=</span> <span class="token number">0.4</span> <span class="token operator">-></span> <span class="token number">0</span>
+<span class="token number">0.4</span> <span class="token operator">*</span> <span class="token number">2</span> <span class="token operator">=</span> <span class="token number">0.8</span> <span class="token operator">-></span> <span class="token number">0</span>
+<span class="token number">0.8</span> <span class="token operator">*</span> <span class="token number">2</span> <span class="token operator">=</span> <span class="token number">1.6</span> <span class="token operator">-></span> <span class="token number">1</span>
+<span class="token number">0.6</span> <span class="token operator">*</span> <span class="token number">2</span> <span class="token operator">=</span> <span class="token number">1.2</span> <span class="token operator">-></span> <span class="token number">1</span>
+<span class="token number">0.2</span> <span class="token operator">*</span> <span class="token number">2</span> <span class="token operator">=</span> <span class="token number">0.4</span> <span class="token operator">-></span> <span class="token number">0</span>（发生循环）
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="_3-4如何解决浮点数运算的精度丢失问题" tabindex="-1"><a class="header-anchor" href="#_3-4如何解决浮点数运算的精度丢失问题" aria-hidden="true">#</a> 3.4如何解决浮点数运算的精度丢失问题？</h3>
+<p><code v-pre>BigDecimal</code> 可以实现对浮点数的运算，不会造成精度丢失。通常情况下，大部分需要浮点数精确运算结果的业务场景（比如涉及到钱的场景）都是通过 <code v-pre>BigDecimal</code> 来做的。</p>
+<h2 id="_4-面向对象" tabindex="-1"><a class="header-anchor" href="#_4-面向对象" aria-hidden="true">#</a> 4.面向对象</h2>
+<h3 id="_4-1面向对象三大特征" tabindex="-1"><a class="header-anchor" href="#_4-1面向对象三大特征" aria-hidden="true">#</a> 4.1面向对象三大特征</h3>
+<h4 id="封装" tabindex="-1"><a class="header-anchor" href="#封装" aria-hidden="true">#</a> 封装</h4>
+<p>封装是指把一个对象的状态信息（也就是属性）隐藏在对象内部，不允许外部对象直接访问对象的内部信息。但是可以提供一些可以被外界访问的方法来操作属性。就好像我们看不到挂在墙上的空调的内部的零件信息（也就是属性），但是可以通过遥控器（方法）来控制空调。如果属性不想被外界访问，我们大可不必提供方法给外界访问。但是如果一个类没有提供给外界访问的方法，那么这个类也没有什么意义了。就好像如果没有空调遥控器，那么我们就无法操控空凋制冷，空调本身就没有意义了（当然现在还有很多其他方法 ，这里只是为了举例子）。</p>
+<h4 id="继承" tabindex="-1"><a class="header-anchor" href="#继承" aria-hidden="true">#</a> 继承</h4>
+<p>不同类型的对象，相互之间经常有一定数量的共同点。例如，小明同学、小红同学、小李同学，都共享学生的特性（班级、学号等）。同时，每一个对象还定义了额外的特性使得他们与众不同。例如小明的数学比较好，小红的性格惹人喜爱；小李的力气比较大。继承是使用已存在的类的定义作为基础建立新类的技术，新类的定义可以增加新的数据或新的功能，也可以用父类的功能，但不能选择性地继承父类。通过使用继承，可以快速地创建新的类，可以提高代码的重用，程序的可维护性，节省大量创建新类的时间 ，提高我们的开发效率。</p>
+<p><strong>关于继承如下 3 点请记住：</strong></p>
+<ol>
+<li>子类拥有父类对象所有的属性和方法（包括私有属性和私有方法），但是父类中的私有属性和方法子类是无法访问，<strong>只是拥有</strong>。</li>
+<li>子类可以拥有自己属性和方法，即子类可以对父类进行扩展。</li>
+<li>子类可以用自己的方式实现父类的方法。（以后介绍）。</li>
+</ol>
+<h4 id="多态" tabindex="-1"><a class="header-anchor" href="#多态" aria-hidden="true">#</a> 多态</h4>
+<p>多态，顾名思义，表示一个对象具有多种的状态，具体表现为父类的引用指向子类的实例。</p>
+<p><strong>多态的特点:</strong></p>
+<ul>
+<li>对象类型和引用类型之间具有继承（类）/实现（接口）的关系；</li>
+<li>引用类型变量发出的方法调用的到底是哪个类中的方法，必须在程序运行期间才能确定；</li>
+<li>多态不能调用“只在子类存在但在父类不存在”的方法；</li>
+<li>如果子类重写了父类的方法，真正执行的是子类覆盖的方法，如果子类没有覆盖父类的方法，执行的是父类的方法。</li>
+</ul>
+<h3 id="_4-2-接口和抽象类区别" tabindex="-1"><a class="header-anchor" href="#_4-2-接口和抽象类区别" aria-hidden="true">#</a> 4.2 接口和抽象类区别</h3>
+<p><strong>共同点</strong> ：</p>
+<ul>
+<li>都不能被实例化。</li>
+<li>都可以包含抽象方法。</li>
+<li>都可以有默认实现的方法（Java 8 可以用 <code v-pre>default</code> 关键字在接口中定义默认方法）。</li>
+</ul>
+<p><strong>区别</strong> ：</p>
+<ul>
+<li>接口主要用于对类的行为进行约束，你实现了某个接口就具有了对应的行为。抽象类主要用于代码复用，强调的是所属关系。</li>
+<li>一个类只能继承一个类，但是可以实现多个接口。</li>
+<li>接口中的成员变量只能是 <code v-pre>public static final</code> 类型的，不能被修改且必须有初始值，而抽象类的成员变量默认 default，可在子类中被重新定义，也可被重新赋值。</li>
+</ul>
+<h3 id="_4-3-深拷贝和浅拷贝" tabindex="-1"><a class="header-anchor" href="#_4-3-深拷贝和浅拷贝" aria-hidden="true">#</a> 4.3 深拷贝和浅拷贝</h3>
+<p>关于深拷贝和浅拷贝区别，我这里先给结论：</p>
+<ul>
+<li><strong>浅拷贝</strong>：浅拷贝会在堆上创建一个新的对象（区别于引用拷贝的一点），不过，如果原对象内部的属性是引用类型的话，浅拷贝会直接复制内部对象的引用地址，也就是说拷贝对象和原对象共用同一个内部对象。</li>
+<li><strong>深拷贝</strong> ：深拷贝会完全复制整个对象，包括这个对象所包含的内部对象。</li>
+</ul>
+<p>上面的结论没有完全理解的话也没关系，我们来看一个具体的案例！</p>
+<h2 id="_5-object类" tabindex="-1"><a class="header-anchor" href="#_5-object类" aria-hidden="true">#</a> 5.Object类</h2>
+<h3 id="_5-1-和-equals-的区别" tabindex="-1"><a class="header-anchor" href="#_5-1-和-equals-的区别" aria-hidden="true">#</a> 5.1 == 和 equals() 的区别</h3>
+<p><strong><code v-pre>==</code></strong> 对于基本类型和引用类型的作用效果是不同的：</p>
+<ul>
+<li>对于基本数据类型来说，<code v-pre>==</code> 比较的是值。</li>
+<li>对于引用数据类型来说，<code v-pre>==</code> 比较的是对象的内存地址。</li>
+</ul>
+<p><code v-pre>equals()</code> 方法存在两种使用情况：</p>
+<ul>
+<li><strong>类没有重写 <code v-pre>equals()</code>方法</strong> ：通过<code v-pre>equals()</code>比较该类的两个对象时，等价于通过“==”比较这两个对象，使用的默认是 <code v-pre>Object</code>类<code v-pre>equals()</code>方法。</li>
+<li><strong>类重写了 <code v-pre>equals()</code>方法</strong> ：一般我们都重写 <code v-pre>equals()</code>方法来比较两个对象中的属性是否相等；若它们的属性相等，则返回 true(即，认为这两个对象相等)。</li>
+</ul>
+<h4 id="_5-2-hashcode-有什么用" tabindex="-1"><a class="header-anchor" href="#_5-2-hashcode-有什么用" aria-hidden="true">#</a> 5.2 hashCode() 有什么用？</h4>
+<p><code v-pre>hashCode()</code> 的作用是获取哈希码（<code v-pre>int</code> 整数），也称为散列码。这个哈希码的作用是确定该对象在哈希表中的索引位置。</p>
+<p><code v-pre>hashCode()</code>定义在 JDK 的 <code v-pre>Object</code> 类中，这就意味着 Java 中的任何类都包含有 <code v-pre>hashCode()</code> 函数。另外需要注意的是： <code v-pre>Object</code> 的 <code v-pre>hashCode()</code> 方法是本地方法，也就是用 C 语言或 C++ 实现的，该方法通常用来将对象的内存地址转换为整数之后返回。</p>
+<div class="language-java line-numbers-mode" data-ext="java"><pre v-pre class="language-java"><code><span class="token keyword">public</span> <span class="token keyword">native</span> <span class="token keyword">int</span> <span class="token function">hashCode</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><p>1</p>
+<p>散列表存储的是键值对(key-value)，它的特点是：<strong>能根据“键”快速的检索出对应的“值”。这其中就利用到了散列码！（可以快速找到所需要的对象）</strong></p>
+<h2 id="_5-3为什么重写-equals-时必须重写-hashcode-方法" tabindex="-1"><a class="header-anchor" href="#_5-3为什么重写-equals-时必须重写-hashcode-方法" aria-hidden="true">#</a> 5.3为什么重写 equals() 时必须重写 hashCode() 方法？</h2>
+<p>因为两个相等的对象的 <code v-pre>hashCode</code> 值必须是相等。也就是说如果 <code v-pre>equals</code> 方法判断两个对象是相等的，那这两个对象的 <code v-pre>hashCode</code> 值也要相等。</p>
+<p>如果重写 <code v-pre>equals()</code> 时没有重写 <code v-pre>hashCode()</code> 方法的话就可能会导致 <code v-pre>equals</code> 方法判断是相等的两个对象，<code v-pre>hashCode</code> 值却不相等。</p>
+<p><strong>思考</strong> ：重写 <code v-pre>equals()</code> 时没有重写 <code v-pre>hashCode()</code> 方法的话，使用 <code v-pre>HashMap</code> 可能会出现什么问题。</p>
+<h2 id="_6-string类" tabindex="-1"><a class="header-anchor" href="#_6-string类" aria-hidden="true">#</a> 6.String类</h2>
+<h3 id="_6-1-为什么string类不可变" tabindex="-1"><a class="header-anchor" href="#_6-1-为什么string类不可变" aria-hidden="true">#</a> 6.1 为什么String类不可变</h3>
+<p>我们知道被 <code v-pre>final</code> 关键字修饰的类不能被继承，修饰的方法不能被重写，修饰的变量是基本数据类型则值不能改变，修饰的变量是引用类型则不能再指向其他对象。因此，<code v-pre>final</code> 关键字修饰的数组保存字符串并不是 <code v-pre>String</code> 不可变的根本原因，因为这个数组保存的字符串是可变的（<code v-pre>final</code> 修饰引用类型变量的情况）。</p>
+<p><code v-pre>String</code> 真正不可变有下面几点原因：</p>
+<ol>
+<li>保存字符串的数组被 <code v-pre>final</code> 修饰且为私有的，并且<code v-pre>String</code> 类没有提供/暴露修改这个字符串的方法。</li>
+<li><code v-pre>String</code> 类被 <code v-pre>final</code> 修饰导致其不能被继承，进而避免了子类破坏 <code v-pre>String</code> 不可变。</li>
+</ol>
+<h2 id="_6-2-intern-方法有什么作用" tabindex="-1"><a class="header-anchor" href="#_6-2-intern-方法有什么作用" aria-hidden="true">#</a> 6.2 intern 方法有什么作用?</h2>
+<p><code v-pre>String.intern()</code> 是一个 native（本地）方法，其作用是将指定的字符串对象的引用保存在字符串常量池中，可以简单分为两种情况：</p>
+<ul>
+<li>如果字符串常量池中保存了对应的字符串对象的引用，就直接返回该引用。</li>
+<li>如果字符串常量池中没有保存了对应的字符串对象的引用，那就在常量池中创建一个指向该字符串对象的引用并返回。</li>
+</ul>
+<div class="language-java line-numbers-mode" data-ext="java"><pre v-pre class="language-java"><code><span class="token comment">// 在堆中创建字符串对象”Java“</span>
+<span class="token comment">// 将字符串对象”Java“的引用保存在字符串常量池中</span>
+<span class="token class-name">String</span> s1 <span class="token operator">=</span> <span class="token string">"Java"</span><span class="token punctuation">;</span>
+<span class="token comment">// 直接返回字符串常量池中字符串对象”Java“对应的引用</span>
+<span class="token class-name">String</span> s2 <span class="token operator">=</span> s1<span class="token punctuation">.</span><span class="token function">intern</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// 会在堆中在单独创建一个字符串对象</span>
+<span class="token class-name">String</span> s3 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">(</span><span class="token string">"Java"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// 直接返回字符串常量池中字符串对象”Java“对应的引用</span>
+<span class="token class-name">String</span> s4 <span class="token operator">=</span> s3<span class="token punctuation">.</span><span class="token function">intern</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// s1 和 s2 指向的是堆中的同一个对象</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>s1 <span class="token operator">==</span> s2<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// true</span>
+<span class="token comment">// s3 和 s4 指向的是堆中不同的对象</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>s3 <span class="token operator">==</span> s4<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// false</span>
+<span class="token comment">// s1 和 s4 指向的是堆中的同一个对象</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>s1 <span class="token operator">==</span> s4<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//true</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="_7-异常" tabindex="-1"><a class="header-anchor" href="#_7-异常" aria-hidden="true">#</a> 7.异常</h2>
+<h3 id="_7-1exception-和-error-有什么区别" tabindex="-1"><a class="header-anchor" href="#_7-1exception-和-error-有什么区别" aria-hidden="true">#</a> 7.1Exception 和 Error 有什么区别？</h3>
+<p>在 Java 中，所有的异常都有一个共同的祖先 <code v-pre>java.lang</code> 包中的 <code v-pre>Throwable</code> 类。<code v-pre>Throwable</code> 类有两个重要的子类:</p>
+<ul>
+<li><strong><code v-pre>Exception</code></strong> :程序本身可以处理的异常，可以通过 <code v-pre>catch</code> 来进行捕获。<code v-pre>Exception</code> 又可以分为 Checked Exception (受检查异常，必须处理) 和 Unchecked Exception (不受检查异常，可以不处理)。</li>
+<li><strong><code v-pre>Error</code></strong> ：<code v-pre>Error</code> 属于程序无法处理的错误 ，我们没办法通过 <code v-pre>catch</code> 来进行捕获不建议通过<code v-pre>catch</code>捕获 。例如 Java 虚拟机运行错误（<code v-pre>Virtual MachineError</code>）、虚拟机内存不够错误(<code v-pre>OutOfMemoryError</code>)、类定义错误（<code v-pre>NoClassDefFoundError</code>）等 。这些异常发生时，Java 虚拟机（JVM）一般会选择线程终止。</li>
+</ul>
+<h2 id="_7-2checked-exception-和-unchecked-exception-有什么区别" tabindex="-1"><a class="header-anchor" href="#_7-2checked-exception-和-unchecked-exception-有什么区别" aria-hidden="true">#</a> 7.2Checked Exception 和 Unchecked Exception 有什么区别？</h2>
+<p><strong>Checked Exception</strong> 即 受检查异常 ，Java 代码在编译过程中，如果受检查异常没有被 <code v-pre>catch</code>或者<code v-pre>throws</code> 关键字处理的话，就没办法通过编译。</p>
+<p>比如下面这段 IO 操作的代码：</p>
+<figure><img src="https://guide-blog-images.oss-cn-shenzhen.aliyuncs.com/github/javaguide/java/basis/checked-exception.png" alt="img" tabindex="0" loading="lazy"><figcaption>img</figcaption></figure>
+<p>除了<code v-pre>RuntimeException</code>及其子类以外，其他的<code v-pre>Exception</code>类及其子类都属于受检查异常 。常见的受检查异常有： IO 相关的异常、<code v-pre>ClassNotFoundException</code> 、<code v-pre>SQLException</code>...。</p>
+<p><strong>Unchecked Exception</strong> 即 <strong>不受检查异常</strong> ，Java 代码在编译过程中 ，我们即使不处理不受检查异常也可以正常通过编译。</p>
+<p><code v-pre>RuntimeException</code> 及其子类都统称为非受检查异常，常见的有（建议记下来，日常开发中会经常用到）：</p>
+<ul>
+<li><code v-pre>NullPointerException</code>(空指针错误)</li>
+<li><code v-pre>IllegalArgumentException</code>(参数错误比如方法入参类型错误)</li>
+<li><code v-pre>NumberFormatException</code>（字符串转换为数字格式错误，<code v-pre>IllegalArgumentException</code>的子类）</li>
+<li><code v-pre>ArrayIndexOutOfBoundsException</code>（数组越界错误）</li>
+<li><code v-pre>ClassCastException</code>（类型转换错误）</li>
+<li><code v-pre>ArithmeticException</code>（算术错误）</li>
+<li><code v-pre>SecurityException</code> （安全错误比如权限不够）</li>
+<li><code v-pre>UnsupportedOperationException</code>(不支持的操作错误比如重复创建同一用户)</li>
+</ul>
+<h2 id="_7-3-try-catch-finally" tabindex="-1"><a class="header-anchor" href="#_7-3-try-catch-finally" aria-hidden="true">#</a> 7.3 Try-catch-finally</h2>
+<ul>
+<li><code v-pre>try</code>块 ： 用于捕获异常。其后可接零个或多个 <code v-pre>catch</code> 块，如果没有 <code v-pre>catch</code> 块，则必须跟一个 <code v-pre>finally</code> 块。</li>
+<li><code v-pre>catch</code>块 ： 用于处理 try 捕获到的异常。</li>
+<li><code v-pre>finally</code> 块 ： 无论是否捕获或处理异常，<code v-pre>finally</code> 块里的语句都会被执行。当在 <code v-pre>try</code> 块或 <code v-pre>catch</code> 块中遇到 <code v-pre>return</code> 语句时，<code v-pre>finally</code> 语句块将在方法返回之前被执行。</li>
+</ul>
+<p><strong>注意：不要在 finally 语句块中使用 return!</strong> 当 try 语句和 finally 语句中都有 return 语句时，try 语句块中的 return 语句会被忽略。这是因为 try 语句中的 return 返回值会先被暂存在一个本地变量中，当执行到 finally 语句中的 return 之后，这个本地变量的值就变为了 finally 语句中的 return 返回值。</p>
+<h2 id="_7-4-finally-中的代码一定会执行吗" tabindex="-1"><a class="header-anchor" href="#_7-4-finally-中的代码一定会执行吗" aria-hidden="true">#</a> 7.4 finally 中的代码一定会执行吗？</h2>
+<p>不一定的！在某些情况下，finally 中的代码不会被执行。</p>
+<p>就比如说 finally 之前虚拟机被终止运行的话，finally 中的代码就不会被执行。</p>
+<div class="language-java line-numbers-mode" data-ext="java"><pre v-pre class="language-java"><code><span class="token keyword">try</span> <span class="token punctuation">{</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Try to do something"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">RuntimeException</span><span class="token punctuation">(</span><span class="token string">"RuntimeException"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">Exception</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Catch Exception -> "</span> <span class="token operator">+</span> e<span class="token punctuation">.</span><span class="token function">getMessage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// 终止当前正在运行的Java虚拟机</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span><span class="token function">exit</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span> <span class="token keyword">finally</span> <span class="token punctuation">{</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Finally"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>1
+2
+3
+4
+5
+6
+7
+8
+9
+10</p>
+<p>输出：</p>
+<div class="language-text line-numbers-mode" data-ext="text"><pre v-pre class="language-text"><code>Try to do something
+Catch Exception -> RuntimeException
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div></div></div><p>1
+2</p>
+<p>另外，在以下 2 种特殊情况下，<code v-pre>finally</code> 块的代码也不会被执行：</p>
+<ol>
+<li>程序所在的线程死亡。</li>
+<li>关闭 CPU。</li>
+</ol>
+<h2 id="_8-反射" tabindex="-1"><a class="header-anchor" href="#_8-反射" aria-hidden="true">#</a> 8.反射</h2>
+<h3 id="_8-1反射概述" tabindex="-1"><a class="header-anchor" href="#_8-1反射概述" aria-hidden="true">#</a> 8.1反射概述</h3>
+<p>Java 的反射机制是指在运行状态中，对于任意一个类都能够知道这个类所有的属性和方法；并且对于任意一个对象，都能够调用它的任意一个方法；这种动态获取信息以及动态调用对象方法的功能成为Java语言的反射机制。对之前写到反射机制补充。</p>
+<p>二、正射</p>
+<p>有反射就有对应到正射，当需要使用到某一个类的时候，先了解这个类到作用。然后实例化这个类，接着用实例化好的对象进行操作，这就是正射。</p>
+<pre><code>	User u= new  User();
+	
+	u.setAge(20);
+	u.setName(&quot;java&quot;);
+</code></pre>
+<p>三、反射</p>
+<p>反射就是，一开始并不知道要初始化的类对象是什么，自然也无法使用 new 关键字来创建对象了。</p>
+<pre><code>   Class&lt;?&gt; clazz = null;
+    //获取Class对象的引用
+    clazz = Class.forName(&quot;com.example.javabase.User&quot;);
+
+    //第一种方法，实例化默认构造方法，User必须无参构造函数,否则将抛异常
+    User user = (User) clazz.newInstance();
+    user.setAge(20);
+    user.setName(&quot;java&quot;);
+    System.out.println(user);
+</code></pre>
+<p>两段代码执行效果一样，但是实现的过程还是有很大的差别的：</p>
+<p>第一段代码在未运行前就已经知道了要运行的类是 User；
+第二段代码则是到整个程序运行的时候，从字符串 “com.example.javabase.User”，才知道要操作的类是 User。
+所以反射就是在运行时才知道要操作的类是什么，并且可以在运行时获取类的完整构造，并调用对应的方法。</p>
+<h3 id="_8-2反射原理" tabindex="-1"><a class="header-anchor" href="#_8-2反射原理" aria-hidden="true">#</a> 8.2反射原理</h3>
+<p>每个类都有一个Class对象（类加载器在堆中生成对象），每当编译一个新类就产生一个Class对象（保存在一个同名的.class文件中）。比如创建一个User类，那么JVM就会创建一个User对应Class类的Class对象，该Class对象保存了User类相关的类型信息</p>
+<p><strong>第一步：首先通过全类名 java.lang.Class 的静态方法，获取类信息</strong>
+主要是先获取 ClassLoader, 然后调用 native方法，获取信息。
+class类信息获取到之后开始实例化，有两种（一：无参构造函数，二：有参构造函数）</p>
+<p><strong>第二步（无参构造函数）： 调用 newInstance() 的实现方式</strong></p>
+<p>权限检测，如果不通过直接抛出异常；
+查找无参构造器，并将其缓存起来；
+调用具体方法的无参构造方法，生成实例并返回</p>
+<p><strong>第二步（有参构造函数）：获取所有的构造器主要步骤</strong></p>
+<p>先尝试从缓存中获取
+如果缓存没有，则从jvm中重新获取，并存入缓存，缓存使用软引用进行保存，保证内存可用
+jvm获取 — getConstructor0() 为获取匹配的构造方器
+先获取所有的constructors, 然后通过进行参数类型比较
+找到匹配后，通过 ReflectionFactory copy一份constructor返回
+否则抛出 NoSuchMethodException;</p>
+<p><strong>方法调用：</strong></p>
+<p>第一步，先获取 Method
+获取所有方法列表（获取所有构造器的方法很相似，都是先从缓存中获取方法，如果没有，则从jvm中获取）
+根据方法名称和方法列表，选出符合要求的方法
+如果没有找到相应方法，抛出异常，否则返回对应方法
+第二步，根据方法名和参数类型过滤指定方法返回（最优匹配或者精准匹配）
+第三步，调用 method.invoke() 方法
+跟踪底层源码发现Method的invoke方法，是由本地方法invoke0决定的。</p>
+<h2 id="_9-代理" tabindex="-1"><a class="header-anchor" href="#_9-代理" aria-hidden="true">#</a> 9.代理</h2>
+<h3 id="_9-1-java-proxy代理原理" tabindex="-1"><a class="header-anchor" href="#_9-1-java-proxy代理原理" aria-hidden="true">#</a> 9.1 Java Proxy代理原理</h3>
+<p>jdk proxy只能针对接口进行代理</p>
+<p>通过动态代理的方式在编译期动态生成代理类 实现动态代理的作用</p>
+</div></template>
+
+

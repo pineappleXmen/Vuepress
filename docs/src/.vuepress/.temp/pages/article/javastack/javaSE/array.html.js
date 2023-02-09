@@ -1,0 +1,14 @@
+export const data = JSON.parse("{\"key\":\"v-ed754880\",\"path\":\"/article/javastack/javaSE/array.html\",\"title\":\"数组\",\"lang\":\"zh-CN\",\"frontmatter\":{\"lang\":\"zh-CN\",\"title\":\"数组\",\"description\":\"Java\",\"category\":[\"Java\"],\"tag\":[\"JavaSE\"],\"head\":[[\"meta\",{\"property\":\"og:url\",\"content\":\"https://vuepress-theme-hope-docs-demo.netlify.app/article/javastack/javaSE/array.html\"}],[\"meta\",{\"property\":\"og:site_name\",\"content\":\"Pineapple Coding\"}],[\"meta\",{\"property\":\"og:title\",\"content\":\"数组\"}],[\"meta\",{\"property\":\"og:description\",\"content\":\"Java\"}],[\"meta\",{\"property\":\"og:type\",\"content\":\"article\"}],[\"meta\",{\"property\":\"og:locale\",\"content\":\"zh-CN\"}],[\"meta\",{\"property\":\"article:tag\",\"content\":\"JavaSE\"}]]},\"headers\":[{\"level\":2,\"title\":\"数组\",\"slug\":\"数组\",\"link\":\"#数组\",\"children\":[]},{\"level\":2,\"title\":\"数组静态初始化\",\"slug\":\"数组静态初始化\",\"link\":\"#数组静态初始化\",\"children\":[]},{\"level\":2,\"title\":\"地址\",\"slug\":\"地址\",\"link\":\"#地址\",\"children\":[]},{\"level\":2,\"title\":\"访问数组元素\",\"slug\":\"访问数组元素\",\"link\":\"#访问数组元素\",\"children\":[]},{\"level\":2,\"title\":\"索引\",\"slug\":\"索引\",\"link\":\"#索引\",\"children\":[]},{\"level\":2,\"title\":\"数组的遍历\",\"slug\":\"数组的遍历\",\"link\":\"#数组的遍历\",\"children\":[]},{\"level\":2,\"title\":\"数组的动态初始化\",\"slug\":\"数组的动态初始化\",\"link\":\"#数组的动态初始化\",\"children\":[]},{\"level\":2,\"title\":\"数组两种初始化方式的区别\",\"slug\":\"数组两种初始化方式的区别\",\"link\":\"#数组两种初始化方式的区别\",\"children\":[]},{\"level\":2,\"title\":\"数组常见问题\",\"slug\":\"数组常见问题\",\"link\":\"#数组常见问题\",\"children\":[]}],\"readingTime\":{\"minutes\":2.88,\"words\":865},\"filePathRelative\":\"article/javastack/javaSE/array.md\",\"excerpt\":\"<h2> 数组</h2>\\n<p>指的是一种容器，可以同来存储同种数据类型的多个值。</p>\\n<p>但是数组容器在存储数据的时候，需要结合隐式转换考虑。</p>\\n<p>容器的类，和存储的数据类型保持一致。</p>\\n<div class=\\\"language-java line-numbers-mode\\\" data-ext=\\\"java\\\"><pre class=\\\"language-java\\\"><code>数据类型 <span class=\\\"token punctuation\\\">[</span><span class=\\\"token punctuation\\\">]</span> 数组名\\n<span class=\\\"token keyword\\\">int</span><span class=\\\"token punctuation\\\">[</span><span class=\\\"token punctuation\\\">]</span> arr<span class=\\\"token punctuation\\\">;</span> <span class=\\\"token comment\\\">//JAVA Syntax</span>\\n</code></pre><div class=\\\"line-numbers\\\" aria-hidden=\\\"true\\\"><div class=\\\"line-number\\\"></div><div class=\\\"line-number\\\"></div></div></div>\"}")
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updatePageData) {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ data }) => {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  })
+}

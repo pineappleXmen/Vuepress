@@ -1,0 +1,14 @@
+export const data = JSON.parse("{\"key\":\"v-0331ffe4\",\"path\":\"/article/interview/exp/dajiang87.html\",\"title\":\"大疆2022.08.07笔试记录\",\"lang\":\"zh-CN\",\"frontmatter\":{\"title\":\"大疆2022.08.07笔试记录\",\"lang\":\"zh-CN\",\"description\":\"大疆笔试\",\"category\":[\"笔试\"],\"tag\":[\"大疆\",\"笔试\"],\"head\":[[\"meta\",{\"property\":\"og:url\",\"content\":\"https://vuepress-theme-hope-docs-demo.netlify.app/article/interview/exp/dajiang87.html\"}],[\"meta\",{\"property\":\"og:site_name\",\"content\":\"Pineapple Coding\"}],[\"meta\",{\"property\":\"og:title\",\"content\":\"大疆2022.08.07笔试记录\"}],[\"meta\",{\"property\":\"og:description\",\"content\":\"大疆笔试\"}],[\"meta\",{\"property\":\"og:type\",\"content\":\"article\"}],[\"meta\",{\"property\":\"og:locale\",\"content\":\"zh-CN\"}],[\"meta\",{\"property\":\"article:tag\",\"content\":\"大疆\"}],[\"meta\",{\"property\":\"article:tag\",\"content\":\"笔试\"}]]},\"headers\":[],\"readingTime\":{\"minutes\":0.65,\"words\":195},\"filePathRelative\":\"article/interview/exp/dajiang87.md\",\"excerpt\":\"<p>简答题</p>\\n<div class=\\\"custom-container tip\\\">\\n<p class=\\\"custom-container-title\\\">写RPC实现的框架和解决的问题</p>\\n</div>\\n<p>略</p>\\n<div class=\\\"custom-container tip\\\">\\n<p class=\\\"custom-container-title\\\">大疆的无人机可以在一排的物品中取物品，但是取一个后需要冷却取一个的时间，问对于输入的数组，最多能拿到多少价值的物品</p>\\n</div>\\n\\n\"}")
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updatePageData) {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ data }) => {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  })
+}

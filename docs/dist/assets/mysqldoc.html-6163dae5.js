@@ -1,0 +1,1 @@
+import{_ as o,V as t,W as c,$ as s,D as l}from"./framework-3845b112.js";const n={};function r(_,a){const e=l("PDF");return t(),c("div",null,[s(e,{url:"/mysql/mysqldoc.pdf",toolbar:!1,height:800})])}const d=o(n,[["render",r],["__file","mysqldoc.html.vue"]]);export{d as default};

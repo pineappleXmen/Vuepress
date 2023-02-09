@@ -1,0 +1,1 @@
+import{_ as t,V as r,W as o,$ as c,D as s}from"./framework-3845b112.js";const a={};function n(_,l){const e=s("PDF");return r(),o("div",null,[c(e,{url:"/distrubutedsystem/papers/mapreduce.pdf",toolbar:!1,height:800})])}const p=t(a,[["render",n],["__file","mapreduce.html.vue"]]);export{p as default};

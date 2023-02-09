@@ -1,0 +1,1 @@
+import{_ as t,V as o,W as s,$ as r,D as n}from"./framework-3845b112.js";const c={};function a(_,l){const e=n("PDF");return o(),s("div",null,[r(e,{url:"/distrubutedsystem/papers/vm-ft.pdf",toolbar:!1,height:800})])}const f=t(c,[["render",a],["__file","vm-ft.html.vue"]]);export{f as default};

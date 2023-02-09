@@ -1,0 +1,14 @@
+export const data = JSON.parse("{\"key\":\"v-35375369\",\"path\":\"/article/algorithm/trie/212.html\",\"title\":\"212. 单词搜索 II\",\"lang\":\"zh-CN\",\"frontmatter\":{\"lang\":\"zh-CN\",\"title\":\"212. 单词搜索 II\",\"description\":\"字典树\",\"category\":[\"算法\"],\"tag\":[\"字典树\"],\"head\":[[\"meta\",{\"property\":\"og:url\",\"content\":\"https://vuepress-theme-hope-docs-demo.netlify.app/article/algorithm/trie/212.html\"}],[\"meta\",{\"property\":\"og:site_name\",\"content\":\"Pineapple Coding\"}],[\"meta\",{\"property\":\"og:title\",\"content\":\"212. 单词搜索 II\"}],[\"meta\",{\"property\":\"og:description\",\"content\":\"字典树\"}],[\"meta\",{\"property\":\"og:type\",\"content\":\"article\"}],[\"meta\",{\"property\":\"og:locale\",\"content\":\"zh-CN\"}],[\"meta\",{\"property\":\"article:tag\",\"content\":\"字典树\"}]]},\"headers\":[],\"readingTime\":{\"minutes\":1.76,\"words\":528},\"filePathRelative\":\"article/algorithm/trie/212.md\",\"excerpt\":\"<h4> <a href=\\\"https://leetcode.cn/problems/word-search-ii/\\\" target=\\\"_blank\\\" rel=\\\"noopener noreferrer\\\">212. 单词搜索 II</a></h4>\\n<p>难度困难689</p>\\n<p>给定一个 <code>m x n</code> 二维字符网格 <code>board</code> 和一个单词（字符串）列表 <code>words</code>， <em>返回所有二维网格上的单词</em> 。</p>\\n<p>单词必须按照字母顺序，通过 <strong>相邻的单元格</strong> 内的字母构成，其中“相邻”单元格是那些水平相邻或垂直相邻的单元格。同一个单元格内的字母在一个单词中不允许被重复使用。</p>\"}")
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updatePageData) {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ data }) => {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  })
+}

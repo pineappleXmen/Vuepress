@@ -1,0 +1,1 @@
+import{_ as t,V as s,W as o,$ as r,D as n}from"./framework-3845b112.js";const c={};function a(_,l){const e=n("PDF");return s(),o("div",null,[r(e,{url:"/distrubutedsystem/papers/gfs.pdf",toolbar:!1,height:800})])}const m=t(c,[["render",a],["__file","gfs.html.vue"]]);export{m as default};

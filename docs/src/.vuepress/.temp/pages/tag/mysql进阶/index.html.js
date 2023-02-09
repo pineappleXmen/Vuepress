@@ -1,0 +1,14 @@
+export const data = JSON.parse("{\"key\":\"v-3c55768a\",\"path\":\"/tag/mysql%E8%BF%9B%E9%98%B6/\",\"title\":\"MySQL进阶 标签\",\"lang\":\"zh-CN\",\"frontmatter\":{\"title\":\"MySQL进阶 标签\",\"blog\":{\"type\":\"category\",\"name\":\"MySQL进阶\",\"key\":\"tag\"},\"layout\":\"BlogCategory\",\"description\":\"\",\"head\":[[\"meta\",{\"property\":\"og:url\",\"content\":\"https://vuepress-theme-hope-docs-demo.netlify.app/tag/mysql%E8%BF%9B%E9%98%B6/\"}],[\"meta\",{\"property\":\"og:site_name\",\"content\":\"Pineapple Coding\"}],[\"meta\",{\"property\":\"og:title\",\"content\":\"MySQL进阶 标签\"}],[\"meta\",{\"property\":\"og:type\",\"content\":\"website\"}],[\"meta\",{\"property\":\"og:locale\",\"content\":\"zh-CN\"}]]},\"headers\":[],\"readingTime\":{\"minutes\":0,\"words\":0},\"filePathRelative\":null,\"excerpt\":\"\",\"autoDesc\":true}")
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updatePageData) {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ data }) => {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  })
+}

@@ -1,0 +1,14 @@
+export const data = JSON.parse("{\"key\":\"v-357485a0\",\"path\":\"/article/javastack/javaSE/\",\"title\":\"Java基础\",\"lang\":\"zh-CN\",\"frontmatter\":{\"title\":\"Java基础\",\"home\":true,\"heroText\":\"Java基础\",\"tagline\":false,\"features\":[{\"title\":\"Java入门\",\"icon\":\"java\",\"link\":\"/article/javastack/javaSE/01-Java%E5%85%A5%E9%97%A8.md\"},{\"title\":\"Java基础语法\",\"icon\":\"java\",\"link\":\"/article/javastack/javaSE/02-Java基础语法.md\"},{\"title\":\"Java运算符\",\"icon\":\"java\",\"link\":\"/article/javastack/javaSE/03-运算符.md\"},{\"title\":\"Java流程控制\",\"icon\":\"java\",\"link\":\"/article/javastack/javaSE/04-流程控制语句.md\"},{\"title\":\"Java数组\",\"icon\":\"java\",\"link\":\"/article/javastack/javaSE/05-1数组.md\"},{\"title\":\"Java循环\",\"icon\":\"java\",\"link\":\"/article/javastack/javaSE/05-2循环高级.md\"},{\"title\":\"Java方法\",\"icon\":\"java\",\"link\":\"/article/javastack/javaSE/06-方法.md\"},{\"title\":\"Java面向对象\",\"icon\":\"java\",\"link\":\"/article/javastack/javaSE/07-面向对象.md\"},{\"title\":\"Java字符串\",\"icon\":\"java\",\"link\":\"/article/javastack/javaSE/08-字符串.md\"},{\"title\":\"Java-thread\",\"icon\":\"java\",\"link\":\"/article/javastack/javaSE/09-thread.md\"}],\"description\":\"\",\"head\":[[\"meta\",{\"property\":\"og:url\",\"content\":\"https://vuepress-theme-hope-docs-demo.netlify.app/article/javastack/javaSE/\"}],[\"meta\",{\"property\":\"og:site_name\",\"content\":\"Pineapple Coding\"}],[\"meta\",{\"property\":\"og:title\",\"content\":\"Java基础\"}],[\"meta\",{\"property\":\"og:type\",\"content\":\"website\"}],[\"meta\",{\"property\":\"og:locale\",\"content\":\"zh-CN\"}]]},\"headers\":[],\"readingTime\":{\"minutes\":0.59,\"words\":177},\"filePathRelative\":\"article/javastack/javaSE/README.md\",\"excerpt\":\"\",\"autoDesc\":true}")
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updatePageData) {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ data }) => {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  })
+}

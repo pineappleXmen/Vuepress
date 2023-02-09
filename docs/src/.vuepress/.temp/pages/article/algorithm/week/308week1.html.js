@@ -1,0 +1,14 @@
+export const data = JSON.parse("{\"key\":\"v-02e28fae\",\"path\":\"/article/algorithm/week/308week1.html\",\"title\":\"2389. 和有限的最长子序列\",\"lang\":\"zh-CN\",\"frontmatter\":{\"lang\":\"zh-CN\",\"title\":\"2389. 和有限的最长子序列\",\"description\":\"第308场周赛\",\"category\":[\"算法\"],\"tag\":[\"周赛\",\"二分法\",\"前缀和\",\"子序列\"],\"head\":[[\"meta\",{\"property\":\"og:url\",\"content\":\"https://vuepress-theme-hope-docs-demo.netlify.app/article/algorithm/week/308week1.html\"}],[\"meta\",{\"property\":\"og:site_name\",\"content\":\"Pineapple Coding\"}],[\"meta\",{\"property\":\"og:title\",\"content\":\"2389. 和有限的最长子序列\"}],[\"meta\",{\"property\":\"og:description\",\"content\":\"第308场周赛\"}],[\"meta\",{\"property\":\"og:type\",\"content\":\"article\"}],[\"meta\",{\"property\":\"og:locale\",\"content\":\"zh-CN\"}],[\"meta\",{\"property\":\"article:tag\",\"content\":\"周赛\"}],[\"meta\",{\"property\":\"article:tag\",\"content\":\"二分法\"}],[\"meta\",{\"property\":\"article:tag\",\"content\":\"前缀和\"}],[\"meta\",{\"property\":\"article:tag\",\"content\":\"子序列\"}]]},\"headers\":[],\"readingTime\":{\"minutes\":2.37,\"words\":711},\"filePathRelative\":\"article/algorithm/week/308week1.md\",\"excerpt\":\"<h4> <a href=\\\"https://leetcode.cn/problems/longest-subsequence-with-limited-sum/\\\" target=\\\"_blank\\\" rel=\\\"noopener noreferrer\\\">2389. 和有限的最长子序列</a></h4>\\n<p>难度简单12</p>\\n<p>给你一个长度为 <code>n</code> 的整数数组 <code>nums</code> ，和一个长度为 <code>m</code> 的整数数组 <code>queries</code> 。</p>\\n<p>返回一个长度为 <code>m</code> 的数组 <code>answer</code> ，其中 <code>answer[i]</code> 是 <code>nums</code> 中 元素之和小于等于 <code>queries[i]</code> 的 <strong>子序列</strong> 的 <strong>最大</strong> 长度 。</p>\"}")
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updatePageData) {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ data }) => {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  })
+}

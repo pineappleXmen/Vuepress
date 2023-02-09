@@ -1,0 +1,14 @@
+export const data = JSON.parse("{\"key\":\"v-218787fe\",\"path\":\"/article/algorithm/monotonicstack/84.html\",\"title\":\"84. 柱状图中最大的矩形\",\"lang\":\"zh-CN\",\"frontmatter\":{\"lang\":\"zh-CN\",\"title\":\"84. 柱状图中最大的矩形\",\"description\":\"单调栈\",\"category\":[\"算法\"],\"tag\":[\"单调栈\"],\"head\":[[\"meta\",{\"property\":\"og:url\",\"content\":\"https://vuepress-theme-hope-docs-demo.netlify.app/article/algorithm/monotonicstack/84.html\"}],[\"meta\",{\"property\":\"og:site_name\",\"content\":\"Pineapple Coding\"}],[\"meta\",{\"property\":\"og:title\",\"content\":\"84. 柱状图中最大的矩形\"}],[\"meta\",{\"property\":\"og:description\",\"content\":\"单调栈\"}],[\"meta\",{\"property\":\"og:type\",\"content\":\"article\"}],[\"meta\",{\"property\":\"og:locale\",\"content\":\"zh-CN\"}],[\"meta\",{\"property\":\"article:tag\",\"content\":\"单调栈\"}]]},\"headers\":[],\"readingTime\":{\"minutes\":0.79,\"words\":237},\"filePathRelative\":\"article/algorithm/monotonicstack/84.md\",\"excerpt\":\"<h4> <a href=\\\"https://leetcode.cn/problems/largest-rectangle-in-histogram/\\\" target=\\\"_blank\\\" rel=\\\"noopener noreferrer\\\">84. 柱状图中最大的矩形</a></h4>\\n<p>难度困难2105</p>\\n<p>给定 <em>n</em> 个非负整数，用来表示柱状图中各个柱子的高度。每个柱子彼此相邻，且宽度为 1 。</p>\\n<p>求在该柱状图中，能够勾勒出来的矩形的最大面积。</p>\\n<p><strong>示例 1:</strong></p>\\n<figure><img src=\\\"https://assets.leetcode.com/uploads/2021/01/04/histogram.jpg\\\" alt=\\\"img\\\" tabindex=\\\"0\\\" loading=\\\"lazy\\\"><figcaption>img</figcaption></figure>\"}")
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updatePageData) {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ data }) => {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  })
+}

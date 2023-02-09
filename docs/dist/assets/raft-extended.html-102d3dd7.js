@@ -1,0 +1,1 @@
+import{_ as t,V as r,W as n,$ as o,D as s}from"./framework-3845b112.js";const a={};function c(d,_){const e=s("PDF");return r(),n("div",null,[o(e,{url:"/distrubutedsystem/papers/raft-extended.pdf",toolbar:!1,height:800})])}const f=t(a,[["render",c],["__file","raft-extended.html.vue"]]);export{f as default};

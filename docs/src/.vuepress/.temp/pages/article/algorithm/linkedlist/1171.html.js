@@ -1,0 +1,14 @@
+export const data = JSON.parse("{\"key\":\"v-55292859\",\"path\":\"/article/algorithm/linkedlist/1171.html\",\"title\":\"1171. 从链表中删去总和值为零的连续节点\",\"lang\":\"zh-CN\",\"frontmatter\":{\"lang\":\"zh-CN\",\"title\":\"1171. 从链表中删去总和值为零的连续节点\",\"description\":\"数据结构\",\"category\":[\"算法\"],\"tag\":[\"数据结构\"],\"head\":[[\"meta\",{\"property\":\"og:url\",\"content\":\"https://vuepress-theme-hope-docs-demo.netlify.app/article/algorithm/linkedlist/1171.html\"}],[\"meta\",{\"property\":\"og:site_name\",\"content\":\"Pineapple Coding\"}],[\"meta\",{\"property\":\"og:title\",\"content\":\"1171. 从链表中删去总和值为零的连续节点\"}],[\"meta\",{\"property\":\"og:description\",\"content\":\"数据结构\"}],[\"meta\",{\"property\":\"og:type\",\"content\":\"article\"}],[\"meta\",{\"property\":\"og:locale\",\"content\":\"zh-CN\"}],[\"meta\",{\"property\":\"article:tag\",\"content\":\"数据结构\"}]]},\"headers\":[],\"readingTime\":{\"minutes\":1.07,\"words\":320},\"filePathRelative\":\"article/algorithm/linkedlist/1171.md\",\"excerpt\":\"<h4> <a href=\\\"https://leetcode.cn/problems/remove-zero-sum-consecutive-nodes-from-linked-list/\\\" target=\\\"_blank\\\" rel=\\\"noopener noreferrer\\\">1171. 从链表中删去总和值为零的连续节点</a></h4>\\n<p>难度中等177</p>\\n<p>给你一个链表的头节点 <code>head</code>，请你编写代码，反复删去链表中由 <strong>总和</strong> 值为 <code>0</code> 的连续节点组成的序列，直到不存在这样的序列为止。</p>\\n\"}")
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updatePageData) {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ data }) => {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  })
+}

@@ -1,0 +1,14 @@
+export const data = JSON.parse("{\"key\":\"v-d06b892e\",\"path\":\"/article/algorithm/datastruct/460.html\",\"title\":\"460. LFU 缓存\",\"lang\":\"zh-CN\",\"frontmatter\":{\"lang\":\"zh-CN\",\"title\":\"460. LFU 缓存\",\"description\":\"数据结构\",\"category\":[\"算法\"],\"tag\":[\"数据结构\"],\"head\":[[\"meta\",{\"property\":\"og:url\",\"content\":\"https://vuepress-theme-hope-docs-demo.netlify.app/article/algorithm/datastruct/460.html\"}],[\"meta\",{\"property\":\"og:site_name\",\"content\":\"Pineapple Coding\"}],[\"meta\",{\"property\":\"og:title\",\"content\":\"460. LFU 缓存\"}],[\"meta\",{\"property\":\"og:description\",\"content\":\"数据结构\"}],[\"meta\",{\"property\":\"og:type\",\"content\":\"article\"}],[\"meta\",{\"property\":\"og:locale\",\"content\":\"zh-CN\"}],[\"meta\",{\"property\":\"article:tag\",\"content\":\"数据结构\"}]]},\"headers\":[],\"readingTime\":{\"minutes\":2.49,\"words\":747},\"filePathRelative\":\"article/algorithm/datastruct/460.md\",\"excerpt\":\"<h4> <a href=\\\"https://leetcode.cn/problems/lfu-cache/\\\" target=\\\"_blank\\\" rel=\\\"noopener noreferrer\\\">460. LFU 缓存</a></h4>\\n<p>难度困难582</p>\\n<p>请你为 <a href=\\\"https://baike.baidu.com/item/%E7%BC%93%E5%AD%98%E7%AE%97%E6%B3%95\\\" target=\\\"_blank\\\" rel=\\\"noopener noreferrer\\\">最不经常使用（LFU）</a>缓存算法设计并实现数据结构。</p>\\n<p>实现 <code>LFUCache</code> 类：</p>\"}")
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updatePageData) {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ data }) => {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  })
+}

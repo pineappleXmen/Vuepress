@@ -1,0 +1,14 @@
+export const data = JSON.parse("{\"key\":\"v-7df177c2\",\"path\":\"/article/algorithm/doublepointer/27.html\",\"title\":\"27. 移除元素\",\"lang\":\"zh-CN\",\"frontmatter\":{\"lang\":\"zh-CN\",\"title\":\"27. 移除元素\",\"description\":\"双指针题目\",\"category\":[\"算法\"],\"tag\":[\"双指针\"],\"head\":[[\"meta\",{\"property\":\"og:url\",\"content\":\"https://vuepress-theme-hope-docs-demo.netlify.app/article/algorithm/doublepointer/27.html\"}],[\"meta\",{\"property\":\"og:site_name\",\"content\":\"Pineapple Coding\"}],[\"meta\",{\"property\":\"og:title\",\"content\":\"27. 移除元素\"}],[\"meta\",{\"property\":\"og:description\",\"content\":\"双指针题目\"}],[\"meta\",{\"property\":\"og:type\",\"content\":\"article\"}],[\"meta\",{\"property\":\"og:locale\",\"content\":\"zh-CN\"}],[\"meta\",{\"property\":\"article:tag\",\"content\":\"双指针\"}]]},\"headers\":[],\"readingTime\":{\"minutes\":1.76,\"words\":527},\"filePathRelative\":\"article/algorithm/doublepointer/27.md\",\"excerpt\":\"<h4> <a href=\\\"https://leetcode.cn/problems/remove-element/\\\" target=\\\"_blank\\\" rel=\\\"noopener noreferrer\\\">27. 移除元素</a></h4>\\n<p>难度简单1444</p>\\n<p>给你一个数组 <code>nums</code> 和一个值 <code>val</code>，你需要 <strong><a href=\\\"https://baike.baidu.com/item/%E5%8E%9F%E5%9C%B0%E7%AE%97%E6%B3%95\\\" target=\\\"_blank\\\" rel=\\\"noopener noreferrer\\\">原地</a></strong> 移除所有数值等于 <code>val</code> 的元素，并返回移除后数组的新长度。</p>\"}")
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updatePageData) {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ data }) => {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  })
+}
