@@ -16,8 +16,12 @@ export default hopeTheme({
 
   repo: "https://github.com/pineappleXmen",
 
-  docsDir: "Vuepress",
+  docsDir: "docs/src/",
+  
+  docsRepo: "https://github.com/pineappleXmen/Vuepress/",
 
+  lastUpdated: true,
+  
   pageInfo: ["Author", "Original", "Date", "Category", "Tag", "ReadingTime"],
 
   locales: {
